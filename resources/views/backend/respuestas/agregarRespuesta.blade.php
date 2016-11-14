@@ -82,7 +82,7 @@
                               <input type="radio" name="respuesta_corta" value="Si"> &nbsp; SI &nbsp;
                             </label>
                             <label class="btn btn-warning" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                              <input type="radio" name="respuesta_corta" value="Nulo"> NULO
+                              <input type="radio" name="respuesta_corta" value="Blanco"> BLANCO
                             </label>
                             <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
                               <input type="radio" name="respuesta_corta" value="No"> NO

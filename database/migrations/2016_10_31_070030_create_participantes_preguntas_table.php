@@ -16,7 +16,7 @@ class CreateParticipantesPreguntasTable extends Migration
             $table->increments('id');
             $table->integer('participantes_id');
             $table->integer('preguntas_id');
-            $table->string('respuesta',4);
+            $table->string('respuesta',6);
             $table->timestamps();
         });
     }

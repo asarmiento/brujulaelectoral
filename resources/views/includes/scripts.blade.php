@@ -18,7 +18,7 @@
         });
         $('.btn-white').click(function(e){
         	e.preventDefault();
-          $('#respuesta').val("Nulo");
+          $('#respuesta').val("Blanco");
           $('#form-voto').submit();
         });
 

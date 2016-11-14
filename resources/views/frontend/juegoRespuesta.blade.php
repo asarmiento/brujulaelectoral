@@ -74,7 +74,6 @@
 						
 					</ul>
 					<a href="{{ url('juego') }}" class="btn btn-main">Siguiente</a>
-					<a href="{{ URL::to('/') }}" class="btn btn-main">Ver Estadísticas</a>
 					<p class="share">COMPARTIR:</p>
 
 				</div>

@@ -88,8 +88,8 @@
                             <label class="btn btn-success {{ $objRespuesta->respuesta_corta == 'Si' ? 'active' : '' }}" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
                               <input type="radio" name="respuesta_corta" value="Si" {{ $objRespuesta->respuesta_corta == 'Si' ? 'checked=checked' : '' }}> &nbsp; SI &nbsp;
                             </label>
-                            <label class="btn btn-warning {{ $objRespuesta->respuesta_corta == 'Nulo' ? 'active' : '' }}" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                              <input type="radio" name="respuesta_corta" value="Nulo" {{ $objRespuesta->respuesta_corta == 'Nulo' ? 'checked=checked' : '' }}> NULO
+                            <label class="btn btn-warning {{ $objRespuesta->respuesta_corta == 'Blanco' ? 'active' : '' }}" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                              <input type="radio" name="respuesta_corta" value="Blanco" {{ $objRespuesta->respuesta_corta == 'Blanco' ? 'checked=checked' : '' }}> BLANCO
                             </label>
                             <label class="btn btn-primary {{ $objRespuesta->respuesta_corta == 'No' ? 'active' : '' }}" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
                               <input type="radio" name="respuesta_corta" value="No" {{ $objRespuesta->respuesta_corta == 'No' ? 'checked=checked' : '' }}> NO

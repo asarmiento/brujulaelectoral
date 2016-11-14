@@ -62,10 +62,12 @@ class HomeController extends Controller
         $rGenero = $request->rGenero;
         $arrayResultado = array();
         $preguntaP = preguntas::whereId($rPregunta)->first();
+        $participantesCriterio = participantes::where('estado','=','1')->get();
         $consulta = array();
 
         if($rPregunta != "" and $rEdad != "" and $rGenero != ""){
             $consulta = [$preguntaP->pregunta,$rEdad,$rGenero];
+            $participantesCriterio = participantes::where('estado','=','1')->where('edad','=',$rEdad)->where('genero','=',$rGenero)->get();
             //Obtengo el objeto de los candidatos
             $objCandidato = candidatos::activas()->get();
             foreach($objCandidato as $candidato){
@@ -84,11 +86,16 @@ class HomeController extends Controller
                         }
                     }
                 }
-                $arrayResultado[$candidato->nombre .' '. $candidato->apellido] = $porcentaje*100/(count($objCandidatoPregunta)*count($objParticipantes));
+                if(count($participantesCriterio)){
+                    $arrayResultado[$candidato->nombre .' '. $candidato->apellido] = $porcentaje*100/(count($objCandidatoPregunta)*count($participantesCriterio));
+                }else{
+                    $arrayResultado[$candidato->nombre .' '. $candidato->apellido] = 0;
+                }
             }
             /* --- FIN FUNCTION ---- */
         }elseif($rPregunta != "" and $rEdad != "" and $rGenero == ""){
             $consulta = [$preguntaP->pregunta,$rEdad,'Todos los géneros'];
+            $participantesCriterio = participantes::where('estado','=','1')->where('edad','=',$rEdad)->get();
             //Obtengo el objeto de los candidatos
             $objCandidato = candidatos::activas()->get();
             foreach($objCandidato as $candidato){
@@ -107,11 +114,16 @@ class HomeController extends Controller
                         }
                     }
                 }
-                $arrayResultado[$candidato->nombre .' '. $candidato->apellido] = $porcentaje*100/(count($objCandidatoPregunta)*count($objParticipantes));
+                if(count($participantesCriterio)){
+                    $arrayResultado[$candidato->nombre .' '. $candidato->apellido] = $porcentaje*100/(count($objCandidatoPregunta)*count($participantesCriterio));
+                }else{
+                    $arrayResultado[$candidato->nombre .' '. $candidato->apellido] = 0;
+                }
             }
             /* --- FIN FUNCTION ---- */
         }elseif($rPregunta != "" and $rEdad == "" and $rGenero != ""){
             $consulta = [$preguntaP->pregunta,'Todas las edades',$rGenero];
+            $participantesCriterio = participantes::where('estado','=','1')->where('genero','=',$rGenero)->get();
             //Obtengo el objeto de los candidatos
             $objCandidato = candidatos::activas()->get();
             foreach($objCandidato as $candidato){
@@ -130,11 +142,16 @@ class HomeController extends Controller
                         }
                     }
                 }
-                $arrayResultado[$candidato->nombre .' '. $candidato->apellido] = $porcentaje*100/(count($objCandidatoPregunta)*count($objParticipantes));
+                if(count($participantesCriterio)){
+                    $arrayResultado[$candidato->nombre .' '. $candidato->apellido] = $porcentaje*100/(count($objCandidatoPregunta)*count($participantesCriterio));
+                }else{
+                    $arrayResultado[$candidato->nombre .' '. $candidato->apellido] = 0;
+                }
             }
             /* --- FIN FUNCTION ---- */
         }elseif($rPregunta == "" and $rEdad != "" and $rGenero != ""){
             $consulta = ['Todas las preguntas',$rEdad,$rGenero];
+            $participantesCriterio = participantes::where('estado','=','1')->where('edad','=',$rEdad)->where('genero','=',$rGenero)->get();
             //Obtengo el objeto de los candidatos
             $objCandidato = candidatos::activas()->get();
             foreach($objCandidato as $candidato){
@@ -153,11 +170,16 @@ class HomeController extends Controller
                         }
                     }
                 }
-                $arrayResultado[$candidato->nombre .' '. $candidato->apellido] = $porcentaje*100/(count($objCandidatoPregunta)*count($objParticipantes));
+                if(count($participantesCriterio)){
+                    $arrayResultado[$candidato->nombre .' '. $candidato->apellido] = $porcentaje*100/(count($objCandidatoPregunta)*count($participantesCriterio));
+                }else{
+                    $arrayResultado[$candidato->nombre .' '. $candidato->apellido] = 0;
+                }
             }
             /* --- FIN FUNCTION ---- */
         }elseif($rPregunta == "" and $rEdad == "" and $rGenero != ""){
             $consulta = ['Todas las preguntas',"Todos las edades",$rGenero];
+            $participantesCriterio = participantes::where('estado','=','1')->where('genero','=',$rGenero)->get();
             //Obtengo el objeto de los candidatos
             $objCandidato = candidatos::activas()->get();
             foreach($objCandidato as $candidato){
@@ -176,7 +198,11 @@ class HomeController extends Controller
                         }
                     }
                 }
-                $arrayResultado[$candidato->nombre .' '. $candidato->apellido] = $porcentaje*100/(count($objCandidatoPregunta)*count($objParticipantes));
+                if(count($participantesCriterio)){
+                    $arrayResultado[$candidato->nombre .' '. $candidato->apellido] = $porcentaje*100/(count($objCandidatoPregunta)*count($participantesCriterio));
+                }else{
+                    $arrayResultado[$candidato->nombre .' '. $candidato->apellido] = 0;
+                }
             }
             /* --- FIN FUNCTION ---- */
         }elseif($rPregunta != "" and $rEdad == "" and $rGenero == ""){
@@ -204,6 +230,7 @@ class HomeController extends Controller
             /* --- FIN FUNCTION ---- */
         }elseif($rPregunta == "" and $rEdad != "" and $rGenero == ""){
             $consulta = ["Todas las preguntas",$rEdad,"Todos los géneros"];
+            $participantesCriterio = participantes::where('estado','=','1')->where('edad','=',$rEdad)->get();
             //Obtengo el objeto de los candidatos
             $objCandidato = candidatos::activas()->get();
             foreach($objCandidato as $candidato){
@@ -222,7 +249,11 @@ class HomeController extends Controller
                         }
                     }
                 }
-                $arrayResultado[$candidato->nombre .' '. $candidato->apellido] = $porcentaje*100/(count($objCandidatoPregunta)*count($objParticipantes));
+                if(count($participantesCriterio)){
+                    $arrayResultado[$candidato->nombre .' '. $candidato->apellido] = $porcentaje*100/(count($objCandidatoPregunta)*count($participantesCriterio));
+                }else{
+                    $arrayResultado[$candidato->nombre .' '. $candidato->apellido] = 0;
+                }
             }
             /* --- FIN FUNCTION ---- */
         }else{
@@ -372,19 +403,25 @@ class HomeController extends Controller
             $objParticipacion->participantes_id = session('participante');
 
             if($objParticipacion->save()){
+
+                if($objParticipacion->respuesta == 'Si'){
+                    $objRespuestas = preguntas::find($objParticipacion->preguntas_id)->candidatos()->orderBy('respuesta_corta','DESC')->get();
+                }
+                else{
+                    $objRespuestas = preguntas::find($objParticipacion->preguntas_id)->candidatos()->orderBy('respuesta_corta')->get();
+                }
                                 
                 
                 $data = array(
                     'objCandidato' => candidatos::activas()->get(),
                     'objPregunta' => preguntas::whereId($objParticipacion->preguntas_id)->first(),
-                    'objRespuestas' => preguntas::find($objParticipacion->preguntas_id)->candidatos()->get(),
+                    'objRespuestas' =>$objRespuestas,
                     'objMiRespuesta' => participantes::find($objParticipacion->participantes_id)->preguntas()->orderBy('pivot_id','desc')->first(),
                     'titulo' => 'Juego Brújula Electoral',
                 );
 
                 return view('frontend.juegoRespuesta',$data);
 
-                //return redirect('juego-respuesta');
             }else{
                 return back()->with('error_msj','Datos no guardados');
             }

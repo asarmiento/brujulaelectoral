@@ -18,7 +18,7 @@ class CreateCandidatosPreguntasTable extends Migration
             $table->integer('preguntas_id')->unsigned();
             $table->foreign('candidatos_id')->references('id')->on('candidatos')->onDelete('restrict')->onUpdate('restrict');
             $table->foreign('preguntas_id')->references('id')->on('preguntas')->onDelete('restrict')->onUpdate('restrict');
-            $table->string('respuesta_corta',4)->nullable();
+            $table->string('respuesta_corta',6)->nullable();
             $table->text('respuesta_larga')->nullable();
             $table->boolean('estado')->default(1);
             $table->timestamps();

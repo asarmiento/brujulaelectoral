@@ -51,7 +51,7 @@ class ExcelController extends Controller
                 }
                 $arrayResultado[] = array(
                     'candidatos' => $candidato->nombre .' '. $candidato->apellido,
-					'porcentaje' => $porcentaje*100/(count($objCandidatoPregunta)*count($objParticipantes)),
+					'porcentaje' => $porcentaje*100/(count($objCandidatoPregunta)*count($participantesCriterio)),
 					);
             }
             /* --- FIN FUNCTION ---- */
@@ -78,7 +78,7 @@ class ExcelController extends Controller
                 }
                 $arrayResultado[] = array(
                     'candidatos' => $candidato->nombre .' '. $candidato->apellido,
-					'porcentaje' => $porcentaje*100/(count($objCandidatoPregunta)*count($objParticipantes)),
+					'porcentaje' => $porcentaje*100/(count($objCandidatoPregunta)*count($participantesCriterio)),
 					);
             }
             /* --- FIN FUNCTION ---- */
@@ -105,7 +105,7 @@ class ExcelController extends Controller
                 }
                 $arrayResultado[] = array(
                     'candidatos' => $candidato->nombre .' '. $candidato->apellido,
-					'porcentaje' => $porcentaje*100/(count($objCandidatoPregunta)*count($objParticipantes)),
+					'porcentaje' => $porcentaje*100/(count($objCandidatoPregunta)*count($participantesCriterio)),
 					);
             }
             /* --- FIN FUNCTION ---- */
@@ -132,7 +132,7 @@ class ExcelController extends Controller
                 }
                 $arrayResultado[] = array(
                     'candidatos' => $candidato->nombre .' '. $candidato->apellido,
-					'porcentaje' => $porcentaje*100/(count($objCandidatoPregunta)*count($objParticipantes)),
+					'porcentaje' => $porcentaje*100/(count($objCandidatoPregunta)*count($participantesCriterio)),
 					);
             }
             /* --- FIN FUNCTION ---- */
@@ -159,7 +159,7 @@ class ExcelController extends Controller
                 }
                 $arrayResultado[] = array(
                     'candidatos' => $candidato->nombre .' '. $candidato->apellido,
-					'porcentaje' => $porcentaje*100/(count($objCandidatoPregunta)*count($objParticipantes)),
+					'porcentaje' => $porcentaje*100/(count($objCandidatoPregunta)*count($participantesCriterio)),
 					);
             }
             /* --- FIN FUNCTION ---- */
@@ -212,7 +212,7 @@ class ExcelController extends Controller
                 }
                 $arrayResultado[] = array(
                     'candidatos' => $candidato->nombre .' '. $candidato->apellido,
-					'porcentaje' => $porcentaje*100/(count($objCandidatoPregunta)*count($objParticipantes)),
+					'porcentaje' => $porcentaje*100/(count($objCandidatoPregunta)*count($participantesCriterio)),
 					);
             }
             /* --- FIN FUNCTION ---- */
@@ -254,7 +254,7 @@ class ExcelController extends Controller
 
 		if($tipoDownload=='excel'){
 			//ARMADO DEL EXCEL CON LOS DATOS DEL ARRAY	
-			Excel::create('Burbuja Electoral Excel', function($excel) use($arrayResultado,$consulta,$participantesCriterio,$totalParticipantes){
+			Excel::create('Brújula Electoral Excel', function($excel) use($arrayResultado,$consulta,$participantesCriterio,$totalParticipantes){
 	 		
 	            $excel->sheet('Participantes', function($sheet) use($arrayResultado,$consulta,$participantesCriterio,$totalParticipantes) {
 	            	
@@ -262,30 +262,74 @@ class ExcelController extends Controller
 	                $sheet->with($arrayResultado);
 	                
 	                $sheet->prependRow(array(
-						    'Participantes por critério',$participantesCriterio,'Total de participantes', $totalParticipantes
+                           'Participantes por criterio de búsqueda',$participantesCriterio
+                        ));
+                    $sheet->prependRow(array(
+                            'Total de participantes en el sitio', $totalParticipantes
+                        ));
+	                $sheet->prependRow(array(
+						    $consulta[0]
+						));
+                    $sheet->prependRow(array(
+                            'PREGUNTA'
+                        ));
+                    $sheet->prependRow(array(
+                            $consulta[1]
+                        ));
+                    $sheet->prependRow(array(
+                            'EDAD'
+                        ));
+                    $sheet->prependRow(array(
+                            $consulta[2]
+                        ));
+                    $sheet->prependRow(array(
+                            'GÉNERO'
+                        ));
+	                $sheet->prependRow(array(
+						    'FILTROS DE BÚSQUEDA:'
 						));
 	                $sheet->prependRow(array(
-						    $consulta[0], $consulta[1],$consulta[2]
+						    'BRÚJULA ELECTORAL'
 						));
-	                $sheet->prependRow(array(
-						    'Preguntas','Edad','Género'
-						));
-	                $sheet->prependRow(array(
-						    'Filtros de busqueda'
-						));
-	                $sheet->prependRow(array(
-						    'BURBÚJA ELECTORAL'
-						));
-	                $sheet->cell('A6', function($cell) {
+	                $sheet->cell('A11', function($cell) {
 					    $cell->setValue('Candidatos');
 					    $cell->setBackground('#74c2ab');
 					    $cell->setFontSize(14);
+                        $cell->setFontWeight('bold');
 					});
-					$sheet->cell('B6', function($cell) {
-					    $cell->setValue('Porcentajes');
-					    $cell->setBackground('#74c2ab');
-					    $cell->setFontSize(14);
-					});
+                    $sheet->cell('B11', function($cell) {
+                        $cell->setValue('Porcentajes');
+                        $cell->setBackground('#74c2ab');
+                        $cell->setFontSize(14);
+                        $cell->setFontWeight('bold');
+                    });
+                    $sheet->cell('A2', function($cell) {
+                        $cell->setFontWeight('bold');
+                    });
+                    $sheet->cell('A3', function($cell) {
+                        $cell->setFontWeight('bold');
+                    });
+                    $sheet->cell('A5', function($cell) {
+                        $cell->setFontWeight('bold');
+                    });
+                    $sheet->cell('A7', function($cell) {
+                        $cell->setFontWeight('bold');
+                    });
+                    $sheet->cell('C10', function($cell) {
+                        $cell->setFontWeight('bold');
+                    });
+                    $sheet->cell('A9', function($cell) {
+                        $cell->setFontWeight('bold');
+                    });
+                    $sheet->cell('A10', function($cell) {
+                        $cell->setFontWeight('bold');
+                    });
+                    $sheet->cell('B8', function($cell) {
+                        $cell->setFontWeight('bold');
+                    });
+                    $sheet->cell('C8', function($cell) {
+                        $cell->setFontWeight('bold');
+                    });
 					$sheet->cell('A1', function($cell) {
 					    $cell->setBackground('#fee100');
 					    $cell->setFontSize(16);
@@ -296,7 +340,7 @@ class ExcelController extends Controller
 	        })->export('xls');
 	    }else{
 	    	//ARMADO DEL EXCEL CON LOS DATOS DEL ARRAY	
-			Excel::create('Burbuja Electoral Excel', function($excel) use($arrayResultado,$consulta,$participantesCriterio,$totalParticipantes){
+			Excel::create('Brújula Electoral Excel', function($excel) use($arrayResultado,$consulta,$participantesCriterio,$totalParticipantes){
 	 		
 	            $excel->sheet('Participantes', function($sheet) use($arrayResultado,$consulta,$participantesCriterio,$totalParticipantes) {
 	            	
@@ -304,20 +348,38 @@ class ExcelController extends Controller
 	                $sheet->with($arrayResultado);
 	                
 	                $sheet->prependRow(array(
-						    'Participantes por critério',$participantesCriterio,'Total de participantes', $totalParticipantes
+						    'Participantes por criterio de búsqueda',$participantesCriterio,'Total de participantes en el sitio', $totalParticipantes
 						));
 	                $sheet->prependRow(array(
 						    $consulta[0], $consulta[1],$consulta[2]
 						));
 	                $sheet->prependRow(array(
-						    'Preguntas','Edad','Género'
+						    'PREGUNTA','EDAD','GÉNERO'
 						));
 	                $sheet->prependRow(array(
-						    'Filtros de busqueda'
+						    'FILTROS DE BÚSQUEDA:'
 						));
 	                $sheet->prependRow(array(
-						    'BURBÚJA ELECTORAL'
+						    'BRÚJULA ELECTORAL'
 						));
+                    $sheet->cell('A2', function($cell) {
+                        $cell->setFontWeight('bold');
+                    });
+                    $sheet->cell('A3', function($cell) {
+                        $cell->setFontWeight('bold');
+                    });
+                    $sheet->cell('A5', function($cell) {
+                        $cell->setFontWeight('bold');
+                    });
+                    $sheet->cell('C5', function($cell) {
+                        $cell->setFontWeight('bold');
+                    });
+                    $sheet->cell('B3', function($cell) {
+                        $cell->setFontWeight('bold');
+                    });
+                    $sheet->cell('C3', function($cell) {
+                        $cell->setFontWeight('bold');
+                    });
 	                $sheet->cell('A6', function($cell) {
 					    $cell->setValue('Candidatos');
 					    $cell->setBackground('#74c2ab');
