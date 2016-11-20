@@ -54,310 +54,344 @@ class BackendHomeController extends Controller
     {
         //Obtengo el objeto de los candidatos
         $objCandidato = candidatos::activas()->get();
-        foreach($objCandidato as $candidato){
-            $porcentaje = 0;
-            //obtengo el objeto preguntas por candidato
-            $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();            
-            foreach($objCandidatoPregunta as $pregunta){
-                //obtengo el objeto de los participantes que terminaron de cotestar todas las preguntas
-                $objParticipantes = participantes::where('estado','=','1')->get();
-                foreach ($objParticipantes as $participante) {
-                    $objPreguntaParticipante = preguntas::find($pregunta->id)->participantes()->where('participantes_preguntas.participantes_id','=',$participante->id)->orderBy('pivot_id','desc')->first();
-                    if($objPreguntaParticipante->pivot->respuesta == $pregunta->pivot->respuesta_corta){
-                            $porcentaje = $porcentaje + 1;
-                        }
+        if(count($objCandidato))  {
+            foreach($objCandidato as $candidato){
+                $porcentaje = 0;
+                //obtengo el objeto preguntas por candidato
+                $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();            
+                foreach($objCandidatoPregunta as $pregunta){
+                    //obtengo el objeto de los participantes que terminaron de cotestar todas las preguntas
+                    $objParticipantes = participantes::where('estado','=','1')->get();
+                    foreach ($objParticipantes as $participante) {
+                        $objPreguntaParticipante = preguntas::find($pregunta->id)->participantes()->where('participantes_preguntas.participantes_id','=',$participante->id)->orderBy('pivot_id','desc')->first();
+                        if($objPreguntaParticipante->pivot->respuesta == $pregunta->pivot->respuesta_corta){
+                                $porcentaje = $porcentaje + 1;
+                            }
+                    }
                 }
+                $arrayResultado[] = array(
+                    'candidatos' => $candidato->nombre .' '. $candidato->apellido,
+                    'porcentaje' => $porcentaje*100/(count($objCandidatoPregunta)*count($objParticipantes)),
+                    );
             }
-            $arrayResultado[] = array(
-                'candidatos' => $candidato->nombre .' '. $candidato->apellido,
-                'porcentaje' => $porcentaje*100/(count($objCandidatoPregunta)*count($objParticipantes)),
-                );
+            /* --- FIN FUNCTION ---- */
+
+            foreach ($arrayResultado as $clave => $fila) {
+                $candidato[$clave] = $fila['candidatos'];
+                $porcentaje1[$clave] = $fila['porcentaje'];
+            }
+
+            array_multisort($porcentaje1, SORT_DESC, $arrayResultado);
+
+            $arrayResultado = array_slice($arrayResultado, 0, 5);
+
+            return $arrayResultado;
+        }else{
+            return false;
         }
-        /* --- FIN FUNCTION ---- */
-
-        foreach ($arrayResultado as $clave => $fila) {
-            $candidato[$clave] = $fila['candidatos'];
-            $porcentaje1[$clave] = $fila['porcentaje'];
-        }
-
-        array_multisort($porcentaje1, SORT_DESC, $arrayResultado);
-
-        $arrayResultado = array_slice($arrayResultado, 0, 5);
-
-        return $arrayResultado;
+        
     }
 
     public function showFemenino()
     {
         //Obtengo el objeto de los candidatos
         $objCandidato = candidatos::activas()->get();
-        foreach($objCandidato as $candidato){
-            $porcentaje = 0;
-            //obtengo el objeto preguntas por candidato
-            $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();            
-            foreach($objCandidatoPregunta as $pregunta){
-                //obtengo el objeto de los participantes que terminaron de cotestar todas las preguntas
-                $objParticipantes = participantes::where('estado','=','1')->get();
-                foreach ($objParticipantes as $participante) {
-                    if($participante->genero == 'Femenino' ){
-                        $objPreguntaParticipante = preguntas::find($pregunta->id)->participantes()->where('participantes_preguntas.participantes_id','=',$participante->id)->orderBy('pivot_id','desc')->first();
-                        if($objPreguntaParticipante->pivot->respuesta == $pregunta->pivot->respuesta_corta){
-                            $porcentaje = $porcentaje + 1;
+        if(count($objCandidato))  {
+
+            foreach($objCandidato as $candidato){
+                $porcentaje = 0;
+                //obtengo el objeto preguntas por candidato
+                $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();            
+                foreach($objCandidatoPregunta as $pregunta){
+                    //obtengo el objeto de los participantes que terminaron de cotestar todas las preguntas
+                    $objParticipantes = participantes::where('estado','=','1')->get();
+                    foreach ($objParticipantes as $participante) {
+                        if($participante->genero == 'Femenino' ){
+                            $objPreguntaParticipante = preguntas::find($pregunta->id)->participantes()->where('participantes_preguntas.participantes_id','=',$participante->id)->orderBy('pivot_id','desc')->first();
+                            if($objPreguntaParticipante->pivot->respuesta == $pregunta->pivot->respuesta_corta){
+                                $porcentaje = $porcentaje + 1;
+                            }
                         }
                     }
                 }
+                $arrayResultado[] = array(
+                    'candidatos' => $candidato->nombre .' '. $candidato->apellido,
+                    'porcentaje' => $porcentaje*100/(count($objCandidatoPregunta)*count($objParticipantes)),
+                    );
             }
-            $arrayResultado[] = array(
-                'candidatos' => $candidato->nombre .' '. $candidato->apellido,
-                'porcentaje' => $porcentaje*100/(count($objCandidatoPregunta)*count($objParticipantes)),
-                );
+            /* --- FIN FUNCTION ---- */
+
+            foreach ($arrayResultado as $clave => $fila) {
+                $candidato[$clave] = $fila['candidatos'];
+                $porcentaje1[$clave] = $fila['porcentaje'];
+            }
+
+            array_multisort($porcentaje1, SORT_DESC, $arrayResultado);
+
+            $arrayResultado = array_slice($arrayResultado, 0, 5);
+
+            return $arrayResultado;
+        }else{
+            return false;
         }
-        /* --- FIN FUNCTION ---- */
-
-        foreach ($arrayResultado as $clave => $fila) {
-            $candidato[$clave] = $fila['candidatos'];
-            $porcentaje1[$clave] = $fila['porcentaje'];
-        }
-
-        array_multisort($porcentaje1, SORT_DESC, $arrayResultado);
-
-        $arrayResultado = array_slice($arrayResultado, 0, 5);
-
-        return $arrayResultado;
     }
 
     public function showMasculino()
     {
         //Obtengo el objeto de los candidatos
         $objCandidato = candidatos::activas()->get();
-        foreach($objCandidato as $candidato){
-            $porcentaje = 0;
-            //obtengo el objeto preguntas por candidato
-            $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();            
-            foreach($objCandidatoPregunta as $pregunta){
-                //obtengo el objeto de los participantes que terminaron de cotestar todas las preguntas
-                $objParticipantes = participantes::where('estado','=','1')->get();
-                foreach ($objParticipantes as $participante) {
-                    if($participante->genero == 'Masculino' ){
-                        $objPreguntaParticipante = preguntas::find($pregunta->id)->participantes()->where('participantes_preguntas.participantes_id','=',$participante->id)->orderBy('pivot_id','desc')->first();
-                        if($objPreguntaParticipante->pivot->respuesta == $pregunta->pivot->respuesta_corta){
-                            $porcentaje = $porcentaje + 1;
+        if(count($objCandidato))  {
+            foreach($objCandidato as $candidato){
+                $porcentaje = 0;
+                //obtengo el objeto preguntas por candidato
+                $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();            
+                foreach($objCandidatoPregunta as $pregunta){
+                    //obtengo el objeto de los participantes que terminaron de cotestar todas las preguntas
+                    $objParticipantes = participantes::where('estado','=','1')->get();
+                    foreach ($objParticipantes as $participante) {
+                        if($participante->genero == 'Masculino' ){
+                            $objPreguntaParticipante = preguntas::find($pregunta->id)->participantes()->where('participantes_preguntas.participantes_id','=',$participante->id)->orderBy('pivot_id','desc')->first();
+                            if($objPreguntaParticipante->pivot->respuesta == $pregunta->pivot->respuesta_corta){
+                                $porcentaje = $porcentaje + 1;
+                            }
                         }
                     }
                 }
+                $arrayResultado[] = array(
+                    'candidatos' => $candidato->nombre .' '. $candidato->apellido,
+                    'porcentaje' => $porcentaje*100/(count($objCandidatoPregunta)*count($objParticipantes)),
+                    );
             }
-            $arrayResultado[] = array(
-                'candidatos' => $candidato->nombre .' '. $candidato->apellido,
-                'porcentaje' => $porcentaje*100/(count($objCandidatoPregunta)*count($objParticipantes)),
-                );
+            /* --- FIN FUNCTION ---- */
+
+            foreach ($arrayResultado as $clave => $fila) {
+                $candidato[$clave] = $fila['candidatos'];
+                $porcentaje1[$clave] = $fila['porcentaje'];
+            }
+
+            array_multisort($porcentaje1, SORT_DESC, $arrayResultado);
+
+            $arrayResultado = array_slice($arrayResultado, 0, 5);
+
+            return $arrayResultado;
+        }else{
+            return false;
         }
-        /* --- FIN FUNCTION ---- */
-
-        foreach ($arrayResultado as $clave => $fila) {
-            $candidato[$clave] = $fila['candidatos'];
-            $porcentaje1[$clave] = $fila['porcentaje'];
-        }
-
-        array_multisort($porcentaje1, SORT_DESC, $arrayResultado);
-
-        $arrayResultado = array_slice($arrayResultado, 0, 5);
-
-        return $arrayResultado;
     }
 
     public function showGLTB()
     {
         //Obtengo el objeto de los candidatos
         $objCandidato = candidatos::activas()->get();
-        foreach($objCandidato as $candidato){
-            $porcentaje = 0;
-            //obtengo el objeto preguntas por candidato
-            $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();            
-            foreach($objCandidatoPregunta as $pregunta){
-                //obtengo el objeto de los participantes que terminaron de cotestar todas las preguntas
-                $objParticipantes = participantes::where('estado','=','1')->get();
-                foreach ($objParticipantes as $participante) {
-                    if($participante->genero == 'GLTB' ){
-                        $objPreguntaParticipante = preguntas::find($pregunta->id)->participantes()->where('participantes_preguntas.participantes_id','=',$participante->id)->orderBy('pivot_id','desc')->first();
-                        if($objPreguntaParticipante->pivot->respuesta == $pregunta->pivot->respuesta_corta){
-                            $porcentaje = $porcentaje + 1;
+        if(count($objCandidato))  {
+            foreach($objCandidato as $candidato){
+                $porcentaje = 0;
+                //obtengo el objeto preguntas por candidato
+                $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();            
+                foreach($objCandidatoPregunta as $pregunta){
+                    //obtengo el objeto de los participantes que terminaron de cotestar todas las preguntas
+                    $objParticipantes = participantes::where('estado','=','1')->get();
+                    foreach ($objParticipantes as $participante) {
+                        if($participante->genero == 'GLTB' ){
+                            $objPreguntaParticipante = preguntas::find($pregunta->id)->participantes()->where('participantes_preguntas.participantes_id','=',$participante->id)->orderBy('pivot_id','desc')->first();
+                            if($objPreguntaParticipante->pivot->respuesta == $pregunta->pivot->respuesta_corta){
+                                $porcentaje = $porcentaje + 1;
+                            }
                         }
                     }
                 }
+                $arrayResultado[] = array(
+                    'candidatos' => $candidato->nombre .' '. $candidato->apellido,
+                    'porcentaje' => $porcentaje*100/(count($objCandidatoPregunta)*count($objParticipantes)),
+                    );
             }
-            $arrayResultado[] = array(
-                'candidatos' => $candidato->nombre .' '. $candidato->apellido,
-                'porcentaje' => $porcentaje*100/(count($objCandidatoPregunta)*count($objParticipantes)),
-                );
+            /* --- FIN FUNCTION ---- */
+
+            foreach ($arrayResultado as $clave => $fila) {
+                $candidato[$clave] = $fila['candidatos'];
+                $porcentaje1[$clave] = $fila['porcentaje'];
+            }
+
+            array_multisort($porcentaje1, SORT_DESC, $arrayResultado);
+
+            $arrayResultado = array_slice($arrayResultado, 0, 5);
+
+            return $arrayResultado;
+        }else{
+            return false;
         }
-        /* --- FIN FUNCTION ---- */
-
-        foreach ($arrayResultado as $clave => $fila) {
-            $candidato[$clave] = $fila['candidatos'];
-            $porcentaje1[$clave] = $fila['porcentaje'];
-        }
-
-        array_multisort($porcentaje1, SORT_DESC, $arrayResultado);
-
-        $arrayResultado = array_slice($arrayResultado, 0, 5);
-
-        return $arrayResultado;
     }
 
     public function show1625()
     {
         //Obtengo el objeto de los candidatos
         $objCandidato = candidatos::activas()->get();
-        foreach($objCandidato as $candidato){
-            $porcentaje = 0;
-            //obtengo el objeto preguntas por candidato
-            $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();            
-            foreach($objCandidatoPregunta as $pregunta){
-                //obtengo el objeto de los participantes que terminaron de cotestar todas las preguntas
-                $objParticipantes = participantes::where('estado','=','1')->get();
-                foreach ($objParticipantes as $participante) {
-                    if($participante->edad == '16 - 25' ){
-                        $objPreguntaParticipante = preguntas::find($pregunta->id)->participantes()->where('participantes_preguntas.participantes_id','=',$participante->id)->orderBy('pivot_id','desc')->first();
-                        if($objPreguntaParticipante->pivot->respuesta == $pregunta->pivot->respuesta_corta){
-                            $porcentaje = $porcentaje + 1;
+        if(count($objCandidato))  {
+            foreach($objCandidato as $candidato){
+                $porcentaje = 0;
+                //obtengo el objeto preguntas por candidato
+                $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();            
+                foreach($objCandidatoPregunta as $pregunta){
+                    //obtengo el objeto de los participantes que terminaron de cotestar todas las preguntas
+                    $objParticipantes = participantes::where('estado','=','1')->get();
+                    foreach ($objParticipantes as $participante) {
+                        if($participante->edad == '16 - 25' ){
+                            $objPreguntaParticipante = preguntas::find($pregunta->id)->participantes()->where('participantes_preguntas.participantes_id','=',$participante->id)->orderBy('pivot_id','desc')->first();
+                            if($objPreguntaParticipante->pivot->respuesta == $pregunta->pivot->respuesta_corta){
+                                $porcentaje = $porcentaje + 1;
+                            }
                         }
                     }
                 }
+                $arrayResultado[] = array(
+                    'candidatos' => $candidato->nombre .' '. $candidato->apellido,
+                    'porcentaje' => $porcentaje*100/(count($objCandidatoPregunta)*count($objParticipantes)),
+                    );
             }
-            $arrayResultado[] = array(
-                'candidatos' => $candidato->nombre .' '. $candidato->apellido,
-                'porcentaje' => $porcentaje*100/(count($objCandidatoPregunta)*count($objParticipantes)),
-                );
+            /* --- FIN FUNCTION ---- */
+
+            foreach ($arrayResultado as $clave => $fila) {
+                $candidato[$clave] = $fila['candidatos'];
+                $porcentaje1[$clave] = $fila['porcentaje'];
+            }
+
+            array_multisort($porcentaje1, SORT_DESC, $arrayResultado);
+
+            $arrayResultado = array_slice($arrayResultado, 0, 5);
+
+            return $arrayResultado;
+        }else{
+            return false;
         }
-        /* --- FIN FUNCTION ---- */
-
-        foreach ($arrayResultado as $clave => $fila) {
-            $candidato[$clave] = $fila['candidatos'];
-            $porcentaje1[$clave] = $fila['porcentaje'];
-        }
-
-        array_multisort($porcentaje1, SORT_DESC, $arrayResultado);
-
-        $arrayResultado = array_slice($arrayResultado, 0, 5);
-
-        return $arrayResultado;
     }
 
     public function show2535()
     {
         //Obtengo el objeto de los candidatos
         $objCandidato = candidatos::activas()->get();
-        foreach($objCandidato as $candidato){
-            $porcentaje = 0;
-            //obtengo el objeto preguntas por candidato
-            $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();            
-            foreach($objCandidatoPregunta as $pregunta){
-                //obtengo el objeto de los participantes que terminaron de cotestar todas las preguntas
-                $objParticipantes = participantes::where('estado','=','1')->get();
-                foreach ($objParticipantes as $participante) {
-                    if($participante->edad == '25 - 35' ){
-                        $objPreguntaParticipante = preguntas::find($pregunta->id)->participantes()->where('participantes_preguntas.participantes_id','=',$participante->id)->orderBy('pivot_id','desc')->first();
-                        if($objPreguntaParticipante->pivot->respuesta == $pregunta->pivot->respuesta_corta){
-                            $porcentaje = $porcentaje + 1;
+        if(count($objCandidato))  {
+            foreach($objCandidato as $candidato){
+                $porcentaje = 0;
+                //obtengo el objeto preguntas por candidato
+                $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();            
+                foreach($objCandidatoPregunta as $pregunta){
+                    //obtengo el objeto de los participantes que terminaron de cotestar todas las preguntas
+                    $objParticipantes = participantes::where('estado','=','1')->get();
+                    foreach ($objParticipantes as $participante) {
+                        if($participante->edad == '25 - 35' ){
+                            $objPreguntaParticipante = preguntas::find($pregunta->id)->participantes()->where('participantes_preguntas.participantes_id','=',$participante->id)->orderBy('pivot_id','desc')->first();
+                            if($objPreguntaParticipante->pivot->respuesta == $pregunta->pivot->respuesta_corta){
+                                $porcentaje = $porcentaje + 1;
+                            }
                         }
                     }
                 }
+                $arrayResultado[] = array(
+                    'candidatos' => $candidato->nombre .' '. $candidato->apellido,
+                    'porcentaje' => $porcentaje*100/(count($objCandidatoPregunta)*count($objParticipantes)),
+                    );
             }
-            $arrayResultado[] = array(
-                'candidatos' => $candidato->nombre .' '. $candidato->apellido,
-                'porcentaje' => $porcentaje*100/(count($objCandidatoPregunta)*count($objParticipantes)),
-                );
+            /* --- FIN FUNCTION ---- */
+
+            foreach ($arrayResultado as $clave => $fila) {
+                $candidato[$clave] = $fila['candidatos'];
+                $porcentaje1[$clave] = $fila['porcentaje'];
+            }
+
+            array_multisort($porcentaje1, SORT_DESC, $arrayResultado);
+
+            $arrayResultado = array_slice($arrayResultado, 0, 5);
+
+            return $arrayResultado;
+        }else{
+            return false;
         }
-        /* --- FIN FUNCTION ---- */
-
-        foreach ($arrayResultado as $clave => $fila) {
-            $candidato[$clave] = $fila['candidatos'];
-            $porcentaje1[$clave] = $fila['porcentaje'];
-        }
-
-        array_multisort($porcentaje1, SORT_DESC, $arrayResultado);
-
-        $arrayResultado = array_slice($arrayResultado, 0, 5);
-
-        return $arrayResultado;
     }
 
     public function show3545()
     {
         //Obtengo el objeto de los candidatos
         $objCandidato = candidatos::activas()->get();
-        foreach($objCandidato as $candidato){
-            $porcentaje = 0;
-            //obtengo el objeto preguntas por candidato
-            $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();            
-            foreach($objCandidatoPregunta as $pregunta){
-                //obtengo el objeto de los participantes que terminaron de cotestar todas las preguntas
-                $objParticipantes = participantes::where('estado','=','1')->get();
-                foreach ($objParticipantes as $participante) {
-                    if($participante->edad == '35 - 45' ){
-                        $objPreguntaParticipante = preguntas::find($pregunta->id)->participantes()->where('participantes_preguntas.participantes_id','=',$participante->id)->orderBy('pivot_id','desc')->first();
-                        if($objPreguntaParticipante->pivot->respuesta == $pregunta->pivot->respuesta_corta){
-                            $porcentaje = $porcentaje + 1;
+        if(count($objCandidato))  {
+            foreach($objCandidato as $candidato){
+                $porcentaje = 0;
+                //obtengo el objeto preguntas por candidato
+                $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();            
+                foreach($objCandidatoPregunta as $pregunta){
+                    //obtengo el objeto de los participantes que terminaron de cotestar todas las preguntas
+                    $objParticipantes = participantes::where('estado','=','1')->get();
+                    foreach ($objParticipantes as $participante) {
+                        if($participante->edad == '35 - 45' ){
+                            $objPreguntaParticipante = preguntas::find($pregunta->id)->participantes()->where('participantes_preguntas.participantes_id','=',$participante->id)->orderBy('pivot_id','desc')->first();
+                            if($objPreguntaParticipante->pivot->respuesta == $pregunta->pivot->respuesta_corta){
+                                $porcentaje = $porcentaje + 1;
+                            }
                         }
                     }
                 }
+                $arrayResultado[] = array(
+                    'candidatos' => $candidato->nombre .' '. $candidato->apellido,
+                    'porcentaje' => $porcentaje*100/(count($objCandidatoPregunta)*count($objParticipantes)),
+                    );
             }
-            $arrayResultado[] = array(
-                'candidatos' => $candidato->nombre .' '. $candidato->apellido,
-                'porcentaje' => $porcentaje*100/(count($objCandidatoPregunta)*count($objParticipantes)),
-                );
+            /* --- FIN FUNCTION ---- */
+
+            foreach ($arrayResultado as $clave => $fila) {
+                $candidato[$clave] = $fila['candidatos'];
+                $porcentaje1[$clave] = $fila['porcentaje'];
+            }
+
+            array_multisort($porcentaje1, SORT_DESC, $arrayResultado);
+
+            $arrayResultado = array_slice($arrayResultado, 0, 5);
+
+            return $arrayResultado;
+        }else{
+            return false;
         }
-        /* --- FIN FUNCTION ---- */
-
-        foreach ($arrayResultado as $clave => $fila) {
-            $candidato[$clave] = $fila['candidatos'];
-            $porcentaje1[$clave] = $fila['porcentaje'];
-        }
-
-        array_multisort($porcentaje1, SORT_DESC, $arrayResultado);
-
-        $arrayResultado = array_slice($arrayResultado, 0, 5);
-
-        return $arrayResultado;
     }
 
     public function show45()
     {
         //Obtengo el objeto de los candidatos
         $objCandidato = candidatos::activas()->get();
-        foreach($objCandidato as $candidato){
-            $porcentaje = 0;
-            //obtengo el objeto preguntas por candidato
-            $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();            
-            foreach($objCandidatoPregunta as $pregunta){
-                //obtengo el objeto de los participantes que terminaron de cotestar todas las preguntas
-                $objParticipantes = participantes::where('estado','=','1')->get();
-                foreach ($objParticipantes as $participante) {
-                    if($participante->edad == '45 en adelante' ){
-                        $objPreguntaParticipante = preguntas::find($pregunta->id)->participantes()->where('participantes_preguntas.participantes_id','=',$participante->id)->orderBy('pivot_id','desc')->first();
-                        if($objPreguntaParticipante->pivot->respuesta == $pregunta->pivot->respuesta_corta){
-                            $porcentaje = $porcentaje + 1;
+        if(count($objCandidato))  {
+            foreach($objCandidato as $candidato){
+                $porcentaje = 0;
+                //obtengo el objeto preguntas por candidato
+                $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();            
+                foreach($objCandidatoPregunta as $pregunta){
+                    //obtengo el objeto de los participantes que terminaron de cotestar todas las preguntas
+                    $objParticipantes = participantes::where('estado','=','1')->get();
+                    foreach ($objParticipantes as $participante) {
+                        if($participante->edad == '45 en adelante' ){
+                            $objPreguntaParticipante = preguntas::find($pregunta->id)->participantes()->where('participantes_preguntas.participantes_id','=',$participante->id)->orderBy('pivot_id','desc')->first();
+                            if($objPreguntaParticipante->pivot->respuesta == $pregunta->pivot->respuesta_corta){
+                                $porcentaje = $porcentaje + 1;
+                            }
                         }
                     }
                 }
+                $arrayResultado[] = array(
+                    'candidatos' => $candidato->nombre .' '. $candidato->apellido,
+                    'porcentaje' => $porcentaje*100/(count($objCandidatoPregunta)*count($objParticipantes)),
+                    );
             }
-            $arrayResultado[] = array(
-                'candidatos' => $candidato->nombre .' '. $candidato->apellido,
-                'porcentaje' => $porcentaje*100/(count($objCandidatoPregunta)*count($objParticipantes)),
-                );
+            /* --- FIN FUNCTION ---- */
+
+            foreach ($arrayResultado as $clave => $fila) {
+                $candidato[$clave] = $fila['candidatos'];
+                $porcentaje1[$clave] = $fila['porcentaje'];
+            }
+
+            array_multisort($porcentaje1, SORT_DESC, $arrayResultado);
+
+            $arrayResultado = array_slice($arrayResultado, 0, 5);
+
+            return $arrayResultado;
+        }else{
+            return false;
         }
-        /* --- FIN FUNCTION ---- */
-
-        foreach ($arrayResultado as $clave => $fila) {
-            $candidato[$clave] = $fila['candidatos'];
-            $porcentaje1[$clave] = $fila['porcentaje'];
-        }
-
-        array_multisort($porcentaje1, SORT_DESC, $arrayResultado);
-
-        $arrayResultado = array_slice($arrayResultado, 0, 5);
-
-        return $arrayResultado;
     }
 
     /**
