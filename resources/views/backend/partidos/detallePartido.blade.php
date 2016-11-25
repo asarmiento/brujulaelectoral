@@ -456,9 +456,6 @@
     </div>
     <!--/span-->
 </div>
-
-
     <!-- content ends -->
     </div><!--/#content.col-md-0-->
-
 @stop

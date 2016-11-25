@@ -9,7 +9,6 @@
               <div class="title_left">
                 <h3>Partidos</h3>
               </div>
-
               
             </div>
             <div class="clearfix"></div>
