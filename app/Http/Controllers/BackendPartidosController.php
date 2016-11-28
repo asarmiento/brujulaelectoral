@@ -29,7 +29,7 @@ class BackendPartidosController extends Controller
             'listaPartidos' => partido::paginate(10),
             'titulo' => 'Lista de Categorias',
         );
-        return view('backend.Partidos.listaPartido',$data);
+        return view('backend.partidos.listaPartido',$data);
     }
 
     /**
@@ -43,7 +43,7 @@ class BackendPartidosController extends Controller
         if (!Auth::check()) {
             return redirect('backend/home');
         }
-        return view('backend.Partidos.agregarPartido');
+        return view('backend.partidos.agregarPartido');
     }
 
     /**
