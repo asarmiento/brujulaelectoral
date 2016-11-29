@@ -23,6 +23,7 @@ class HomeController extends Controller
     {        
 
         $arrayResultado = array();
+        $objParticipantes = null;
         //Obtengo el objeto de los candidatos
         $objCandidato = candidatos::activas()->get();
         foreach($objCandidato as $candidato){
@@ -40,7 +41,11 @@ class HomeController extends Controller
                 }
 
             }
-            $arrayResultado[$candidato->nombre .' '. $candidato->apellido] = $porcentaje*100/(count($objCandidatoPregunta)*count($objParticipantes));
+            if(count($objParticipantes)){
+                $arrayResultado[$candidato->nombre .' '. $candidato->apellido] = $porcentaje*100/(count($objCandidatoPregunta)*count($objParticipantes));
+            }else{
+                $arrayResultado[$candidato->nombre .' '. $candidato->apellido] = 0;
+            }
         }
 
         arsort($arrayResultado);
