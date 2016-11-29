@@ -6,12 +6,11 @@
           <h1><a href="{{ URL::to('/') }}"><span>BRÚJULA</span> ELECTORAL</a></h1>
           <div class="brand-logo"></div>
         </div>
-        <div class="col-xs=12 col-sm-12 col-md-2">
-          <ul class="ico-social-media">
-            <li class="ico-tw"><a hre="#"></a></li>
-            <li class="ico-fb"><a hre="#"></a></li>
-            
-          </ul>
+        <div class="col-xs=12 col-sm-12 col-md-2" style="z-index: 9999">
+
+          <div class="ico-social-media" style="margin-top: 30px;" >
+            <div class="addthis_inline_share_toolbox"></div>
+          </div>
         </div>
         <nav class="navbar navbar-static-top" role="navigation">
                 <div class="navbar-header">

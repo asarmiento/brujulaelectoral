@@ -8,10 +8,9 @@
 						<p class="text-right">PlanV 2016</p>
 					</div>
 					<div class="col-xs-6 col-sm-6 col-md-6 left-line">
-						<ul class="ico-social-media">
-							<li class="ico-fb"><a hre="#"></a></li>
-							<li class="ico-tw"><a hre="#"></a></li>
-						</ul>
+						<div class="ico-social-media">
+							<div class="addthis_inline_share_toolbox"></div>
+						</div>
 						<div class="logo-cc"></div>
 					</div>
 				</div>
