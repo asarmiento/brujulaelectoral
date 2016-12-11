@@ -61,7 +61,7 @@
 					</form>
 				</div>
 				<!-- tema -->
-				@if($objCandidato1 and $objCandidato1)
+				@if(count($objCandidato1) and count($objCandidato2))
 					@foreach($objPreguntas as $pregunta)
 						<?php
 							$objPartido1 = App\partido::whereId($objCandidato1->partidos_id)->first();
@@ -73,7 +73,7 @@
 					<div class="col-xs-12 col-sm-6 col-md-6">
 						<div>
 							<div class="pic-box">
-								<img src="{{ asset('imgJuego/'.$objCandidato1->foto) }}" class="foto126">
+								
 								<h4 class="box-2-face">{{$objCandidato1->nombre}} {{$objCandidato1->apellido}}<br> {{ $objPartido1->nombre }}</h4>	
 							</div>
 							<?php
@@ -89,7 +89,7 @@
 					<div class="col-xs-12 col-sm-6 col-md-6">
 						<div>
 							<div class="pic-box">
-								<img src="{{ asset('imgJuego/'.$objCandidato2->foto) }}" class="foto126">
+								
 								<h4 class="box-2-face">{{$objCandidato2->nombre}} {{$objCandidato2->apellido}}<br> {{ $objPartido2->nombre }}</h4>	
 							</div>
 
@@ -117,10 +117,11 @@
 				<div class="col-xs=12 col-sm-12 col-md-6">
 					<h2><span>¿Quién es tu </span>Candidato afin?</h2>
 					<h4>Juego Electoral</h4>
-					<div class="col-xs=12 col-sm-12 col-md-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad </div>
-					<div class="col-xs=12 col-sm-12 col-md-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad </div>
-					<a href="{{URL::to('juego-login')}}" class="btn btn-main">Juega y Averígualo</a>
-					<div class="quiz-game"></div>
+					<div class="col-xs=12 col-sm-12 col-md-6">Después de grupos focales con jóvenes de entre 20 y 26 años, el equipo periodístico de la revista digital Plan V, con el apoyo de la Fundación Ciudadanía y Desarrollo, desarrolló este portal para que los electores, sobre todo los jóvenes, encuentren al candidato presidencial que más se acerque a sus aspiraciones y creencias. </div>
+                    <div class="col-xs=12 col-sm-12 col-md-6">Desde economía hasta libertades sexuales, esto fue lo respondieron los presidenciales a las 10 inquietudes que tiene este sector sobre el futuro del país. ¿Coincides con ellos?
+</div>
+                    <a href="{{URL::to('juego-login')}}" class="btn btn-main">Juega y Averígualo</a>
+                    <div class="quiz-game"></div>
 				</div>
 			</div>
 		</div>
