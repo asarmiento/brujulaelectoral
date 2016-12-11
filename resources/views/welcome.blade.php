@@ -92,6 +92,7 @@
                       @foreach($arrayResultado as $key => $value)
                       <?php
                       $nomCandidato = explode(' ', $key);
+                       var_dump($nomCandidato);
                       //$objCandidatoPregunta = App\candidatos::where('nombre','=',$nomCandidato[0])->where('apellido','=',$nomCandidato[1])->first();
                       ?>
                       <!--barra 1 -->
