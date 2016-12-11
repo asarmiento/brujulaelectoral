@@ -27,7 +27,7 @@
 					$i=1;
 					foreach ($arrayResultado as $key => $value) {
 		            	$nomCandidato = explode(' ', $key);
-		            	$objCandidatoPregunta = App\candidatos::where('nombre','=',$nomCandidato[0])->where('apellido','=',$nomCandidato[1])->first();
+		            	$objCandidatoPregunta = App\candidatos::where('nombre','like','%'.$nomCandidato[0].'%')->where('apellido','like', '%'.$nomCandidato[1].'%')->first();
 		            	if($i==1){
 					?>
 						<ul class="closer-match">
@@ -59,7 +59,7 @@
 
 		            foreach ($arrayResultado as $key => $value) {
 		            	$nomCandidato = explode(' ', $key);
-		            	$objCandidatoPregunta = App\candidatos::where('nombre','=',$nomCandidato[0])->where('apellido','=',$nomCandidato[1])->first();
+		            	$objCandidatoPregunta = App\candidatos::where('nombre','like','%'.$nomCandidato[0].'%')->where('apellido','like', '%'.$nomCandidato[1].'%')->first();
                 ?>
 		                <div>
 						<p class="box-name col-xs-12 col-sm-3 col-md-2">{{$key}}</p>
