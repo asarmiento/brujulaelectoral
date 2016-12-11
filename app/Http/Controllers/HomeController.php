@@ -68,6 +68,7 @@ class HomeController extends Controller
         $arrayResultado = array();
         $preguntaP = preguntas::whereId($rPregunta)->first();
         $participantesCriterio = participantes::where('estado','=','1')->get();
+        $objParticipantes = null;
         $consulta = array();
 
         if($rPregunta != "" and $rEdad != "" and $rGenero != ""){
@@ -279,7 +280,12 @@ class HomeController extends Controller
                             }
                     }
                 }
-                $arrayResultado[$candidato->nombre .' '. $candidato->apellido] = $porcentaje*100/(count($objCandidatoPregunta)*count($objParticipantes));
+                if(count($objParticipantes)){
+                    $arrayResultado[$candidato->nombre .' '. $candidato->apellido] = $porcentaje*100/(count($objCandidatoPregunta)*count($objParticipantes));
+                }else{
+                    $arrayResultado[$candidato->nombre .' '. $candidato->apellido] = 0;
+                }
+                
             }
             /* --- FIN FUNCTION ---- */
         }
