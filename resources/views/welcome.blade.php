@@ -89,28 +89,24 @@
                         <span>Nivel de Afinidad:</span>
                     </div>
                     @if($arrayResultado)
-                      @foreach($arrayResultado as $key => $value)
-                      <?php
-                      $nomCandidato = explode(' ', $key);
-                       
-                      $objCandidatoPregunta = App\candidatos::where('nombre','like','%'.$nomCandidato[0].'%')->where('apellido','like', '%'.$nomCandidato[1].'%')->first();
-                      
-                      var_dump($objCandidatoPregunta);
-
-                      ?>
-                      <!--barra 1 -->
-                      <div>
-                          <p class="box-name col-xs-12 col-sm-3 col-md-2">{{$key}}</p>
-                          <div class="col-xs-12 col-sm-9 col-md-10">
-                              <div class="progress">
-                                  
-                                  <div class="progress-bar" role="progressbar" aria-valuenow="{{$value}}" aria-valuemin="0" aria-valuemax="100" style="width: {{$value}}%;">
-                                      {{number_format($value,2)}}%
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                      @endforeach
+                    @foreach($arrayResultado as $key => $value)
+                    <?php
+                    $nomCandidato = explode(' ', $key);
+                    $objCandidatoPregunta = App\candidatos::where('nombre','like','%'.$nomCandidato[0].'%')->where('apellido','like', '%'.$nomCandidato[1].'%')->first();
+                    ?>
+                    <!--barra 1 -->
+                    <div>
+                        <p class="box-name col-xs-12 col-sm-3 col-md-2">{{$key}}</p>
+                        <div class="col-xs-12 col-sm-9 col-md-10">
+                            <div class="progress">
+                                <img class="box-pic foto126" src="{{ asset('imgJuego/'.$objCandidatoPregunta->foto) }}" >
+                                <div class="progress-bar" role="progressbar" aria-valuenow="{{$value}}" aria-valuemin="0" aria-valuemax="100" style="width: {{$value}}%;">
+                                    {{number_format($value,2)}}%
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
                     @endif
 
                 <!-- descarga -->

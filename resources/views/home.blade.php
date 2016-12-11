@@ -55,11 +55,11 @@
                     @foreach($arrayResultado as $clave => $fila)
                     <?php
                     $nomCandidato = explode(' ', $fila['candidatos']);
-                    //$objCandidatoPregunta = App\candidatos::where('nombre','=',$nomCandidato[0])->where('apellido','=',$nomCandidato[1])->first();
+                    $objCandidatoPregunta = App\candidatos::where('nombre','like','%'.$nomCandidato[0].'%')->where('apellido','like', '%'.$nomCandidato[1].'%')->first();
                     ?>
                     <article class="media event">
                       <a class="pull-left ">
-                        
+                        <img class="box-pic foto70" src="{{ asset('imgJuego/'.$objCandidatoPregunta->foto) }}" >
                       </a>
                       <div class="media-body">
                         <a class="title" href="#">{{$fila['candidatos']}}</a>
@@ -87,11 +87,11 @@
                     @foreach($arrayFemenino as $clave => $fila)
                     <?php
                     $nomCandidato = explode(' ', $fila['candidatos']);
-                    //$objCandidatoPregunta = App\candidatos::where('nombre','=',$nomCandidato[0])->where('apellido','=',$nomCandidato[1])->first();
+                    $objCandidatoPregunta = App\candidatos::where('nombre','like','%'.$nomCandidato[0].'%')->where('apellido','like', '%'.$nomCandidato[1].'%')->first();
                     ?>
                     <article class="media event">
                       <a class="pull-left ">
-                        
+                        <img class="box-pic foto70" src="{{ asset('imgJuego/'.$objCandidatoPregunta->foto) }}" >
                       </a>
                       <div class="media-body">
                         <a class="title" href="#">{{$fila['candidatos']}}</a>
@@ -119,11 +119,11 @@
                     @foreach($arrayMasculino as $clave => $fila)
                     <?php
                     $nomCandidato = explode(' ', $fila['candidatos']);
-                    //$objCandidatoPregunta = App\candidatos::where('nombre','=',$nomCandidato[0])->where('apellido','=',$nomCandidato[1])->first();
+                    $objCandidatoPregunta = App\candidatos::where('nombre','like','%'.$nomCandidato[0].'%')->where('apellido','like', '%'.$nomCandidato[1].'%')->first();
                     ?>
                     <article class="media event">
                       <a class="pull-left ">
-                       
+                        <img class="box-pic foto70" src="{{ asset('imgJuego/'.$objCandidatoPregunta->foto) }}" >
                       </a>
                       <div class="media-body">
                         <a class="title" href="#">{{$fila['candidatos']}}</a>
@@ -152,11 +152,11 @@
                     @foreach($arrayGLTB as $clave => $fila)
                     <?php
                     $nomCandidato = explode(' ', $fila['candidatos']);
-                    //$objCandidatoPregunta = App\candidatos::where('nombre','=',$nomCandidato[0])->where('apellido','=',$nomCandidato[1])->first();
+                    $objCandidatoPregunta = App\candidatos::where('nombre','like','%'.$nomCandidato[0].'%')->where('apellido','like', '%'.$nomCandidato[1].'%')->first();
                     ?>
                     <article class="media event">
                       <a class="pull-left ">
-                        
+                        <img class="box-pic foto70" src="{{ asset('imgJuego/'.$objCandidatoPregunta->foto) }}" >
                       </a>
                       <div class="media-body">
                         <a class="title" href="#">{{$fila['candidatos']}}</a>
@@ -185,11 +185,11 @@
                     @foreach($array1625 as $clave => $fila)
                     <?php
                     $nomCandidato = explode(' ', $fila['candidatos']);
-                    //$objCandidatoPregunta = App\candidatos::where('nombre','=',$nomCandidato[0])->where('apellido','=',$nomCandidato[1])->first();
+                    $objCandidatoPregunta = App\candidatos::where('nombre','like','%'.$nomCandidato[0].'%')->where('apellido','like', '%'.$nomCandidato[1].'%')->first();
                     ?>
                     <article class="media event">
                       <a class="pull-left ">
-                        
+                        <img class="box-pic foto70" src="{{ asset('imgJuego/'.$objCandidatoPregunta->foto) }}" >
                       </a>
                       <div class="media-body">
                         <a class="title" href="#">{{$fila['candidatos']}}</a>
@@ -218,11 +218,11 @@
                     @foreach($array2535 as $clave => $fila)
                     <?php
                     $nomCandidato = explode(' ', $fila['candidatos']);
-                    //$objCandidatoPregunta = App\candidatos::where('nombre','=',$nomCandidato[0])->where('apellido','=',$nomCandidato[1])->first();
+                    $objCandidatoPregunta = App\candidatos::where('nombre','like','%'.$nomCandidato[0].'%')->where('apellido','like', '%'.$nomCandidato[1].'%')->first();
                     ?>
                     <article class="media event">
                       <a class="pull-left ">
-                        
+                        <img class="box-pic foto70" src="{{ asset('imgJuego/'.$objCandidatoPregunta->foto) }}" >
                       </a>
                       <div class="media-body">
                         <a class="title" href="#">{{$fila['candidatos']}}</a>
@@ -251,11 +251,11 @@
                     @foreach($array3545 as $clave => $fila)
                     <?php
                     $nomCandidato = explode(' ', $fila['candidatos']);
-                    //$objCandidatoPregunta = App\candidatos::where('nombre','=',$nomCandidato[0])->where('apellido','=',$nomCandidato[1])->first();
+                    $objCandidatoPregunta = App\candidatos::where('nombre','like','%'.$nomCandidato[0].'%')->where('apellido','like', '%'.$nomCandidato[1].'%')->first();
                     ?>
                     <article class="media event">
                       <a class="pull-left ">
-                        
+                        <img class="box-pic foto70" src="{{ asset('imgJuego/'.$objCandidatoPregunta->foto) }}" >
                       </a>
                       <div class="media-body">
                         <a class="title" href="#">{{$fila['candidatos']}}</a>
@@ -284,11 +284,11 @@
                     @foreach($array45 as $clave => $fila)
                     <?php
                     $nomCandidato = explode(' ', $fila['candidatos']);
-                    //$objCandidatoPregunta = App\candidatos::where('nombre','=',$nomCandidato[0])->where('apellido','=',$nomCandidato[1])->first();
+                    $objCandidatoPregunta = App\candidatos::where('nombre','like','%'.$nomCandidato[0].'%')->where('apellido','like', '%'.$nomCandidato[1].'%')->first();
                     ?>
                     <article class="media event">
                       <a class="pull-left ">
-                        
+                        <img class="box-pic foto70" src="{{ asset('imgJuego/'.$objCandidatoPregunta->foto) }}" >
                       </a>
                       <div class="media-body">
                         <a class="title" href="#">{{$fila['candidatos']}}</a>
