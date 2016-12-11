@@ -93,7 +93,7 @@
                       <?php
                       $nomCandidato = explode(' ', $key);
                        
-                      $objCandidatoPregunta = App\candidatos::where('nombre','=',$nomCandidato[0])->where('apellido','=',$nomCandidato[1])->first();
+                      $objCandidatoPregunta = App\candidatos::where('nombre','like','%'.$nomCandidato[0].'%')->where('apellido','=',$nomCandidato[1])->first();
                       var_dump($objCandidatoPregunta);
                       $objCandidatoPregunta = App\candidatos::where('nombre','=',utf8_encode($nomCandidato[0]))->where('apellido','=',utf8_encode($nomCandidato[1]))->first();
                       var_dump($objCandidatoPregunta);
@@ -101,7 +101,7 @@
                       var_dump($objCandidatoPregunta);
                       $objCandidatoPregunta = App\candidatos::where('nombre','=',($nomCandidato[0]))->where('apellido','=',utf8_decode($nomCandidato[1]))->first();
                       var_dump($objCandidatoPregunta);
-                      $objCandidatoPregunta = App\candidatos::where('apellido','=',$nomCandidato[1])->first();
+                      $objCandidatoPregunta = App\candidatos::where('apellido','like','%'.$nomCandidato[1].'%')->first();
                       var_dump($objCandidatoPregunta);
 
                       ?>
