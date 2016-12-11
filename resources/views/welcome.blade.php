@@ -95,11 +95,13 @@
                        
                       $objCandidatoPregunta = App\candidatos::where('nombre','=',$nomCandidato[0])->where('apellido','=',$nomCandidato[1])->first();
                       var_dump($objCandidatoPregunta);
-                      $objCandidatoPregunta = App\candidatos::where('nombre','=',htmlentities($nomCandidato[0]))->where('apellido','=',htmlentities($nomCandidato[1]))->first();
+                      $objCandidatoPregunta = App\candidatos::where('nombre','=',utf8_encode($nomCandidato[0]))->where('apellido','=',utf8_encode($nomCandidato[1]))->first();
                       var_dump($objCandidatoPregunta);
                       $objCandidatoPregunta = App\candidatos::where('nombre','=',utf8_decode($nomCandidato[0]))->where('apellido','=',utf8_decode($nomCandidato[1]))->first();
                       var_dump($objCandidatoPregunta);
                       $objCandidatoPregunta = App\candidatos::where('nombre','=',($nomCandidato[0]))->where('apellido','=',utf8_decode($nomCandidato[1]))->first();
+                      var_dump($objCandidatoPregunta);
+                      $objCandidatoPregunta = App\candidatos::where('apellido','=',$nomCandidato[1])->first();
                       var_dump($objCandidatoPregunta);
 
                       ?>
