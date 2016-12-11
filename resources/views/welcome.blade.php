@@ -81,7 +81,52 @@
                 </div>
             </div>
         </div><!-- end resultados -->
-        
+        <!-- estadisticas -->
+        <div class="bck-gray">
+            <div class="container">
+                <div class="row">
+                    <div id="category-label" class="col-xs=12 col-sm-12 col-md-12 mar-bottom">
+                        <span>Nivel de Afinidad:</span>
+                    </div>
+                    @if($arrayResultado)
+                      @foreach($arrayResultado as $key => $value)
+                      <?php
+                      $nomCandidato = explode(' ', $key);
+                      $objCandidatoPregunta = App\candidatos::where('nombre','=',$nomCandidato[0])->where('apellido','=',$nomCandidato[1])->first();
+                      ?>
+                      <!--barra 1 -->
+                      <div>
+                          <p class="box-name col-xs-12 col-sm-3 col-md-2">{{$key}}</p>
+                          <div class="col-xs-12 col-sm-9 col-md-10">
+                              <div class="progress">
+                                  <img class="box-pic foto126" src="{{ asset('imgJuego/'.$objCandidatoPregunta->foto) }}" >
+                                  <div class="progress-bar" role="progressbar" aria-valuenow="{{$value}}" aria-valuemin="0" aria-valuemax="100" style="width: {{$value}}%;">
+                                      {{number_format($value,2)}}%
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      @endforeach
+                    @endif
+
+                <!-- descarga -->
+                <form method="POST" action="{{ url('/excel') }}">
+                    <label>DESCARGAR:</label>
+                    {{ csrf_field() }}
+                    <input type="hidden" name="rPregunta" value="<?php if(isset($_POST['rPregunta'])) echo $_POST['rPregunta'] ?>">
+                    <input type="hidden" name="rEdad" value="<?php if(isset($_POST['rEdad'])) echo $_POST['rEdad'] ?>">
+                    <input type="hidden" name="rGenero" value="<?php if(isset( $_POST['rGenero'])) echo $_POST['rGenero'] ?>">
+                    <label class="checkbox-inline">
+                        <input class="tipoDownload" type="checkbox" checked="checked" id="inlineCheckbox1" name="tipoDownload" value="excel"> Excel
+                    </label>
+                    <label class="checkbox-inline">
+                        <input class="tipoDownload" type="checkbox" id="inlineCheckbox1" neme="tipoDownload" value="csv"> CSV
+                    </label>
+                    <button type="submit" class="btn btn-main">Descargar</button>
+                </form>
+                </div>
+            </div>
+        </div><!-- end estadisticas -->
         <!-- filtros -->
         <div class="container">
             <div class="row">
