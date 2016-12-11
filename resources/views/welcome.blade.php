@@ -92,8 +92,16 @@
                       @foreach($arrayResultado as $key => $value)
                       <?php
                       $nomCandidato = explode(' ', $key);
-                       var_dump($nomCandidato);
-                      //$objCandidatoPregunta = App\candidatos::where('nombre','=',$nomCandidato[0])->where('apellido','=',$nomCandidato[1])->first();
+                       
+                      $objCandidatoPregunta = App\candidatos::where('nombre','=',$nomCandidato[0])->where('apellido','=',$nomCandidato[1])->first();
+                      var_dump($objCandidatoPregunta);
+                      $objCandidatoPregunta = App\candidatos::where('nombre','=',htmlentities($nomCandidato[0]))->where('apellido','=',htmlentities($nomCandidato[1]))->first();
+                      var_dump($objCandidatoPregunta);
+                      $objCandidatoPregunta = App\candidatos::where('nombre','=',utf8_decode($nomCandidato[0]))->where('apellido','=',utf8_decode($nomCandidato[1]))->first();
+                      var_dump($objCandidatoPregunta);
+                      $objCandidatoPregunta = App\candidatos::where('nombre','=',($nomCandidato[0]))->where('apellido','=',utf8_decode($nomCandidato[1]))->first();
+                      var_dump($objCandidatoPregunta);
+
                       ?>
                       <!--barra 1 -->
                       <div>
