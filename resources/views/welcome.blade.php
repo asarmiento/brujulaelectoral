@@ -96,7 +96,7 @@
                       ?>
                         @if(count($objCandidatoPregunta))
                           <!--barra 1 -->
-                          <div>
+                          <div class="row">
                               <p class="box-name col-xs-12 col-sm-3 col-md-2">{{$key}}</p>
                               <div class="col-xs-12 col-sm-9 col-md-10">
                                   <div class="progress">
