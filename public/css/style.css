@@ -428,7 +428,7 @@ p.info-question span{
   min-height: 250px;
 }
 .img-box {
-  background: rgba(0, 0, 0, 0) url("../images/box.png") no-repeat scroll 20px 0px;
+  background: rgba(0, 0, 0, 0) url("../images/box.png") no-repeat scroll 10px 0px;
   min-height: 410px;
   position: relative;
 }
