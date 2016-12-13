@@ -36,18 +36,18 @@
           <p class="info-question"><span>{{ $objPreguntaAct->id  }}</span> /{{ count($objPreguntas) }} preguntas</p>
           <p></p>
         </div>
-        <div class="col-xs-12 col-sm-4 col-md-4 img-box">
+        <div class="col-xs-12 col-sm-4 col-md-4 ">
           <form id="form-voto" class="form-horizontal col-xs-12 col-sm-12  col-md-12" method="POST" action="{{ url('juego') }}" >
           {{ csrf_field() }}
-            <a class="btn-yes" href="">SI</a>
-            <a class="btn-no" href="">NO</a>
-            <a class="btn-white" href="">BLANCO</a>
+            <a class="btn-yes draggable" href="" id="btn-yes">SI</a>
+            <a class="btn-no draggable" href="" id="btn-no">NO</a>
+            <a class="btn-white draggable" href="" id="btn-white">BLANCO</a>
             <input type="hidden" name="respuesta" id="respuesta" value="">
            
               <input type="hidden" name="pregunta" id="pregunta" value="{{ $objPreguntaAct->id }}">
-           
-            
           </form>
+          <div style="clear: both;"></div>
+          <div class="img-box droppable " id="demo7"></div>
         </div>
       </div>
     </div>

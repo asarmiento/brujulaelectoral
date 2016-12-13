@@ -61,7 +61,7 @@
 					</form>
 				</div>
 				<!-- tema -->
-				@if(count($objCandidato1) and count($objCandidato2))
+				@if($objCandidato1 and $objCandidato2)
 					@foreach($objPreguntas as $pregunta)
 						<?php
 							$objPartido1 = App\partido::whereId($objCandidato1->partidos_id)->first();
