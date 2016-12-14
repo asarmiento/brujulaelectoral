@@ -43,7 +43,7 @@
                           <option value="">GÉNERO</option>
                           <option value="Femenino">Femenino</option>
                           <option value="Masculino">Masculino</option>
-                          <option value="GLTB">GLTB</option>
+                          
                         </select>
                       </div>
                       <div class="form-group select">
@@ -153,7 +153,7 @@
                           <option value="">GÉNERO</option>
                           <option value="Femenino">Femenino</option>
                           <option value="Masculino">Masculino</option>
-                          <option value="GLTB">GLTB</option>
+                          
                         </select>
                       </div>
                       <div class="form-group select">
