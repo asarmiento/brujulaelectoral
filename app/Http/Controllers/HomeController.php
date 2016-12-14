@@ -334,7 +334,7 @@ class HomeController extends Controller
                 );
 
         //validacion por IP para multiples participaciones
-        if(!$objParticipantes->byIp($objParticipantes->ip)){
+        //if(!$objParticipantes->byIp($objParticipantes->ip)){
 
 
             if($objParticipantes->save()){
@@ -348,10 +348,10 @@ class HomeController extends Controller
                 return back()->with('error_msj','Datos no guardados');
             };
 
-        }else{
+        /*}else{
             //Cuando el usuario tiene la misma IP
             return back()->with('error_msj','Usted ya participó');
-        }
+        }*/
 
     }
 

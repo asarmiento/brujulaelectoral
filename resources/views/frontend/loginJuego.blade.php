@@ -23,7 +23,7 @@
           @endif
 
             <div class="form-group">
-              <input type="text" class="form-control" id="nombre" name="nombre" placeholder="TU NOMBRE">
+              <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Tu nombre o Seudónimo">
               @if($errors->has('nombre'))
                   <p class="alert alert-danger">{{ $errors->first('nombre')}}</p>
               @endif    
@@ -33,7 +33,7 @@
                 <option value="">TU GÉNERO</option>
                 <option value="Femenino">Femenino</option>
                 <option value="Maculino">Maculino</option>
-                <option value="GLTB">GLTB</option>
+                <!--option value="GLTB">GLTB</option-->
               </select>
               @if($errors->has('genero'))
                   <p class="alert alert-danger">{{ $errors->first('genero')}}</p>
