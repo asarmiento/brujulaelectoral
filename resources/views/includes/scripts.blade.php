@@ -8,21 +8,24 @@
     <script type="text/javascript">
     
     $(document).ready(function() {
-        /*$('.btn-yes').click(function(e){
-        	e.preventDefault();
+        $('.btn-yes').click(function(e){
+          e.preventDefault();
+          $(".btn-yes").detach('slow').appendTo('.img-box')
           $('#respuesta').val("Si");
           $('#form-voto').submit();
         });
         $('.btn-no').click(function(e){
         	e.preventDefault();
+          $(".btn-no").detach('slow').appendTo('.img-box')
           $('#respuesta').val("No");
           $('#form-voto').submit();
         });
         $('.btn-white').click(function(e){
         	e.preventDefault();
+          $(".btn-white").detach('slow').appendTo('.img-box')
           $('#respuesta').val("Blanco");
           $('#form-voto').submit();
-        });*/
+        });
 
         $('#demo7').jrumble({
           speed: 200,
@@ -69,6 +72,7 @@
   </script>
 
   <script>
+  /*
   $( function() {
     $( ".draggable" ).draggable();
     $( ".droppable" ).droppable({
@@ -88,7 +92,7 @@
           //console.log(ui.draggable.attr("id"));
       }
     });
-  } );
+  } );*/
   </script>
 
   <script>
