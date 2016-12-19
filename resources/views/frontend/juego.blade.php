@@ -28,11 +28,12 @@
           </div>
         </div>
         <div class="col-xs=10 col-sm-6 col-md-5">
-          <h3 class="headline-3">
+          
           @if(count($objPreguntaAct))
-            {{ $objPreguntaAct->pregunta }}
+            <h3 class="headline-3">{{ $objPreguntaAct->pregunta }}</h3>
+            <p class="txt-context-2">{{ $objPreguntaAct->descripcion }}</p>
           @endif
-          </h3>
+          
           <p class="info-question"><span>{{ $objPreguntaAct->id  }}</span> /{{ count($objPreguntas) }} preguntas</p>
           <p></p>
         </div>

@@ -70,6 +70,7 @@
 				<div class="col-xs-12 col-sm-12 col-md-12 face-group contpreguntas divpregunta{{$pregunta->id}}">
 				
 					<h3 >{{$pregunta->pregunta}}</h3>
+					<p class="txt-context">{{$pregunta->descripcion}}</p>
 					<div class="col-xs-12 col-sm-6 col-md-6">
 						<div>
 							<div class="pic-box">
