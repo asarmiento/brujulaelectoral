@@ -32,7 +32,7 @@
               <select class="form-control" id="genero" name="genero">
                 <option value="">TU GÉNERO</option>
                 <option value="Femenino">Femenino</option>
-                <option value="Maculino">Maculino</option>
+                <option value="Masculino">Masculino</option>
                 <!--option value="GLTB">GLTB</option-->
               </select>
               @if($errors->has('genero'))

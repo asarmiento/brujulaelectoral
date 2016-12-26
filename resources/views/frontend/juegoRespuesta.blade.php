@@ -13,39 +13,40 @@
 		<div class="container">
 			<div class="row">
 			<!-- titulo -->
-				<div class="col-xs=12 col-sm-12 col-md-offset-3 col-md-6">
+				<div class="col-xs-12 col-sm-12 col-md-offset-3 col-md-6">
 					<h2><span>¿Quién es tu </span>Candidato afin?</h2>
 					<h4>Juego Electoral</h4>
 				</div>
-				<div class="col-xs=12 col-sm-12 col-md-12">
+				<div class="col-xs-12 col-sm-12 col-md-12">
 
 				</div>
 				<!-- juego -->
-				<div class="col-xs-12 col-sm-12 col-md-3 box-answer">
+				<div class="col-xs-12 col-sm-12 col-md-12 box-answer">
 					<h3 class="headline-3">
 					@if($objPregunta)
 						{{$objPregunta->pregunta}}
 					@endif
 					</h3>
-					<h4>Candidatos afines:</h4>
-					
 
-					<ul class="closer-match">
-					@if(count($objRespuestas))
-						@foreach($objRespuestas as $respuesta)
-							@if($respuesta->pivot->respuesta_corta == $objMiRespuesta->pivot->respuesta)
-								<li class="match-candidate">
-									<img src="{{ asset('imgJuego/'.$respuesta->foto) }}" class="foto70">
-								</li>
-							@endif
-						@endforeach
-					@endif
-					</ul>
+					<div class="box-middle">
+						<h4>Candidatos afines:</h4>
+						<ul class="closer-match">
+						@if(count($objRespuestas))
+							@foreach($objRespuestas as $respuesta)
+								@if($respuesta->pivot->respuesta_corta == $objMiRespuesta->pivot->respuesta)
+									<li class="match-candidate">
+										<img src="{{ asset('imgJuego/'.$respuesta->foto) }}" class="foto70">
+									</li>
+								@endif
+							@endforeach
+						@endif
+						</ul>
+					</div>
 					
 				</div>
-				<div id="answer-content" class="col-xs-12 col-sm-12 col-md-9">
+				<div id="answer-content" class="col-xs-12 col-sm-12 col-md-12">
 					<h3 class="info-question">
-						Respuestas de los candidatos
+						Respuestas
 					</h3>
 
 					<ul id="candidate-answer">
@@ -73,6 +74,7 @@
 					@endif
 						
 					</ul>
+					
 					<a href="{{ url('juego') }}" class="btn btn-main">Siguiente</a>
 					<p class="share">COMPARTIR:</p>
 

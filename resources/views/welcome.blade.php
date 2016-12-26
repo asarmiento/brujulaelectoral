@@ -7,9 +7,9 @@
                 <div class="col-xs=12 col-sm-12 col-md-6">
                     <h2><span>¿Quién es tu </span>candidato afín?</h2>
                     <h4></h4>
-                    <div class="col-xs=12 col-sm-12 col-md-6">Después de grupos focales con jóvenes de entre 20 y 26 años, el equipo periodístico de la revista digital Plan V, con el apoyo de la Fundación Ciudadanía y Desarrollo, desarrolló este portal para que los electores, sobre todo los jóvenes, encuentren al candidato presidencial que más se acerque a sus aspiraciones y creencias. </div>
-                    <div class="col-xs=12 col-sm-12 col-md-6">Desde economía hasta libertades sexuales, esto fue lo respondieron los presidenciales a las 10 inquietudes que tiene este sector sobre el futuro del país. ¿Coincides con ellos?
-</div>
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                      Después de grupos focales con jóvenes de entre 20 y 26 años, el equipo periodístico de la revista digital Plan V, con el apoyo de la Fundación Ciudadanía y Desarrollo, desarrolló este portal para que los electores, sobre todo los jóvenes, encuentren al candidato presidencial que más se acerque a sus aspiraciones y creencias. <br>Desde economía hasta libertades sexuales, esto fue lo respondieron los presidenciales a las 10 inquietudes que tiene este sector sobre el futuro del país. ¿Coincides con ellos?
+                    </div>
                     <a href="{{URL::to('juego-login')}}" class="btn btn-main">Juega y Averígualo</a>
                     <div class="quiz-game"></div>
                 </div>
@@ -21,7 +21,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs=12 col-sm-12 col-md-12">
-                    <h2><span>Ranking </span><span class="headline">del</span> Juego</h2>
+                    <h2><span>El Candidato </span><span class="headline">más</span> Compatible</h2>
+
                     <!-- formulario -->
                     <form class="form-inline" method="POST" action="{{ url('/') }}">
                     {{ csrf_field() }}
@@ -43,7 +44,7 @@
                           <option value="">GÉNERO</option>
                           <option value="Femenino">Femenino</option>
                           <option value="Masculino">Masculino</option>
-                          
+                          <option value="">Todos</option>
                         </select>
                       </div>
                       <div class="form-group select">
@@ -53,6 +54,7 @@
                           <option value="25 - 35">25 - 35</option>
                           <option value="35 - 45">35 - 45</option>
                           <option value="45 en adelante">45 en adelante</option>
+                          <option value="">Todos</option>
                         </select>
                       </div>
                       <button type="submit" class="btn btn-main">Mostrar</button>
@@ -102,7 +104,7 @@
                                   <div class="progress">
                                       <img class="box-pic foto126" src="{{ asset('imgJuego/'.$objCandidatoPregunta->foto) }}" >
                                       <div class="progress-bar" role="progressbar" aria-valuenow="{{$value}}" aria-valuemin="0" aria-valuemax="100" style="width: {{$value}}%;">
-                                          {{number_format($value,2)}}%
+                                          {{number_format($value)}}%
                                       </div>
                                   </div>
                               </div>
@@ -129,47 +131,7 @@
                 </div>
             </div>
         </div><!-- end estadisticas -->
-        <!-- filtros -->
-        <div class="container">
-            <div class="row">
-                    <!-- formulario -->
-                    <form class="form-inline" method="POST" action="{{ url('/') }}">
-                    {{ csrf_field() }}
-                    <label class="head-label" for="titulo">Ordenar</label>
-                      <div class="form-group select">
-                        <select class="form-control box-question" name="rPregunta">
-                          <option value="">PREGUNTAS</option>
-                          <?php
-                          foreach ($objPreguntas as $pregunta ) {
-                          ?>
-                          <option value="{{ $pregunta->id }}">{{ $pregunta->pregunta }}</option>
-                          <?php
-                        }
-                          ?>
-                        </select>
-                      </div>
-                      <div class="form-group select">
-                        <select class="form-control box-gender" name="rGenero">
-                          <option value="">GÉNERO</option>
-                          <option value="Femenino">Femenino</option>
-                          <option value="Masculino">Masculino</option>
-                          
-                        </select>
-                      </div>
-                      <div class="form-group select">
-                        <select class="form-control box-age" name="rEdad">
-                          <option value="">EDAD</option>
-                          <option value="16 - 25">16 - 25</option>
-                          <option value="25 - 35">25 - 35</option>
-                          <option value="35 - 45">35 - 45</option>
-                          <option value="45 en adelante">45 en adelante</option>
-                        </select>
-                      </div>
-                      <button type="submit" class="btn btn-main">Mostrar</button>
-                    </form>
-                    <!-- end formulario -->
-            </div>
-        </div><!-- end filtros -->
+        
     </section>
     <section id="box-2-face">
         <div class="f2f-left"></div>

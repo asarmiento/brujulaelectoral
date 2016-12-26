@@ -59,6 +59,51 @@
                             @endif
                         </div>
                       </div>
+
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="opcion_si_1">Opción Si 1
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="opcion_si_1" name="opcion_si_1" required="required" class="form-control col-md-7 col-xs-12" value="{{ $objPregunta->opcion_si_1 }}">
+                          @if($errors->has('opcion_si_1'))
+                                <p class="alert alert-danger">{{ $errors->first('opcion_si_1')}}</p>
+                            @endif
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="opcion_si_2">Opción Si 2
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="opcion_si_2" name="opcion_si_2" required="required" class="form-control col-md-7 col-xs-12" value="{{ $objPregunta->opcion_si_2 }}">
+                          @if($errors->has('opcion_si_2'))
+                                <p class="alert alert-danger">{{ $errors->first('opcion_si_2')}}</p>
+                            @endif
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="opcion_no_1">Opción No 1
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="opcion_no_1" name="opcion_no_1" required="required" class="form-control col-md-7 col-xs-12" value="{{ $objPregunta->opcion_no_1 }}">
+                          @if($errors->has('opcion_no_1'))
+                                <p class="alert alert-danger">{{ $errors->first('opcion_no_1')}}</p>
+                            @endif
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="opcion_no_2">Opción No 2
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="opcion_no_2" name="opcion_no_2" required="required" class="form-control col-md-7 col-xs-12" value="{{ $objPregunta->opcion_no_2 }}">
+                          @if($errors->has('opcion_no_2'))
+                                <p class="alert alert-danger">{{ $errors->first('opcion_no_2')}}</p>
+                            @endif
+                        </div>
+                      </div>
+
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Estado</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
