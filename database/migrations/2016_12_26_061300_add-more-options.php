@@ -13,10 +13,14 @@ class AddMoreOptions extends Migration
     public function up()
     {
         Schema::table('preguntas', function ($table) {
-            $table->string('opcion_si_1')->after('descripcion');
-            $table->string('opcion_si_2')->after('descripcion');
-            $table->string('opcion_no_1')->after('descripcion');
-            $table->string('opcion_no_2')->after('descripcion');
+            $table->string('opcion_5')->after('descripcion');
+            $table->string('opcion_4')->after('descripcion');
+            $table->string('opcion_3')->after('descripcion');
+            $table->string('opcion_2')->after('descripcion');
+            $table->string('opcion_1')->after('descripcion');
+        });
+        Schema::table('candidatos_preguntas', function ($table) {
+            $table->string('opcion')->after('respuesta_larga');
         });
     }
 
@@ -29,10 +33,14 @@ class AddMoreOptions extends Migration
     {
         
         Schema::table('preguntas', function ($table) {
-            $table->dropColumn('opcion_si_1');
-            $table->dropColumn('opcion_si_2');
-            $table->dropColumn('opcion_no_1');
-            $table->dropColumn('opcion_no_2');
+            $table->dropColumn('opcion_1');
+            $table->dropColumn('opcion_2');
+            $table->dropColumn('opcion_3');
+            $table->dropColumn('opcion_4');
+            $table->dropColumn('opcion_5');
+        });
+        Schema::table('candidatos_preguntas', function ($table) {
+            $table->dropColumn('opcion');
         });
     }
 }

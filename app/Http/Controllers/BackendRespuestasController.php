@@ -80,6 +80,7 @@ class BackendRespuestasController extends Controller
         $objRespuesta->preguntas_id = $request->preguntas_id;
         $objRespuesta->respuesta_corta = $request->respuesta_corta;
         $objRespuesta->respuesta_larga = $request->respuesta_larga;
+        $objRespuesta->opcion = $request->opcion;
         $objRespuesta->estado = $request->estado;
 
     
@@ -159,6 +160,7 @@ class BackendRespuestasController extends Controller
         $objRespuesta->preguntas_id = $request->preguntas_id;
         $objRespuesta->respuesta_corta = $request->respuesta_corta;
         $objRespuesta->respuesta_larga = $request->respuesta_larga;
+        $objRespuesta->opcion = $request->opcion;
         $objRespuesta->estado = $request->estado;
 
     

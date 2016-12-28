@@ -106,6 +106,17 @@
                       </div>
 
                       <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="opcion">Respuesta opción
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="opcion" name="opcion" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese la opción de su respuesta">
+                            @if($errors->has('opcion'))
+                                <p class="alert alert-danger">{{ $errors->first('opcion')}}</p>
+                            @endif
+                        </div>
+                      </div>
+
+                      <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Estado</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <div id="estado" class="btn-group" data-toggle="buttons">

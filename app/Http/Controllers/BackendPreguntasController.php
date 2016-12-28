@@ -61,19 +61,17 @@ class BackendPreguntasController extends Controller
         $this->validate($request,[
             'pregunta' =>  'required|unique:preguntas,pregunta',
             'descripcion' =>  'required',
-            'opcion_si_1' =>  'required',
-            'opcion_si_2' =>  'required',
-            'opcion_no_1' =>  'required',
-            'opcion_no_2' =>  'required',
+            
             ]);
 
         $objPregunta = new preguntas();
         $objPregunta->pregunta = $request->pregunta;
         $objPregunta->descripcion = $request->descripcion;
-        $objPregunta->opcion_si_1 = $request->opcion_si_1;
-        $objPregunta->opcion_si_2 = $request->opcion_si_2;
-        $objPregunta->opcion_no_1 = $request->opcion_no_1;
-        $objPregunta->opcion_no_2 = $request->opcion_no_2;
+        $objPregunta->opcion_1 = $request->opcion_1;
+        $objPregunta->opcion_2 = $request->opcion_2;
+        $objPregunta->opcion_3 = $request->opcion_3;
+        $objPregunta->opcion_4 = $request->opcion_4;
+        $objPregunta->opcion_5 = $request->opcion_5;
         $objPregunta->estado = $request->estado;
     
         
@@ -140,19 +138,17 @@ class BackendPreguntasController extends Controller
         $this->validate($request,[
             'pregunta' =>  'required|unique:preguntas,pregunta,'.$id,
             'descripcion' =>  'required',
-            'opcion_si_1' =>  'required',
-            'opcion_si_2' =>  'required',
-            'opcion_no_1' =>  'required',
-            'opcion_no_2' =>  'required',
+            
             ]);
 
         $objPregunta = preguntas::find($id);
         $objPregunta->pregunta = $request->pregunta;
         $objPregunta->descripcion = $request->descripcion;
-        $objPregunta->opcion_si_1 = $request->opcion_si_1;
-        $objPregunta->opcion_si_2 = $request->opcion_si_2;
-        $objPregunta->opcion_no_1 = $request->opcion_no_1;
-        $objPregunta->opcion_no_2 = $request->opcion_no_2;
+        $objPregunta->opcion_1 = $request->opcion_1;
+        $objPregunta->opcion_2 = $request->opcion_2;
+        $objPregunta->opcion_3 = $request->opcion_3;
+        $objPregunta->opcion_4 = $request->opcion_4;
+        $objPregunta->opcion_5 = $request->opcion_5;
         $objPregunta->estado = $request->estado;
     
         

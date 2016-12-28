@@ -49,7 +49,7 @@
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="descripcion">Descripción
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="descripcion">Descripción <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input type="text" id="descripcion" name="descripcion" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese la descripción">
@@ -60,45 +60,56 @@
                       </div>
 
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="opcion_si_1">Opción Si 1
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="opcion_1">Opción 1
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="opcion_si_1" name="opcion_si_1" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese la Opción Si 1">
-                          @if($errors->has('opcion_si_1'))
-                                <p class="alert alert-danger">{{ $errors->first('opcion_si_1')}}</p>
+                          <input type="text" id="opcion_1" name="opcion_1" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese la Opción 1">
+                          @if($errors->has('opcion_1'))
+                                <p class="alert alert-danger">{{ $errors->first('opcion_1')}}</p>
                             @endif
                         </div>
                       </div>
 
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="opcion_si_2">Opción Si 2
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="opcion_2">Opción 2
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="opcion_si_2" name="opcion_si_2" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese la Opción Si 2">
-                          @if($errors->has('opcion_si_2'))
-                                <p class="alert alert-danger">{{ $errors->first('opcion_si_2')}}</p>
+                          <input type="text" id="opcion_2" name="opcion_2" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese la Opción 2">
+                          @if($errors->has('opcion_2'))
+                                <p class="alert alert-danger">{{ $errors->first('opcion_2')}}</p>
                             @endif
                         </div>
                       </div>
 
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="opcion_no_1">Opción No 1
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="opcion_3">Opción 3
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="opcion_no_1" name="opcion_no_1" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese la Opción No 1">
-                          @if($errors->has('opcion_no_1'))
-                                <p class="alert alert-danger">{{ $errors->first('opcion_no_1')}}</p>
+                          <input type="text" id="opcion_3" name="opcion_3" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese la Opción 3">
+                          @if($errors->has('opcion_3'))
+                                <p class="alert alert-danger">{{ $errors->first('opcion_3')}}</p>
                             @endif
                         </div>
                       </div>
 
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="opcion_no_2">Opción No 2
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="opcion_4">Opción 4
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="opcion_no_2" name="opcion_no_2" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese la Opción No 2">
-                          @if($errors->has('opcion_no_2'))
-                                <p class="alert alert-danger">{{ $errors->first('opcion_no_2')}}</p>
+                          <input type="text" id="opcion_4" name="opcion_4" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese la Opción 4">
+                          @if($errors->has('opcion_4'))
+                                <p class="alert alert-danger">{{ $errors->first('opcion_4')}}</p>
+                            @endif
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="opcion_5">Opción 5
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="opcion_5" name="opcion_5" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese la Opción 5">
+                          @if($errors->has('opcion_5'))
+                                <p class="alert alert-danger">{{ $errors->first('opcion_5')}}</p>
                             @endif
                         </div>
                       </div>
