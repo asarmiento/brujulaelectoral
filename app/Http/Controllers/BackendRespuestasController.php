@@ -73,6 +73,7 @@ class BackendRespuestasController extends Controller
             'preguntas_id' => 'required',
             'respuesta_corta' => 'required',
             'respuesta_larga' => 'required',
+            'respuesta_ff' => 'required',
             ]);
 
         $objRespuesta = new candidatos_preguntas();
@@ -81,6 +82,7 @@ class BackendRespuestasController extends Controller
         $objRespuesta->respuesta_corta = $request->respuesta_corta;
         $objRespuesta->respuesta_larga = $request->respuesta_larga;
         $objRespuesta->opcion = $request->opcion;
+        $objRespuesta->respuesta_ff = $request->respuesta_ff;
         $objRespuesta->estado = $request->estado;
 
     
@@ -153,6 +155,7 @@ class BackendRespuestasController extends Controller
             'preguntas_id' => 'required',
             'respuesta_corta' => 'required',
             'respuesta_larga' => 'required',
+            'respuesta_ff' => 'required',
             ]);
 
         $objRespuesta = candidatos_preguntas::find($id);
@@ -161,6 +164,7 @@ class BackendRespuestasController extends Controller
         $objRespuesta->respuesta_corta = $request->respuesta_corta;
         $objRespuesta->respuesta_larga = $request->respuesta_larga;
         $objRespuesta->opcion = $request->opcion;
+        $objRespuesta->respuesta_ff = $request->respuesta_ff;
         $objRespuesta->estado = $request->estado;
 
     
