@@ -57,7 +57,7 @@ class HomeController extends Controller
                     'arrayResultado' => $arrayResultado,
                     'consulta' => array('Todas las preguntas','Todas las edades','Todos los géneros'),
                 );
-        return view('commingsoon',$data);
+        return view('welcome',$data);
     }
 
      public function report(Request $request)
