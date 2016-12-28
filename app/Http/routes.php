@@ -164,6 +164,7 @@ Route::group(array('prefix' => 'backend'), function(){
 
 Route::get('/', 'HomeController@index');
 Route::post('/', 'HomeController@report');
+Route::get('/preview', 'HomeController@preview');
 
 Route::get('juego-login', 'HomeController@create');
 Route::post('juego-login', 'HomeController@store');

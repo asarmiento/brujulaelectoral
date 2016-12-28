@@ -21,6 +21,7 @@
                     <span class="icon-bar"></span>
                   </button>
                 </div>
+                {{--
                 <div id="main-menu" class="collapse navbar-collapse navbar-main-nav">
                   <ol id="menu-menu-principal" class="navbar-nav">
                     <li class=""><a title="Inicio" href="{{ URL::to('/') }}"><span>Inicia</span></a>
@@ -29,8 +30,9 @@
                     <p>¿QUIÉN ES TU CANDIDATO AFIN?</p></li>
                     <li class=""><a title="Inicio" href="{{ URL::to('frente-a-frente') }}"><span>Compara</span></a>
                     <p>LAS PROPUESTAS PRESIDENCIALES</p></li>
-              </ol>
-            </div>
+                  </ol>
+                </div>
+                --}}
         </nav>
       </div>
     </div>    

@@ -57,6 +57,47 @@ class HomeController extends Controller
                     'arrayResultado' => $arrayResultado,
                     'consulta' => array('Todas las preguntas','Todas las edades','Todos los géneros'),
                 );
+        return view('commingsoon',$data);
+    }
+
+    public function preview()
+    {        
+
+        $arrayResultado = array();
+        $objParticipantes = null;
+        //Obtengo el objeto de los candidatos
+        $objCandidato = candidatos::activas()->get();
+        foreach($objCandidato as $candidato){
+            $porcentaje = 0;
+            //obtengo el objeto preguntas por candidato
+            $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();            
+            foreach($objCandidatoPregunta as $pregunta){
+                //obtengo el objeto de los participantes que terminaron de cotestar todas las preguntas
+                $objParticipantes = participantes::where('estado','=','1')->get();
+                foreach ($objParticipantes as $participante) {
+                    $objPreguntaParticipante = preguntas::find($pregunta->id)->participantes()->where('participantes_preguntas.participantes_id','=',$participante->id)->orderBy('pivot_id','desc')->first();
+                    if($objPreguntaParticipante->pivot->respuesta == $pregunta->pivot->respuesta_corta){
+                            $porcentaje = $porcentaje + 1;
+                        }
+                }
+
+            }
+            if(count($objParticipantes)){
+                $arrayResultado[$candidato->nombre .' '. $candidato->apellido] = $porcentaje*100/(count($objCandidatoPregunta)*count($objParticipantes));
+            }else{
+                $arrayResultado[$candidato->nombre .' '. $candidato->apellido] = 0;
+            }
+        }
+
+        arsort($arrayResultado);
+
+        $data = array(
+                    'objCandidato' => candidatos::activas()->get(),
+                    'objPreguntas' => preguntas::activas()->get(),
+                    'titulo' => 'Home',
+                    'arrayResultado' => $arrayResultado,
+                    'consulta' => array('Todas las preguntas','Todas las edades','Todos los géneros'),
+                );
         return view('welcome',$data);
     }
 
