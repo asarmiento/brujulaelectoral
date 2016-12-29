@@ -1089,12 +1089,15 @@ a.op_1,a.op_2,a.op_3,a.op_4,a.op_5{
 }
 @media (max-width: 480px) {
 	#interna #main-menu, #main-menu {
-	      width: 60%;
+	    width: 80%;
+    	left: 0px;
 	}
 	#interna .navbar-toggle {
 	  right: 0px;
 	}
-	.navbar{width: 440px;}
+	.navbar{width: 340px;
+    left: 0;
+    right: 0;}
 	.number {
 	  display: none;
 	}
@@ -1141,23 +1144,27 @@ a.op_1,a.op_2,a.op_3,a.op_4,a.op_5{
 	  top: -23px;
 	}
 	.btn.btn-main {
-	  margin: 20px 25%;
+	  margin: 20px 0;
 	}
 	#candidate-answer .text {
 	  width: 100%;
 	}
 	#candidate-answer .btn-yes, #candidate-answer .btn-no, #candidate-answer .btn-white {
-	  margin-left: 20%;
+	  margin-left: 0%;
 	  margin-top: 44px;
 	}
-	#answer-content P {
-	  margin-top: 20px;
+	#answer-content p {
+	  margin-top: 0px;
+	  margin-left: 20px;
 	}
 	.pic-box {
 	  margin: 0 0 20px;
 	}
 	#answer-content .btn-main {
 	  margin: 10px 0;
+	}
+	ul#candidate-answer li {
+		width: 100%;
 	}
 }
 @media (max-width: 360px) {
@@ -1173,6 +1180,11 @@ a.op_1,a.op_2,a.op_3,a.op_4,a.op_5{
 	}
 	h2 {
 	  font-size: 48px;
+	}
+	.navbar {
+        width: 280px;
+	    right: 0;
+	    left: 0;
 	}
 	.btn.btn-main {
 	  margin: 20px 13%;
@@ -1200,7 +1212,7 @@ a.op_1,a.op_2,a.op_3,a.op_4,a.op_5{
 	  margin: 0 70px 10px;
 	}
 	.img-box {
-	  background: rgba(0, 0, 0, 0) url("../images/box.png") no-repeat scroll 64px 180px / 59% auto;
+	  background: rgba(0, 0, 0, 0) url("../images/box.png") no-repeat scroll 19px 0px / 90% auto;
 	}
 	#interna .navbar-toggle {
 	  right: 516px;
@@ -1222,9 +1234,17 @@ a.op_1,a.op_2,a.op_3,a.op_4,a.op_5{
 	  margin: 10px auto;
 	}
 	#form-3 .form-group.select {
-  width: 113%;
-}
-
+	  width: 113%;
+	}
+	.btn-yes{width: 40%;}
+	.btn-no{width: 40%;}
+	.btn-white{width: 40%;}
+	.img-mpv {
+	    width: 53px;
+	}
+	.img-fcd {
+	    width: 67px;
+	}
 }
 @media (max-width: 320px) {
 	h1 {
@@ -1239,7 +1259,7 @@ a.op_1,a.op_2,a.op_3,a.op_4,a.op_5{
 	.btn.btn-main {
 	  margin: 20px 6%;
 	}
-		.ico-tw > a, .ico-fb > a {
+	.ico-tw > a, .ico-fb > a {
 	  padding-bottom: 10px;
 	}
 	header h2 {
@@ -1247,10 +1267,11 @@ a.op_1,a.op_2,a.op_3,a.op_4,a.op_5{
 	  top: 19px;
 	}
 	#interna .navbar-toggle {
-	  right: 554px;
+	  right: 0px;
 	}
-		#interna #main-menu, #main-menu {
-	  width: 30%;
+	#interna #main-menu, #main-menu {
+    	width: 100%;
+    	left: 0px;
 	}
 	#candidate-answer .btn-yes, #candidate-answer .btn-no, #candidate-answer .btn-white {
 	  margin-bottom: 20px;
@@ -1265,5 +1286,8 @@ a.op_1,a.op_2,a.op_3,a.op_4,a.op_5{
 	}
 	h3.info-question {
 	  line-height: 120%;
+	}
+	.box-middle {
+	    margin: 10px 10% 0;
 	}
 }

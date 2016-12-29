@@ -14,7 +14,7 @@
 							<div class="ico-social-media">
 								<div class="addthis_inline_share_toolbox"></div>
 							</div>
-							<div class="logo-cc"></div>
+							<img class="img-responsive pull-left img-cc"  src="{{ asset('images/img-cc.jpg') }}" />
 							<div class="download" style="display: none;"><a href="#">Código abierto descárgalo aquí</a></div>
 						</div>
 					</div>
