@@ -25,7 +25,7 @@ class HomeController extends Controller
         $arrayResultado = array();
         $objParticipantes = null;
         //Obtengo el objeto de los candidatos
-        $objCandidato = candidatos::activas()->orderBy('apellido','desc')->get();
+        $objCandidato = candidatos::activas()->orderBy('apellido')->get();
         foreach($objCandidato as $candidato){
             $porcentaje = 0;
             //obtengo el objeto preguntas por candidato
@@ -51,7 +51,7 @@ class HomeController extends Controller
         arsort($arrayResultado);
 
         $data = array(
-                    'objCandidato' => candidatos::activas()->orderBy('apellido','desc')->get(),
+                    'objCandidato' => candidatos::activas()->orderBy('apellido')->get(),
                     'objPreguntas' => preguntas::activas()->get(),
                     'titulo' => 'Home',
                     'arrayResultado' => $arrayResultado,
@@ -66,7 +66,7 @@ class HomeController extends Controller
         $arrayResultado = array();
         $objParticipantes = null;
         //Obtengo el objeto de los candidatos
-        $objCandidato = candidatos::activas()->orderBy('apellido','desc')->get();
+        $objCandidato = candidatos::activas()->orderBy('apellido')->get();
         foreach($objCandidato as $candidato){
             $porcentaje = 0;
             //obtengo el objeto preguntas por candidato
@@ -92,7 +92,7 @@ class HomeController extends Controller
         arsort($arrayResultado);
 
         $data = array(
-                    'objCandidato' => candidatos::activas()->orderBy('apellido','desc')->get(),
+                    'objCandidato' => candidatos::activas()->orderBy('apellido')->get(),
                     'objPreguntas' => preguntas::activas()->get(),
                     'titulo' => 'Home',
                     'arrayResultado' => $arrayResultado,
@@ -116,7 +116,7 @@ class HomeController extends Controller
             $consulta = [$preguntaP->pregunta,$rEdad,$rGenero];
             $participantesCriterio = participantes::where('estado','=','1')->where('edad','=',$rEdad)->where('genero','=',$rGenero)->get();
             //Obtengo el objeto de los candidatos
-            $objCandidato = candidatos::activas()->orderBy('apellido','desc')->get();
+            $objCandidato = candidatos::activas()->orderBy('apellido')->get();
             foreach($objCandidato as $candidato){
                 $porcentaje = 0;
                 //obtengo el objeto preguntas por candidato
@@ -144,7 +144,7 @@ class HomeController extends Controller
             $consulta = [$preguntaP->pregunta,$rEdad,'Todos los géneros'];
             $participantesCriterio = participantes::where('estado','=','1')->where('edad','=',$rEdad)->get();
             //Obtengo el objeto de los candidatos
-            $objCandidato = candidatos::activas()->orderBy('apellido','desc')->get();
+            $objCandidato = candidatos::activas()->orderBy('apellido')->get();
             foreach($objCandidato as $candidato){
                 $porcentaje = 0;
                 //obtengo el objeto preguntas por candidato
@@ -172,7 +172,7 @@ class HomeController extends Controller
             $consulta = [$preguntaP->pregunta,'Todas las edades',$rGenero];
             $participantesCriterio = participantes::where('estado','=','1')->where('genero','=',$rGenero)->get();
             //Obtengo el objeto de los candidatos
-            $objCandidato = candidatos::activas()->orderBy('apellido','desc')->get();
+            $objCandidato = candidatos::activas()->orderBy('apellido')->get();
             foreach($objCandidato as $candidato){
                 $porcentaje = 0;
                 //obtengo el objeto preguntas por candidato
@@ -200,7 +200,7 @@ class HomeController extends Controller
             $consulta = ['Todas las preguntas',$rEdad,$rGenero];
             $participantesCriterio = participantes::where('estado','=','1')->where('edad','=',$rEdad)->where('genero','=',$rGenero)->get();
             //Obtengo el objeto de los candidatos
-            $objCandidato = candidatos::activas()->orderBy('apellido','desc')->get();
+            $objCandidato = candidatos::activas()->orderBy('apellido')->get();
             foreach($objCandidato as $candidato){
                 $porcentaje = 0;
                 //obtengo el objeto preguntas por candidato
@@ -228,7 +228,7 @@ class HomeController extends Controller
             $consulta = ['Todas las preguntas',"Todos las edades",$rGenero];
             $participantesCriterio = participantes::where('estado','=','1')->where('genero','=',$rGenero)->get();
             //Obtengo el objeto de los candidatos
-            $objCandidato = candidatos::activas()->orderBy('apellido','desc')->get();
+            $objCandidato = candidatos::activas()->orderBy('apellido')->get();
             foreach($objCandidato as $candidato){
                 $porcentaje = 0;
                 //obtengo el objeto preguntas por candidato
@@ -255,7 +255,7 @@ class HomeController extends Controller
         }elseif($rPregunta != "" and $rEdad == "" and $rGenero == ""){
             $consulta = [$preguntaP->pregunta,"Todos las edades","Todos los géneros"];
             //Obtengo el objeto de los candidatos
-            $objCandidato = candidatos::activas()->orderBy('apellido','desc')->get();
+            $objCandidato = candidatos::activas()->orderBy('apellido')->get();
             foreach($objCandidato as $candidato){
                 $porcentaje = 0;
                 //obtengo el objeto preguntas por candidato
@@ -279,7 +279,7 @@ class HomeController extends Controller
             $consulta = ["Todas las preguntas",$rEdad,"Todos los géneros"];
             $participantesCriterio = participantes::where('estado','=','1')->where('edad','=',$rEdad)->get();
             //Obtengo el objeto de los candidatos
-            $objCandidato = candidatos::activas()->orderBy('apellido','desc')->get();
+            $objCandidato = candidatos::activas()->orderBy('apellido')->get();
             foreach($objCandidato as $candidato){
                 $porcentaje = 0;
                 //obtengo el objeto preguntas por candidato
@@ -306,7 +306,7 @@ class HomeController extends Controller
         }else{
             $consulta = ['Todas las preguntas','Todas las edades','Todos los géneros'];
             //Obtengo el objeto de los candidatos
-            $objCandidato = candidatos::activas()->orderBy('apellido','desc')->get();
+            $objCandidato = candidatos::activas()->orderBy('apellido')->get();
             foreach($objCandidato as $candidato){
                 $porcentaje = 0;
                 //obtengo el objeto preguntas por candidato
@@ -335,7 +335,7 @@ class HomeController extends Controller
         arsort($arrayResultado);
 
         $data = array(
-                    'objCandidato' => candidatos::activas()->orderBy('apellido','desc')->get(),
+                    'objCandidato' => candidatos::activas()->orderBy('apellido')->get(),
                     'objPreguntas' => preguntas::activas()->get(),
                     'consulta' => $consulta,
                     'arrayResultado' => $arrayResultado,
@@ -348,7 +348,7 @@ class HomeController extends Controller
     public function create()
     {
         $data = array(
-                    'objCandidato' => candidatos::activas()->orderBy('apellido','desc')->get(),
+                    'objCandidato' => candidatos::activas()->orderBy('apellido')->get(),
                     'titulo' => 'Home',
                 );
         return view('frontend.loginJuego',$data);
@@ -369,7 +369,7 @@ class HomeController extends Controller
         $objParticipantes->ip = $request->ip();
     
         $data = array(
-                    'objCandidato' => candidatos::activas()->orderBy('apellido','desc')->get(),
+                    'objCandidato' => candidatos::activas()->orderBy('apellido')->get(),
                     'objPreguntas' => preguntas::activas()->get(),
                     'titulo' => 'Home',
                 );
@@ -406,7 +406,7 @@ class HomeController extends Controller
                $objPreguntaAct = preguntas::activas()->where('id', '>', $objPregunta->id)->first();
                if($objPreguntaAct){
                     $data = array(
-                        'objCandidato' => candidatos::activas()->orderBy('apellido','desc')->get(),
+                        'objCandidato' => candidatos::activas()->orderBy('apellido')->get(),
                         'objPreguntaAct' => $objPreguntaAct,
                         'objPreguntas' => preguntas::activas()->get(),
                         //'objPreguntasUsuario' => participantes::find(session('participante'))->preguntas()->get(),
@@ -425,7 +425,7 @@ class HomeController extends Controller
                }
             }else{
                 $data = array(
-                        'objCandidato' => candidatos::activas()->orderBy('apellido','desc')->get(),
+                        'objCandidato' => candidatos::activas()->orderBy('apellido')->get(),
                         'objPreguntaAct' => preguntas::activas()->first(),
                         'objPreguntas' => preguntas::activas()->get(),
                         //'objPreguntasUsuario' => participantes::find(session('participante'))->preguntas()->get(),
@@ -465,7 +465,7 @@ class HomeController extends Controller
                                 
                 
                 $data = array(
-                    'objCandidato' => candidatos::activas()->orderBy('apellido','desc')->get(),
+                    'objCandidato' => candidatos::activas()->orderBy('apellido')->get(),
                     'objPregunta' => preguntas::whereId($objParticipacion->preguntas_id)->first(),
                     'objRespuestas' =>$objRespuestas,
                     'objPreguntasTodas' => preguntas::activas()->get(),
@@ -490,7 +490,7 @@ class HomeController extends Controller
         if(session('participante')){
 
 
-            $objCandidato = candidatos::activas()->orderBy('apellido','desc')->get();
+            $objCandidato = candidatos::activas()->orderBy('apellido')->get();
             $arrayResultado = array();
             foreach($objCandidato as $candidato){
                 $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();
@@ -531,7 +531,7 @@ class HomeController extends Controller
     public function frenteafrente()
     {
         $data = array(
-                    'objCandidato' => candidatos::activas()->orderBy('apellido','desc')->get(),
+                    'objCandidato' => candidatos::activas()->orderBy('apellido')->get(),
                     'objPreguntas' => preguntas::activas()->get(),
                     'objCandidato1' => "",
                     'objCandidato2' => "",
@@ -548,7 +548,7 @@ class HomeController extends Controller
 
 
         $data = array(
-                    'objCandidato' => candidatos::activas()->orderBy('apellido','desc')->get(),
+                    'objCandidato' => candidatos::activas()->orderBy('apellido')->get(),
                     //'objPreguntas' => preguntas::whereIn('id',[1,2])->activas()->get(),
                     'objPreguntas' => preguntas::activas()->get(),
                     'objCandidato1' => candidatos::whereId($candidato1)->first(),
