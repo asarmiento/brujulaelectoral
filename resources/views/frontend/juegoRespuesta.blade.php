@@ -72,12 +72,15 @@
 							</li>
 						@endforeach
 					@endif
-						
 					</ul>
-					
-					<a href="{{ url('juego') }}" class="btn btn-main">Siguiente</a>
-					<p class="share">COMPARTIR:</p>
-
+					<div>
+					@if( count($objPreguntasTodas) == $objPregunta->id)
+						<a href="{{ url('juego') }}" class="btn btn-main btn-result">Mira el resultado</a>
+					@else
+						<a href="{{ url('juego') }}" class="btn btn-main btn-result">Siguiente</a>
+					@endif
+						<p class="share">COMPARTIR: <span class="addthis_inline_share_toolbox"></span></p>
+					</div>
 				</div>
 			</div>
 		</div>

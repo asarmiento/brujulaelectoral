@@ -78,8 +78,8 @@
 								<h4 class="box-2-face">{{$objCandidato1->nombre}} {{$objCandidato1->apellido}}<br> {{ $objPartido1->nombre }}</h4>	
 							</div>
 							<?php
-								$respuesta1 = App\candidatos_preguntas::where('candidatos_id','like','%'.$objCandidato1->id.'%')->where('preguntas_id','like','%'.$pregunta->id.'%')->first()->respuesta_larga;
-								$respuesta2 = App\candidatos_preguntas::where('candidatos_id','like','%'.$objCandidato2->id.'%')->where('preguntas_id','like','%'.$pregunta->id.'%')->first()->respuesta_larga;
+								$respuesta1 = App\candidatos_preguntas::where('candidatos_id','like','%'.$objCandidato1->id.'%')->where('preguntas_id','like','%'.$pregunta->id.'%')->first()->respuesta_ff;
+								$respuesta2 = App\candidatos_preguntas::where('candidatos_id','like','%'.$objCandidato2->id.'%')->where('preguntas_id','like','%'.$pregunta->id.'%')->first()->respuesta_ff;
 
 								$respuestaC1 = App\candidatos_preguntas::where('candidatos_id','like','%'.$objCandidato1->id.'%')->where('preguntas_id','like','%'.$pregunta->id.'%')->first()->respuesta_corta;
 								$respuestaC2 = App\candidatos_preguntas::where('candidatos_id','like','%'.$objCandidato2->id.'%')->where('preguntas_id','like','%'.$pregunta->id.'%')->first()->respuesta_corta;

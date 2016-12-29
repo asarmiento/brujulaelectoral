@@ -504,6 +504,7 @@ p.info-question span{
 	text-align: left;
 	font-weight: 400;
 	min-height: auto;
+	text-align: center;
 }
 .box-answer h4 {
 	display: inline;
@@ -750,6 +751,13 @@ header li p {
 }
 #countdown > div {
   display: inline-block;
+}
+p.share{
+	margin-bottom: 0;
+	float: left;
+}
+.btn-result{
+	float: left;
 }
 /* media */
 @media (max-width: 1024px) {

@@ -42,7 +42,7 @@
           {{ csrf_field() }}
             <a class="btn-yes draggable" href="" id="btn-yes">SI</a>
             <a class="btn-no draggable" href="" id="btn-no">NO</a>
-            <a class="btn-white draggable" href="" id="btn-white">BLANCO</a>
+            <a class="btn-white draggable" href="" id="btn-white">Más opciones</a>
             <div class="more-asw" style="display: none;">
               <p><a class="op_si_1">{{ $objPreguntaAct->opcion_si_1 }}</a></p>
               <p><a class="op_si_2">{{ $objPreguntaAct->opcion_si_2 }}</a></p>
