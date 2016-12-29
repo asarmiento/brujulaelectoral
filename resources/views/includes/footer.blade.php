@@ -11,7 +11,7 @@
 							<div class="addthis_inline_share_toolbox"></div>
 						</div>
 						<div class="logo-cc"></div>
-						<div class="download"><a href="#">Código abierto descárgalo aquí</a></div>
+						<div class="download" style="display: none;"><a href="#">Código abierto descárgalo aquí</a></div>
 					</div>
 				</div>
 			</div>

@@ -117,10 +117,10 @@
 			<div class="row">
 				<div class="col-xs=12 col-sm-12 col-md-6">
 					<h2><span>¿Quién es tu </span>Candidato afin?</h2>
-					<h4>Juego Electoral</h4>
-					<div class="col-xs=12 col-sm-12 col-md-6">Después de grupos focales con jóvenes de entre 20 y 26 años, el equipo periodístico de la revista digital Plan V, con el apoyo de la Fundación Ciudadanía y Desarrollo, desarrolló este portal para que los electores, sobre todo los jóvenes, encuentren al candidato presidencial que más se acerque a sus aspiraciones y creencias. </div>
-                    <div class="col-xs=12 col-sm-12 col-md-6">Desde economía hasta libertades sexuales, esto fue lo respondieron los presidenciales a las 10 inquietudes que tiene este sector sobre el futuro del país. ¿Coincides con ellos?
-</div>
+					<h4></h4>
+					<div class="col-xs-12 col-sm-12 col-md-12">
+                      Después de grupos focales con jóvenes de entre 20 y 30 años, la revista digital Plan V, con el apoyo de la Fundación Ciudadanía y Desarrollo, desarrolló este portal para que los electores, sobre todo los jóvenes, encuentren al candidato presidencial que más se acerque a sus aspiraciones y creencias. Solo 7 de los 8 candidatos contestaron el cuestionario. Pese a reiterados pedidos, el oficialista Lenín Moreno no accedió a la entrevista y por eso sus respuestas aparecen en blanco. No olvides hacer clic en <i>Opciones</i> para afinar más tu voto. <br/>¿Coincides con ellos?
+                    </div>
                     <a href="{{URL::to('juego-login')}}" class="btn btn-main">Juega y Averígualo</a>
                     <div class="quiz-game"></div>
 				</div>
