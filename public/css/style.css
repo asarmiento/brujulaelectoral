@@ -338,25 +338,24 @@ input[placeholder] {
 	width: 150px !important;
 }
 .logo-planv {
-  background: rgba(0, 0, 0, 0) url("../images/stripe-images.png") no-repeat scroll -673px 0;
-      height: 91px;
-    width: 81px;
-  margin: 0 20px 0 0;
+  background: rgba(0, 0, 0, 0) url("../images/stripe-images.png") no-repeat scroll -670px 0;
+  height: 91px;
+  width: 91px;
+  margin: 0 10px 0 0;
   float: right;
 }
 .logo-fcd {
   background: rgba(0, 0, 0, 0) url("../images/stripe-images.png") no-repeat scroll -769px 0;
-  
   float: right;
   height: 91px;
-  margin: 0 20px 0 0;
+  margin: 0 2px 0 0;
   width: 108px;
 }
 .logo-cc {
   background: rgba(0, 0, 0, 0) url("../images/stripe-images.png") no-repeat scroll -886px 0;
   display: inline-block;
   height: 36px;
-  margin: 20px 0 34px 20px;
+  margin: 20px 0 20px 0px;
   width: 139px;
 }
 .left-line {
@@ -445,8 +444,8 @@ p.info-question span{
     border-radius: 4%;
 }
 .img-box {
-  background: rgba(0, 0, 0, 0) url("../images/box.png") no-repeat scroll 20px 80px;
-  min-height: 500px;
+  background: rgba(0, 0, 0, 0) url("../images/box.png") no-repeat scroll 10px 10px;
+  min-height: 415px;
   position: relative;
 }
 .btn-yes {
@@ -757,6 +756,9 @@ p.share{
 }
 .btn-result{
 	float: left;
+}
+a.op_1,a.op_2,a.op_3,a.op_4,a.op_5{
+	color: #fff;
 }
 /* media */
 @media (max-width: 1024px) {

@@ -44,10 +44,11 @@
             <a class="btn-no draggable" href="" id="btn-no">NO</a>
             <a class="btn-white draggable" href="" id="btn-white">Más opciones</a>
             <div class="more-asw" style="display: none;">
-              <p><a class="op_si_1">{{ $objPreguntaAct->opcion_si_1 }}</a></p>
-              <p><a class="op_si_2">{{ $objPreguntaAct->opcion_si_2 }}</a></p>
-              <p><a class="op_no_1">{{ $objPreguntaAct->opcion_no_1 }}</a></p>
-              <p><a class="op_no_2">{{ $objPreguntaAct->opcion_no_2 }}</a></p>
+              <p><a class="op_1">{{ $objPreguntaAct->opcion_1 }}</a></p>
+              <p><a class="op_2">{{ $objPreguntaAct->opcion_2 }}</a></p>
+              <p><a class="op_3">{{ $objPreguntaAct->opcion_3 }}</a></p>
+              <p><a class="op_4">{{ $objPreguntaAct->opcion_4 }}</a></p>
+              <p><a class="op_5">{{ $objPreguntaAct->opcion_5 }}</a></p>
             </div>
             <input type="hidden" name="respuesta" id="respuesta" value="">
            

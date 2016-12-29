@@ -97,8 +97,6 @@
 					<h2><span>Frente </span><span class="headline">a</span> Frente</h2>
 					<h4>Compara las Propuestas Presidenciales</h4>
 					
-
-
 					<!-- formulario -->
 					<form id="form-2" class="form-inline col-xs-offset-2 col-xs-8 col-sm-12 col-md-offset-2 col-md-8" method="POST" action="{{ url('frente-a-frente') }}">
 					{{ csrf_field() }}
