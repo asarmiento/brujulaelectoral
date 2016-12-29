@@ -339,15 +339,14 @@ input[placeholder] {
 }
 .logo-planv {
   background: rgba(0, 0, 0, 0) url("../images/stripe-images.png") no-repeat scroll -673px 0;
-  height: 91px;
-  width: 91px;
-  margin: 0 10px 0 0;
-  display: inline-block;
+      height: 91px;
+    width: 81px;
+  margin: 0 20px 0 0;
   float: right;
 }
 .logo-fcd {
   background: rgba(0, 0, 0, 0) url("../images/stripe-images.png") no-repeat scroll -769px 0;
-  display: inline-block;
+  
   float: right;
   height: 91px;
   margin: 0 20px 0 0;
