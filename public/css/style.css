@@ -258,7 +258,7 @@ input[placeholder] {
   margin: 0 auto;
 }
 #interna .progress {
-  background-color: #95dbc9;
+  background-color: #ccc;
 }
 .form-inline .form-control {
   background-color: #a1abac !important;
@@ -338,18 +338,16 @@ input[placeholder] {
 	width: 150px !important;
 }
 .logo-planv {
-  background: rgba(0, 0, 0, 0) url("../images/stripe-images.png") no-repeat scroll -670px 0;
-  height: 91px;
-  width: 91px;
+  max-height: 91px;
+  max-width: 91px;
   margin: 0 10px 0 0;
   float: right;
 }
 .logo-fcd {
-  background: rgba(0, 0, 0, 0) url("../images/stripe-images.png") no-repeat scroll -769px 0;
   float: right;
-  height: 91px;
   margin: 0 2px 0 0;
-  width: 108px;
+  max-height: 91px;
+  max-width: 108px;
 }
 .logo-cc {
   background: rgba(0, 0, 0, 0) url("../images/stripe-images.png") no-repeat scroll -886px 0;
@@ -680,7 +678,7 @@ header li p {
   left: -20px;
   line-height: 110%;
   position: relative;
-  top: -2px;
+  top: 8px;
 }
 #front-page-bck {
   border-bottom: 32px solid #e3ca12;
@@ -760,6 +758,8 @@ p.share{
 a.op_1,a.op_2,a.op_3,a.op_4,a.op_5{
 	color: #fff;
 }
+.img-mpv{float: left; margin-right: 10px;}
+.img-fcd{float: left;}
 /* media */
 @media (max-width: 1024px) {
 	h2 {
@@ -1084,14 +1084,17 @@ a.op_1,a.op_2,a.op_3,a.op_4,a.op_5{
     display: block;
     margin-top: 40px;
 	}
-	}
+	.img-mpv{width: 65px;}
+	.img-fcd{width: 82px;}
+}
 @media (max-width: 480px) {
-		#interna #main-menu, #main-menu {
-	  width: 47%;
+	#interna #main-menu, #main-menu {
+	      width: 60%;
 	}
 	#interna .navbar-toggle {
-	  right: 400px;
+	  right: 0px;
 	}
+	.navbar{width: 440px;}
 	.number {
 	  display: none;
 	}
@@ -1102,7 +1105,8 @@ a.op_1,a.op_2,a.op_3,a.op_4,a.op_5{
 	  margin: 0 100px 10px;
 	}
 	.img-box {
-	  background: rgba(0, 0, 0, 0) url("../images/box.png") no-repeat scroll 95px 180px / 59% auto;
+	  background: rgba(0, 0, 0, 0) url("../images/box.png") no-repeat scroll 60px 0px / 70% auto;
+	      min-height: 280px;
 	}
 	#box-2-face {
 	  height: 458px;
@@ -1119,8 +1123,15 @@ a.op_1,a.op_2,a.op_3,a.op_4,a.op_5{
 	  width: 188px;
 	}
 	h1 {
-	  top: 25px;
-	  left: 216px;
+		top: 25px;
+	    left: 200px;
+	    font-size: 34px;
+	}
+	header .ico-social-media{
+	    margin-top: 30px;
+	    float: right;
+    	position: relative;
+    	top: 100px;
 	}
 	header {
 	  height: 191px;
@@ -1135,7 +1146,6 @@ a.op_1,a.op_2,a.op_3,a.op_4,a.op_5{
 	#candidate-answer .text {
 	  width: 100%;
 	}
-	
 	#candidate-answer .btn-yes, #candidate-answer .btn-no, #candidate-answer .btn-white {
 	  margin-left: 20%;
 	  margin-top: 44px;
@@ -1146,9 +1156,9 @@ a.op_1,a.op_2,a.op_3,a.op_4,a.op_5{
 	.pic-box {
 	  margin: 0 0 20px;
 	}
-#answer-content .btn-main {
-  margin: 10px 0;
-}
+	#answer-content .btn-main {
+	  margin: 10px 0;
+	}
 }
 @media (max-width: 360px) {
 	h1 {
