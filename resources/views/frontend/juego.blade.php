@@ -14,7 +14,7 @@
       <div class="row">
       <!-- titulo -->
         <div class="col-xs=12 col-sm-12 col-md-offset-3 col-md-6">
-          <h2><span>¿Quién es tu </span>Candidato afin?</h2>
+          <h2><span>¿Quién es tu </span>Candidato afín?</h2>
           <h4>Juego Electoral</h4>
         </div>
         <div class="col-xs=12 col-sm-12 col-md-12">
@@ -42,13 +42,28 @@
           {{ csrf_field() }}
             <a class="btn-yes draggable" href="" id="btn-yes">SI</a>
             <a class="btn-no draggable" href="" id="btn-no">NO</a>
-            <a class="btn-white draggable" href="" id="btn-white">Más opciones</a>
+             @if($objPreguntaAct->opcion_1)
+              <a class="btn-white draggable" href="" id="btn-white">Más opciones</a>
+             @endif 
             <div class="more-asw" style="display: none;">
-              <p><a class="op_1">{{ $objPreguntaAct->opcion_1 }}</a></p>
-              <p><a class="op_2">{{ $objPreguntaAct->opcion_2 }}</a></p>
-              <p><a class="op_3">{{ $objPreguntaAct->opcion_3 }}</a></p>
-              <p><a class="op_4">{{ $objPreguntaAct->opcion_4 }}</a></p>
-              <p><a class="op_5">{{ $objPreguntaAct->opcion_5 }}</a></p>
+              <h4 style="text-align: center;">Más Opciones</h4>
+              <ul>
+              @if($objPreguntaAct->opcion_1)
+                <li><a class="op_1">{{ $objPreguntaAct->opcion_1 }}</a></li>
+              @endif
+              @if($objPreguntaAct->opcion_1)
+              <li><a class="op_2">{{ $objPreguntaAct->opcion_2 }}</a></li>
+              @endif
+              @if($objPreguntaAct->opcion_1)
+              <li><a class="op_3">{{ $objPreguntaAct->opcion_3 }}</a></li>
+              @endif
+              @if($objPreguntaAct->opcion_1)
+              <li><a class="op_4">{{ $objPreguntaAct->opcion_4 }}</a></li>
+              @endif
+              @if($objPreguntaAct->opcion_1)
+              <li><a class="op_5">{{ $objPreguntaAct->opcion_5 }}</a></li>
+              @endif
+              </ul>
             </div>
             <input type="hidden" name="respuesta" id="respuesta" value="">
            

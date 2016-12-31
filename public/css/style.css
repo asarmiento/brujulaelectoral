@@ -433,9 +433,9 @@ p.info-question span{
 	position: relative;
 }
 .more-asw{
-	    background: rgba(0,0,0,0.6);
+	   background: rgba(0,0,0,0.6);
     color: #fff;
-    padding: 30px;
+    padding: 20px;
     position: absolute;
     top: 0;
     width: 100%;
@@ -1289,5 +1289,8 @@ a.op_1,a.op_2,a.op_3,a.op_4,a.op_5{
 	}
 	.box-middle {
 	    margin: 10px 10% 0;
+	}
+	.more-asw{
+		padding: 10px;left: 0;
 	}
 }

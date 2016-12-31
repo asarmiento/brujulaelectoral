@@ -13,7 +13,7 @@
 			<div class="row">
 			<!-- titulo -->
 				<div class="col-xs=12 col-sm-12 col-md-offset-3 col-md-6">
-					<h2><span>¿Quién es tu </span>Candidato afin?</h2>
+					<h2><span>¿Quién es tu </span>Candidato afín?</h2>
 					<h4>Juego Electoral</h4>
 				</div>
 				<div class="col-xs=12 col-sm-12 col-md-12">
