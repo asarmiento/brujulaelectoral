@@ -18,7 +18,7 @@ class candidatos extends Model
 	}
 
 	public function preguntas(){
-        return $this->belongsToMany('App\preguntas')->withPivot('respuesta_corta', 'respuesta_larga', 'estado');
+        return $this->belongsToMany('App\preguntas')->withPivot('respuesta_corta', 'respuesta_larga', 'opcion', 'respuesta_ff', 'estado');
     }
 
 	public function scopeActivas($query){

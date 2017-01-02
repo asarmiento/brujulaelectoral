@@ -433,13 +433,26 @@ p.info-question span{
 	position: relative;
 }
 .more-asw{
-	   background: rgba(0,0,0,0.6);
+	background: rgba(0,0,0,0.6);
     color: #fff;
     padding: 20px;
     position: absolute;
     top: 0;
     width: 100%;
     border-radius: 4%;
+    z-index: 1;
+}
+.btn-exit{
+	position: absolute;
+    top: 0;
+    right: 0;
+    font-weight: bold;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 20px;
+    cursor: pointer;
 }
 .img-box {
   background: rgba(0, 0, 0, 0) url("../images/box.png") no-repeat scroll 10px 10px;

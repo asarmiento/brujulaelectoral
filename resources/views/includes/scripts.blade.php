@@ -58,6 +58,9 @@
           $('#respuesta').val($('.op_5').text());
           $('#form-voto').submit();
         });
+        $('.btn-exit').click(function(){
+          $(".more-asw").hide('slow');
+        });
         
         
 

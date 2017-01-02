@@ -46,24 +46,26 @@
               <a class="btn-white draggable" href="" id="btn-white">Más opciones</a>
              @endif 
             <div class="more-asw" style="display: none;">
-              <h4 style="text-align: center;">Más Opciones</h4>
-              <ul>
+            <div class="btn-exit">x</div>
+              <!--h4 style="text-align: center;">Más Opciones</h4-->
+              <ul style="margin-left: -20px;">
               @if($objPreguntaAct->opcion_1)
                 <li><a class="op_1">{{ $objPreguntaAct->opcion_1 }}</a></li>
               @endif
-              @if($objPreguntaAct->opcion_1)
+              @if($objPreguntaAct->opcion_2)
               <li><a class="op_2">{{ $objPreguntaAct->opcion_2 }}</a></li>
               @endif
-              @if($objPreguntaAct->opcion_1)
+              @if($objPreguntaAct->opcion_3)
               <li><a class="op_3">{{ $objPreguntaAct->opcion_3 }}</a></li>
               @endif
-              @if($objPreguntaAct->opcion_1)
+              @if($objPreguntaAct->opcion_4)
               <li><a class="op_4">{{ $objPreguntaAct->opcion_4 }}</a></li>
               @endif
-              @if($objPreguntaAct->opcion_1)
+              @if($objPreguntaAct->opcion_5)
               <li><a class="op_5">{{ $objPreguntaAct->opcion_5 }}</a></li>
               @endif
               </ul>
+              <div style="text-align: right;"><small>Opciones con base en las respuestas de los candidatos</small></div>
             </div>
             <input type="hidden" name="respuesta" id="respuesta" value="">
            

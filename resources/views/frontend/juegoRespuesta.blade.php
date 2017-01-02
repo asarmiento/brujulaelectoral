@@ -9,6 +9,8 @@
         ?>
     @endif
 
+    <?php $blanco = '' ?>
+
 <section id="box-game">
 		<div class="container">
 			<div class="row">
@@ -33,11 +35,21 @@
 						<ul class="closer-match">
 						@if(count($objRespuestas))
 							@foreach($objRespuestas as $respuesta)
-								@if($respuesta->pivot->respuesta_corta == $objMiRespuesta->pivot->respuesta)
-									<li class="match-candidate">
-										<img src="{{ asset('imgJuego/'.$respuesta->foto) }}" class="foto70">
-									</li>
+								<!-- Valido si existe respuesta  -->
+								@if($respuesta->pivot->opcion)
+									@if($respuesta->pivot->opcion == $objMiRespuesta->pivot->respuesta)
+										<li class="match-candidate">
+											<img src="{{ asset('imgJuego/'.$respuesta->foto) }}" class="foto70">
+										</li>
+									@endif
+								@else
+									@if($respuesta->pivot->respuesta_corta == $objMiRespuesta->pivot->respuesta)
+										<li class="match-candidate">
+											<img src="{{ asset('imgJuego/'.$respuesta->foto) }}" class="foto70">
+										</li>
+									@endif
 								@endif
+
 							@endforeach
 						@endif
 						</ul>
@@ -52,7 +64,6 @@
 					<ul id="candidate-answer">
 					@if(count($objRespuestas))
 						@foreach($objRespuestas as $respuesta)
-							<li>
 							 <?php 
 							 	if($respuesta->pivot->respuesta_corta == 'Si'){
 							 		$estiloBtn = "yes";
@@ -61,16 +72,24 @@
 							 	}else{
 							 		$estiloBtn = "white";
 							 	}
-
 							 ?>
-								<span class="btn-{{$estiloBtn}}">{{ $respuesta->pivot->respuesta_corta }}</span>
-								<img src="{{ asset('imgJuego/'.$respuesta->foto) }}" class="foto126">
-								<div class="text">
-									<h4>{{ $respuesta->nombre }} {{ $respuesta->apellido }}</h4>
-									<p>{{ $respuesta->pivot->respuesta_larga }}</p>
-								</div>
-							</li>
+							@if($respuesta->pivot->respuesta_corta == 'Blanco')
+							<?php 
+								$blanco .=  '<li><span class="btn-'.$estiloBtn.'">'.$respuesta->pivot->respuesta_corta.'</span><img src="imgJuego/'.$respuesta->foto.'" class="foto126"><div class="text"><h4>'.$respuesta->nombre.' '.$respuesta->apellido.'</h4><p>'.$respuesta->pivot->respuesta_larga.'</p></div></li>';
+							?>
+							@else
+								<li>
+									<span class="btn-{{$estiloBtn}}">{{ $respuesta->pivot->respuesta_corta }}</span>
+									<img src="{{ asset('imgJuego/'.$respuesta->foto) }}" class="foto126">
+									<div class="text">
+										<h4>{{ $respuesta->nombre }} {{ $respuesta->apellido }}</h4>
+										<p>{{ $respuesta->pivot->respuesta_larga }}</p>
+									</div>
+								</li>
+							@endif
+							
 						@endforeach
+						<?php echo $blanco; ?>
 					@endif
 					</ul>
 					<div>

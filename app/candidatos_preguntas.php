@@ -19,6 +19,6 @@ class candidatos_preguntas extends Model
      * @var array
      */
     protected $fillable = [
-        'candidatos_id', 'preguntas_id', 'respuesta_corta', 'respuesta_larga', 'estado'
+        'candidatos_id', 'preguntas_id', 'respuesta_corta', 'respuesta_larga', 'opcion', 'respuesta_ff', 'estado'
     ];
 }

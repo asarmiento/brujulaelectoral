@@ -46,6 +46,9 @@ class ExcelController extends Controller
                             if($objPreguntaParticipante->pivot->respuesta == $pregunta->pivot->respuesta_corta){
                                 $porcentaje = $porcentaje + 1;
                             }
+                            if($objPreguntaParticipante->pivot->respuesta == $pregunta->pivot->opcion){
+                                $porcentaje = $porcentaje + 1;
+                            }
                         }
                     }
                 }
@@ -71,6 +74,9 @@ class ExcelController extends Controller
                         if($pregunta->id == $preguntaP->id and $participante->edad == $rEdad){
                             $objPreguntaParticipante = preguntas::find($pregunta->id)->participantes()->where('participantes_preguntas.participantes_id','=',$participante->id)->orderBy('pivot_id','desc')->first();
                             if($objPreguntaParticipante->pivot->respuesta == $pregunta->pivot->respuesta_corta){
+                                $porcentaje = $porcentaje + 1;
+                            }
+                            if($objPreguntaParticipante->pivot->respuesta == $pregunta->pivot->opcion){
                                 $porcentaje = $porcentaje + 1;
                             }
                         }
@@ -100,6 +106,9 @@ class ExcelController extends Controller
                             if($objPreguntaParticipante->pivot->respuesta == $pregunta->pivot->respuesta_corta){
                                 $porcentaje = $porcentaje + 1;
                             }
+                            if($objPreguntaParticipante->pivot->respuesta == $pregunta->pivot->opcion){
+                                $porcentaje = $porcentaje + 1;
+                            }
                         }
                     }
                 }
@@ -125,6 +134,9 @@ class ExcelController extends Controller
                         if($participante->edad == $rEdad and $participante->genero == $rGenero){
                             $objPreguntaParticipante = preguntas::find($pregunta->id)->participantes()->where('participantes_preguntas.participantes_id','=',$participante->id)->orderBy('pivot_id','desc')->first();
                             if($objPreguntaParticipante->pivot->respuesta == $pregunta->pivot->respuesta_corta){
+                                $porcentaje = $porcentaje + 1;
+                            }
+                            if($objPreguntaParticipante->pivot->respuesta == $pregunta->pivot->opcion){
                                 $porcentaje = $porcentaje + 1;
                             }
                         }
@@ -154,6 +166,9 @@ class ExcelController extends Controller
                             if($objPreguntaParticipante->pivot->respuesta == $pregunta->pivot->respuesta_corta){
                                 $porcentaje = $porcentaje + 1;
                             }
+                            if($objPreguntaParticipante->pivot->respuesta == $pregunta->pivot->opcion){
+                                $porcentaje = $porcentaje + 1;
+                            }
                         }
                     }
                 }
@@ -178,6 +193,9 @@ class ExcelController extends Controller
                         if($pregunta->id == $preguntaP->id){
                             $objPreguntaParticipante = preguntas::find($pregunta->id)->participantes()->where('participantes_preguntas.participantes_id','=',$participante->id)->orderBy('pivot_id','desc')->first();
                             if($objPreguntaParticipante->pivot->respuesta == $pregunta->pivot->respuesta_corta){
+                                $porcentaje = $porcentaje + 1;
+                            }
+                            if($objPreguntaParticipante->pivot->respuesta == $pregunta->pivot->opcion){
                                 $porcentaje = $porcentaje + 1;
                             }
                         }
@@ -207,6 +225,9 @@ class ExcelController extends Controller
                             if($objPreguntaParticipante->pivot->respuesta == $pregunta->pivot->respuesta_corta){
                                 $porcentaje = $porcentaje + 1;
                             }
+                            if($objPreguntaParticipante->pivot->respuesta == $pregunta->pivot->opcion){
+                                $porcentaje = $porcentaje + 1;
+                            }
                         }
                     }
                 }
@@ -229,14 +250,17 @@ class ExcelController extends Controller
                     $objParticipantes = participantes::where('estado','=','1')->get();
                     foreach ($objParticipantes as $participante) {
                         $objPreguntaParticipante = preguntas::find($pregunta->id)->participantes()->where('participantes_preguntas.participantes_id','=',$participante->id)->orderBy('pivot_id','desc')->first();
-                        if($objPreguntaParticipante->pivot->respuesta == $pregunta->pivot->respuesta_corta){
+                            if($objPreguntaParticipante->pivot->respuesta == $pregunta->pivot->respuesta_corta){
+                                $porcentaje = $porcentaje + 1;
+                            }
+                            if($objPreguntaParticipante->pivot->respuesta == $pregunta->pivot->opcion){
                                 $porcentaje = $porcentaje + 1;
                             }
                     }
                 }
                 $arrayResultado[] = array(
                     'candidatos' => $candidato->nombre .' '. $candidato->apellido,
-					'porcentaje' => $porcentaje*100/(count($objCandidatoPregunta)*count($objParticipantes)),
+					'porcentaje' => number_format($porcentaje*100/(count($objCandidatoPregunta)*count($objParticipantes))),
 					);
             }
             /* --- FIN FUNCTION ---- */
@@ -244,7 +268,7 @@ class ExcelController extends Controller
 
         foreach ($arrayResultado as $clave => $fila) {
 		    $candidato[$clave] = $fila['candidatos'];
-		    $porcentaje1[$clave] = $fila['porcentaje'];
+		    $porcentaje1[$clave] = number_format($fila['porcentaje']);
 		}
 
 		array_multisort($porcentaje1, SORT_DESC, $arrayResultado);
