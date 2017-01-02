@@ -47,7 +47,7 @@
              @endif 
             <div class="more-asw" style="display: none;">
             <div class="btn-exit">x</div>
-              <!--h4 style="text-align: center;">Más Opciones</h4-->
+              <h4 style="text-align: center;font-size: 16px;margin: 0px 0 15px 0;">Más Opciones</h4>
               <ul style="margin-left: -20px;">
               @if($objPreguntaAct->opcion_1)
                 <li><a class="op_1">{{ $objPreguntaAct->opcion_1 }}</a></li>
@@ -65,7 +65,7 @@
               <li><a class="op_5">{{ $objPreguntaAct->opcion_5 }}</a></li>
               @endif
               </ul>
-              <div style="text-align: right;"><small>Opciones con base en las respuestas de los candidatos</small></div>
+              <div class="op-mas">Opciones con base en las respuestas de los candidatos</div>
             </div>
             <input type="hidden" name="respuesta" id="respuesta" value="">
            

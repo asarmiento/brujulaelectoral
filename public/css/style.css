@@ -433,7 +433,7 @@ p.info-question span{
 	position: relative;
 }
 .more-asw{
-	background: rgba(0,0,0,0.6);
+	background: rgba(0,0,0,0.8);
     color: #fff;
     padding: 20px;
     position: absolute;
@@ -442,6 +442,7 @@ p.info-question span{
     border-radius: 4%;
     z-index: 1;
 }
+.op-mas{text-align: right;margin-top:20px;font-size: 12px;}
 .btn-exit{
 	position: absolute;
     top: 0;
