@@ -11,13 +11,13 @@
     $(document).ready(function() {
         $('.btn-yes').click(function(e){
           e.preventDefault();
-          //$(".btn-yes").detach('slow').appendTo('.img-box')
+          $(".btn-yes").detach('slow').appendTo('.img-box')
           $('#respuesta').val("Sí");
           $('#form-voto').submit();
         });
         $('.btn-no').click(function(e){
         	e.preventDefault();
-          //$(".btn-no").detach('slow').appendTo('.img-box')
+          $(".btn-no").detach('slow').appendTo('.img-box')
           $('#respuesta').val("No");
           $('#form-voto').submit();
         });
