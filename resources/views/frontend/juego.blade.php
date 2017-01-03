@@ -40,7 +40,7 @@
         <div class="col-xs-12 col-sm-4 col-md-4 ">
           <form id="form-voto" class="form-horizontal col-xs-12 col-sm-12  col-md-12" method="POST" action="{{ url('juego') }}" >
           {{ csrf_field() }}
-            <a class="btn-yes draggable" href="" id="btn-yes">SI</a>
+            <a class="btn-yes draggable" href="" id="btn-yes">SÍ</a>
             <a class="btn-no draggable" href="" id="btn-no">NO</a>
              @if($objPreguntaAct->opcion_1)
               <a class="btn-white draggable" href="" id="btn-white">Más opciones</a>

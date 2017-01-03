@@ -10,5 +10,12 @@
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
 
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+
+    <meta property="og:url"           content="{{ URL::to('/') }}" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="Participa en la Brújula Electoral " />
+    <meta property="og:description"   content="Este es mi candidato afín para las elecciones de Ecuador. ¿Cuál es el tuyo? Juega." />
+    <meta property="og:image"         content="{{ asset('images/face-brujula.jpg') }}" />
+
 </head>
 

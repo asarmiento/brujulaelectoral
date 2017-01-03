@@ -62,7 +62,7 @@
 					@if(count($objRespuestas))
 						@foreach($objRespuestas as $respuesta)
 							 <?php 
-							 	if($respuesta->pivot->respuesta_corta == 'Si'){
+							 	if($respuesta->pivot->respuesta_corta == 'Sí'){
 							 		$estiloBtn = "yes";
 							 	}elseif($respuesta->pivot->respuesta_corta == 'No'){
 							 		$estiloBtn = "no";

@@ -12,7 +12,7 @@
         $('.btn-yes').click(function(e){
           e.preventDefault();
           //$(".btn-yes").detach('slow').appendTo('.img-box')
-          $('#respuesta').val("Si");
+          $('#respuesta').val("Sí");
           $('#form-voto').submit();
         });
         $('.btn-no').click(function(e){

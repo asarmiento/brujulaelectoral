@@ -79,7 +79,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <div id="respuesta_corta" class="btn-group" data-toggle="buttons">
                             <label class="btn btn-success" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                              <input type="radio" name="respuesta_corta" value="Si"> &nbsp; SI &nbsp;
+                              <input type="radio" name="respuesta_corta" value="Sí"> &nbsp; SÍ &nbsp;
                             </label>
                             <label class="btn btn-warning" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
                               <input type="radio" name="respuesta_corta" value="Blanco"> BLANCO

@@ -85,8 +85,8 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Respuesta</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <div id="respuesta_corta" class="btn-group" data-toggle="buttons">
-                            <label class="btn btn-success {{ $objRespuesta->respuesta_corta == 'Si' ? 'active' : '' }}" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                              <input type="radio" name="respuesta_corta" value="Si" {{ $objRespuesta->respuesta_corta == 'Si' ? 'checked=checked' : '' }}> &nbsp; SI &nbsp;
+                            <label class="btn btn-success {{ $objRespuesta->respuesta_corta == 'Sí' ? 'active' : '' }}" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                              <input type="radio" name="respuesta_corta" value="Sí" {{ $objRespuesta->respuesta_corta == 'Sí' ? 'checked=checked' : '' }}> &nbsp; SÍ &nbsp;
                             </label>
                             <label class="btn btn-warning {{ $objRespuesta->respuesta_corta == 'Blanco' ? 'active' : '' }}" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
                               <input type="radio" name="respuesta_corta" value="Blanco" {{ $objRespuesta->respuesta_corta == 'Blanco' ? 'checked=checked' : '' }}> BLANCO

@@ -7,7 +7,6 @@
 	<body id="interna">
 @endif
 
-
         @include('includes.header')
     
             
