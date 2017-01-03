@@ -85,9 +85,6 @@ class HomeController extends Controller
                         }
                     //echo $porcentaje.'<br>';
                     //echo $objPreguntaParticipante->pivot->respuesta .'- '.$pregunta->pivot->respuesta_corta.'- '.$pregunta->pivot->opcion. '<br>';
-                    participantes_preguntas::truncate();
-                    participantes::truncate();
-
                 }
 
             }
