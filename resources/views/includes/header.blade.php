@@ -27,7 +27,7 @@
                     <li class=""><a title="Inicio" href="{{ URL::to('/') }}"><span>Inicia</span></a>
                     <p>QUÉ ESPERAR DEL SITIO</p></li>
                     <li class=""><a title="Inicio" href="{{ URL::to('juego-login') }}"><span>Juega</span></a>
-                    <p>¿QUIÉN ES TU CANDIDATO AFIN?</p></li>
+                    <p>¿QUIÉN ES TU CANDIDATO AFÍN?</p></li>
                     <li class=""><a title="Inicio" href="{{ URL::to('frente-a-frente') }}"><span>Compara</span></a>
                     <p>LAS PROPUESTAS PRESIDENCIALES</p></li>
                   </ol>
@@ -59,7 +59,7 @@
                     <li class=""><a title="Inicio" href="{{ URL::to('/') }}"><span>Inicia</span></a>
                     <p>QUÉ ESPERAR DEL SITIO</p></li>
                     <li class=""><a title="Inicio" href="{{ URL::to('juego-login') }}"><span>Juega</span></a>
-                    <p>¿QUIÉN ES TU CANDIDATO AFIN?</p></li>
+                    <p>¿QUIÉN ES TU CANDIDATO AFÍN?</p></li>
                     <li class=""><a title="Inicio" href="{{ URL::to('frente-a-frente') }}"><span>Compara</span></a>
                     <p>LAS PROPUESTAS PRESIDENCIALES</p></li>
               </ol>

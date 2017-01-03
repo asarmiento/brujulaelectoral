@@ -17,7 +17,7 @@
 			<!-- titulo -->
 				<div class="col-xs-12 col-sm-12 col-md-offset-3 col-md-6">
 					<h2><span>¿Quién es tu </span>Candidato afín?</h2>
-					<h4>Juego Electoral</h4>
+					<h4></h4>
 				</div>
 				<div class="col-xs-12 col-sm-12 col-md-12">
 
@@ -36,19 +36,16 @@
 						@if(count($objRespuestas))
 							@foreach($objRespuestas as $respuesta)
 								<!-- Valido si existe respuesta  -->
-								@if($respuesta->pivot->opcion)
+								
 									@if($respuesta->pivot->opcion == $objMiRespuesta->pivot->respuesta)
 										<li class="match-candidate">
 											<img src="{{ asset('imgJuego/'.$respuesta->foto) }}" class="foto70">
 										</li>
-									@endif
-								@else
-									@if($respuesta->pivot->respuesta_corta == $objMiRespuesta->pivot->respuesta)
+									@elseif($respuesta->pivot->respuesta_corta == substr($objMiRespuesta->pivot->respuesta,0,2))
 										<li class="match-candidate">
 											<img src="{{ asset('imgJuego/'.$respuesta->foto) }}" class="foto70">
 										</li>
 									@endif
-								@endif
 
 							@endforeach
 						@endif

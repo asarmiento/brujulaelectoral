@@ -11,13 +11,13 @@
     $(document).ready(function() {
         $('.btn-yes').click(function(e){
           e.preventDefault();
-          $(".btn-yes").detach('slow').appendTo('.img-box')
+          //$(".btn-yes").detach('slow').appendTo('.img-box')
           $('#respuesta').val("Si");
           $('#form-voto').submit();
         });
         $('.btn-no').click(function(e){
         	e.preventDefault();
-          $(".btn-no").detach('slow').appendTo('.img-box')
+          //$(".btn-no").detach('slow').appendTo('.img-box')
           $('#respuesta').val("No");
           $('#form-voto').submit();
         });
@@ -30,31 +30,31 @@
         });
         $('.op_1').click(function(e){
           e.preventDefault();
-          $(".op_1").detach('slow').appendTo('.img-box')
+          //$(".op_1").detach('slow').appendTo('.img-box')
           $('#respuesta').val($('.op_1').text());
           $('#form-voto').submit();
         });
         $('.op_2').click(function(e){
           e.preventDefault();
-          $(".op_2").detach('slow').appendTo('.img-box')
+          //$(".op_2").detach('slow').appendTo('.img-box')
           $('#respuesta').val($('.op_2').text());
           $('#form-voto').submit();
         });
         $('.op_3').click(function(e){
           e.preventDefault();
-          $(".op_3").detach('slow').appendTo('.img-box')
+         // $(".op_3").detach('slow').appendTo('.img-box')
           $('#respuesta').val($('.op_3').text());
           $('#form-voto').submit();
         });
         $('.op_4').click(function(e){
           e.preventDefault();
-          $(".op_4").detach('slow').appendTo('.img-box')
+         // $(".op_4").detach('slow').appendTo('.img-box')
           $('#respuesta').val($('.op_4').text());
           $('#form-voto').submit();
         });
         $('.op_5').click(function(e){
           e.preventDefault();
-          $(".op_5").detach('slow').appendTo('.img-box')
+         // $(".op_5").detach('slow').appendTo('.img-box')
           $('#respuesta').val($('.op_5').text());
           $('#form-voto').submit();
         });

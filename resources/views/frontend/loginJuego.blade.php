@@ -6,7 +6,7 @@
       <div class="row">
         <div class="col-xs=12 col-sm-12 col-md-6">
           <h2><span>¿Quién es tu </span>Candidato afín?</h2>
-          <h4>Juego Electoral</h4>
+          <h4></h4>
           <div class="col-xs=12 col-sm-12 col-md-12">
             
 
