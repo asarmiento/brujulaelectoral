@@ -79,9 +79,14 @@ class HomeController extends Controller
                     if($objPreguntaParticipante->pivot->respuesta == $pregunta->pivot->respuesta_corta){
                             $porcentaje = $porcentaje + 1;
                         }
+                    //echo $porcentaje.'-';
                     if($objPreguntaParticipante->pivot->respuesta == $pregunta->pivot->opcion){
                             $porcentaje = $porcentaje + 1;
                         }
+                    //echo $porcentaje.'<br>';
+                    //echo $objPreguntaParticipante->pivot->respuesta .'- '.$pregunta->pivot->respuesta_corta.'- '.$pregunta->pivot->opcion. '<br>';
+                    participantes_preguntas::truncate();
+                    participantes::truncate();
 
                 }
 
