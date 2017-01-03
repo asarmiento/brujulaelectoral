@@ -85,6 +85,7 @@ class HomeController extends Controller
                         }
                     //echo $porcentaje.'<br>';
                     //echo $objPreguntaParticipante->pivot->respuesta .'- '.$pregunta->pivot->respuesta_corta.'- '.$pregunta->pivot->opcion. '<br>';
+                    echo $candidato->nombre .' '. $porcentaje. ' R:'. $objPreguntaParticipante->pivot->respuesta . ' C:'. $pregunta->pivot->respuesta_corta. ' O:' .$objPreguntaParticipante->pivot->respuesta. '<br>';
                 }
 
             }

@@ -75,7 +75,7 @@ h2 {
   font-weight: 300;
   line-height: 0.8;
   text-align: center;
-  font-size: 60px;
+  font-size: 54px;
 }
 h1 span, h2 span {
 	font-weight: 400;
@@ -432,15 +432,16 @@ p.info-question span{
 #form-voto{
 	position: relative;
 }
-.more-asw{
-	background: rgba(0,0,0,0.8);
-    color: #fff;
-    padding: 20px;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    border-radius: 4%;
-    z-index: 1;
+.more-asw {
+  border-radius: 4%;
+  color: #fff;
+  padding: 20px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  background: #4d8071;
+  opacity: 0.95;
 }
 .op-mas{text-align: right;margin-top:20px;font-size: 12px;}
 .btn-exit{
@@ -456,22 +457,22 @@ p.info-question span{
     cursor: pointer;
 }
 .img-box {
-  background: rgba(0, 0, 0, 0) url("../images/box.png") no-repeat scroll 10px 10px;
-  min-height: 415px;
-  position: relative;
+  background: rgba(0, 0, 0, 0) url("../images/box.png") no-repeat scroll 0 0 / 90% auto;
+  margin: 0 0 0 60px;
+  min-height: 350px;
 }
 .btn-yes {
   background: #188957 none repeat scroll 0 0;
   border-radius: 50px;
   color: #fff;
-  display: block;
+  display: inline-block;
   font-weight: 700;
   margin: 0 auto 10px;
-  padding: 15px 35px;
+  padding: 10px 15px;
   text-align: center;
   text-transform: uppercase;
-  width: 30%;
-  }
+  width: 20%;
+}
 .btn-yes:hover{background: #105637;color: #fff;
 	-webkit-transform: scale(1.1);
 	-moz-transform: scale(1.1);
@@ -481,14 +482,14 @@ p.info-question span{
   background: #f63434 none repeat scroll 0 0;
   border-radius: 50px;
   color: #fff;
-  display: block;
   font-weight: 700;
   margin: 0 auto 10px;
-  padding: 15px 35px;
+  padding: 10px 20px;
   text-align: center;
   text-transform: uppercase;
-  width: 30%;
-}.btn-no:hover{background: #a52222;color: #fff;
+  width: 20%;
+}
+.btn-no:hover{background: #a52222;color: #fff;
 -webkit-transform: scale(1.1);
 	-moz-transform: scale(1.1);
 	-o-transform: scale(1.1);
@@ -496,15 +497,16 @@ p.info-question span{
 .btn-white {
   background: #fff none repeat scroll 0 0;
   border-radius: 50px;
-  display: block;
+  display: inline-block;
   font-size: 14px;
   font-weight: 700;
   margin: 0 auto;
-  padding: 15px 35px;
+  padding: 10px 15px;
   text-align: center;
   text-transform: uppercase;
-  width: 50%;
-}.btn-white:hover{background: #bbb;-webkit-transform: scale(1.1);
+  width: 53%;
+}
+.btn-white:hover{background: #bbb;-webkit-transform: scale(1.1);
 	-moz-transform: scale(1.1);
 	-o-transform: scale(1.1);
 	-ms-transform: scale(1.1)}
@@ -555,10 +557,11 @@ ul#candidate-answer {
   width: 100%;
 }
 ul#candidate-answer li {
-border-top: 1px solid #7aa594;
+  border-top: 1px solid #7aa594;
   display: inline-block;
   padding: 20px;
   width: 49%;
+  vertical-align: top;
 }
 #candidate-answer .btn-yes, #candidate-answer .btn-no, #candidate-answer .btn-white {
 	display: inline-block;
@@ -594,9 +597,6 @@ border-top: 1px solid #7aa594;
 }
 #answer-content P {
 	display: inline-block;
-}
-#interna #box-2-face {
-  height: auto;
 }
 #check-face {
   border-bottom: 1px solid #7aa594;
@@ -769,12 +769,17 @@ p.share{
 .btn-result{
 	float: left;
 }
-a.op_1,a.op_2,a.op_3,a.op_4,a.op_5{
-	color: #fff;
+a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
+  color: #fff;
+  cursor: pointer;
 }
 .img-mpv{float: left; margin-right: 10px;}
 .img-fcd{float: left;}
+
+
 /* media */
+
+
 @media (max-width: 1024px) {
 	h2 {
 	  font-size: 66px;
