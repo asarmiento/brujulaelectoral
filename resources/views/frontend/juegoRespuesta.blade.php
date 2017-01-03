@@ -41,7 +41,7 @@
 										<li class="match-candidate">
 											<img src="{{ asset('imgJuego/'.$respuesta->foto) }}" class="foto70">
 										</li>
-									@elseif($respuesta->pivot->respuesta_corta == substr($objMiRespuesta->pivot->respuesta,0,2))
+									@elseif($respuesta->pivot->respuesta_corta == substr($objMiRespuesta->pivot->respuesta,0,3))
 										<li class="match-candidate">
 											<img src="{{ asset('imgJuego/'.$respuesta->foto) }}" class="foto70">
 										</li>
@@ -138,9 +138,6 @@
 					  <button type="submit" class="btn btn-main">Comparar</button>
 					</form>
 					<!-- end formulario -->
-				
-
-
 
 				</div>
 			</div>
