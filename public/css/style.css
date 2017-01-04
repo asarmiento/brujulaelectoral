@@ -1236,9 +1236,9 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
     font-size: 48px;
   }
   .navbar {
-        width: 280px;
-      right: 0;
-      left: 0;
+    width:100%;
+    right: 0;
+    left: 0;
   }
   .btn.btn-main {
     margin: 20px 13%;
@@ -1269,10 +1269,10 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
     background: rgba(0, 0, 0, 0) url("../images/box.png") no-repeat scroll 19px 0px / 90% auto;
   }
   #interna .navbar-toggle {
-    right: 516px;
+    right: 0;
   }
   #interna #main-menu, #main-menu {
-    width: 34%;
+    width: 100%;
   }
   #candidate-answer .btn-yes, #candidate-answer .btn-no, #candidate-answer .btn-white {
     margin-left: 0;
