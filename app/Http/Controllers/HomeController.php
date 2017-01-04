@@ -38,6 +38,13 @@ class HomeController extends Controller
                     if($objPreguntaParticipante->pivot->respuesta == $pregunta->pivot->respuesta_corta){
                             $porcentaje = $porcentaje + 1;
                         }
+                    //echo $porcentaje.'-';
+                    if($objPreguntaParticipante->pivot->respuesta == $pregunta->pivot->opcion){
+                            $porcentaje = $porcentaje + 1;
+                        }
+                    //echo $porcentaje.'<br>';
+                    //echo $objPreguntaParticipante->pivot->respuesta .'- '.$pregunta->pivot->respuesta_corta.'- '.$pregunta->pivot->opcion. '<br>';
+                    //echo $candidato->nombre .' '. $porcentaje. ' R:'. $objPreguntaParticipante->pivot->respuesta . ' C:'. $pregunta->pivot->respuesta_corta. ' O:' .$objPreguntaParticipante->pivot->respuesta. '<br>';
                 }
 
             }
@@ -57,7 +64,7 @@ class HomeController extends Controller
                     'arrayResultado' => $arrayResultado,
                     'consulta' => array('Todas las preguntas','Todas las edades','Todos los géneros'),
                 );
-        return view('commingsoon',$data);
+        return view('welcome',$data);
     }
 
     public function preview()
