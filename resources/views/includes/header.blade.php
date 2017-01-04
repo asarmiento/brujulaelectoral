@@ -21,7 +21,6 @@
                     <span class="icon-bar"></span>
                   </button>
                 </div>
-                {{--
                 <div id="main-menu" class="collapse navbar-collapse navbar-main-nav">
                   <ol id="menu-menu-principal" class="navbar-nav">
                     <li class=""><a title="Inicio" href="{{ URL::to('/') }}"><span>Inicia</span></a>
@@ -32,7 +31,6 @@
                     <p>LAS PROPUESTAS PRESIDENCIALES</p></li>
                   </ol>
                 </div>
-                --}}
         </nav>
       </div>
     </div>    
