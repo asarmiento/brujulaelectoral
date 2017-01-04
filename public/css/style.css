@@ -691,7 +691,7 @@ header li p {
   left: -20px;
   line-height: 110%;
   position: relative;
-  top: 8px;
+  top: 0px;
 }
 #front-page-bck {
   border-bottom: 32px solid #e3ca12;
@@ -987,9 +987,12 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
 
 }
 @media (max-width: 768px) {
+    h2 {
+    font-size: 54px;
+  }
   #interna #main-menu, #main-menu {
-    left: 95px;
-    width: 77.5%;
+    left: 0;
+    width: 100%;
   }
   .btn-yes, .btn-no, .btn-white {
     display: block;
@@ -1021,19 +1024,23 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
   #candidate-answer .text {
     width: 48%;
   }
-    .btn.btn-main {
+  .btn.btn-main {
     margin: 20px 35%;
   }
   .bck-gray {
   padding: 20px;
-}
-.box-name {
-  margin-top: 30px;
-}
+  }
+  .box-name {
+    margin-top: 30px;
+  }
 }
 @media (max-width: 736px) {
+  .navbar {
+  left: 0;
+  width: 100%;
+  }
   #interna #main-menu, #main-menu {
-    width: 74.1%;
+    width: 100%;
   }
   .headline-3 {
     min-height: 137px;
@@ -1058,9 +1065,6 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
   }
   #interna .navbar-toggle {
     right: 148px;
-  }
-  .navbar-toggle {
-    right: -229px;
   }
   .box-question {
     width: 664px !important;
@@ -1089,14 +1093,14 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
     width: 100%;
   }
 }
-@media (max-width: 667px)
-#interna .navbar-toggle {
-    right: 211px;
-}
+@media (max-width: 667px) {
+  #interna .navbar-toggle {
+      right: 211px;
+  }
 }
 @media (max-width: 640px) {
   #interna #main-menu, #main-menu {
-    width: 64%;
+    width: 100%;
   }
   #interna .navbar-toggle {
     right: 249px;
@@ -1132,13 +1136,14 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
 
 @media (max-width: 480px) {
   #interna #main-menu, #main-menu {
-      width: 80%;
+      width: 100%;
       left: 0px;
   }
   #interna .navbar-toggle {
     right: 0px;
   }
-  .navbar{width: 340px;
+  .navbar{
+    width: 100%;
     left: 0;
     right: 0;}
   .number {
@@ -1209,6 +1214,12 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
   ul#candidate-answer li {
     width: 100%;
   }
+}
+@media (max-width: 414px) {
+#form-2 {
+  margin-left: 0;
+  width: 100%;
+}
 }
 @media (max-width: 360px) {
   h1 {
