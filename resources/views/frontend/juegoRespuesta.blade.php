@@ -32,8 +32,9 @@
 
 					<div class="box-middle">
 						<h4>Candidatos afines:</h4>
-						<ul class="closer-match">
+						<?php $nan = 0; ?>
 						@if(count($objRespuestas))
+							<ul class="closer-match">
 							@foreach($objRespuestas as $respuesta)
 								<!-- Valido si existe respuesta  -->
 								
@@ -41,15 +42,22 @@
 										<li class="match-candidate">
 											<img src="{{ asset('imgJuego/'.$respuesta->foto) }}" class="foto70">
 										</li>
+										<?php $nan++; ?>
 									@elseif($respuesta->pivot->respuesta_corta == substr($objMiRespuesta->pivot->respuesta,0,3))
 										<li class="match-candidate">
 											<img src="{{ asset('imgJuego/'.$respuesta->foto) }}" class="foto70">
 										</li>
+										<?php $nan++; ?>
 									@endif
 
 							@endforeach
+							</ul>
 						@endif
-						</ul>
+						@if($nan==0)
+
+							<h4 ><strong>Ninguna afinidad con candidatos</strong></h4>
+						@endif
+						
 					</div>
 					
 				</div>

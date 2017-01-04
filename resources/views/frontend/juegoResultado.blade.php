@@ -81,7 +81,7 @@
 					
 					<!--a href="#" class="btn btn-main">Juega otra vez</a-->
 					<a href="{{ URL::to('/') }}" class="btn btn-main">Ver Estadísticas</a>
-					<p class="share">COMPARTIR:</p>
+					<!--p class="share">COMPARTIR:</p-->
 
 				</div>
 			</div>
