@@ -37,7 +37,6 @@ header h1 a, header h2 a {
 #box-2-face {
   background-color: #dbe1e1;
   margin: 20px;
-  height: 347px;
 }
 .brand-logo {
   background: rgba(0, 0, 0, 0) url("../images/stripe-images.png") no-repeat scroll 0 0;
@@ -779,17 +778,21 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
 .img-mpv{float: left; margin-right: 10px;}
 .img-fcd{float: left;}
 
-
-/* media */
-@media (max-width: 1280px) {
-
-  @media screen and (-webkit-min-device-pixel-ratio:0) {
+@media screen and (-webkit-min-device-pixel-ratio:0) {
     header li p {
         top: 8px;
     }
-  }
 }
 
+/* media */
+@media (max-width: 1280px) {
+  .btn-yes {
+    width: 20%;
+  }
+  #demo7 {
+    margin-left: 20px;
+  }
+}
 @media (max-width: 1024px) {
   h2 {
     font-size: 66px;
@@ -797,9 +800,11 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
   .form-control.box-candidate {
     width: 296px;
   }
-
+  #form-voto {
+    left: 30px;
+  }
   #candidate-answer .text {
-      width: 60%;
+      width: 105650%;
   }
   .logo-fcd {
     margin: 0;
@@ -825,13 +830,19 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
   }
   .btn-yes {
     margin: 0 30px;
+    width: 24%;
   }
   .btn-white {
-      width: 48%;
+    margin-top: 20px;
+    width: 60%;
+    margin-left: 29px;
   }
   .img-box {
-    background: rgba(0, 0, 0, 0) url("../images/box.png") no-repeat scroll 20px 100px / 93% auto;
+    background: rgba(0, 0, 0, 0) url("../images/box.png") no-repeat scroll 20px 10px / 93% auto;
   }
+  #demo7 {
+  margin-left: 0;
+}
   .quiz-game {
     background: rgba(0, 0, 0, 0) url("../images/stripe-images.png") no-repeat scroll 0 -283px / 146% auto;
     height: 354px;
@@ -845,6 +856,9 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
   }
   button.btn.btn-main {
     margin: 10px 0 0;
+  }
+  #candidate-answer .text {
+    width: 40%;
   }
 }
 
@@ -933,16 +947,13 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
     background: #000 none repeat scroll 0 0;
     height: 4px;
   }
-  .navbar-toggle {
-    margin-top: 40px;
-  }
   .navbar {
     left: 0;
     width: 97%;
 }
-#interna .navbar-toggle {
-    right: 0;
-}
+  #interna .navbar-toggle {
+      right: 0;
+  }
   #interna #main-menu, #main-menu {
     background: #fee100 none repeat scroll 0 0;
     left: 0;
@@ -971,6 +982,15 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
   }
   .pic-box {
     margin: 0 0 20px;
+  }
+  .navbar-toggle {
+    margin-top: -63px;
+  }
+  header .ico-social-media {
+    position: relative;
+    right: 24px;
+    text-align: right;
+    top: 135px;
   }
 }
 @media (max-width: 900px) {
@@ -1001,16 +1021,12 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
     left: 0;
     width: 100%;
   }
-  .btn-yes, .btn-no, .btn-white {
-    display: block;
-    margin: 0 30px 10px 0;
-  }
   .btn-white {
     width: auto;
   }
   .img-box {
-    background: rgba(0, 0, 0, 0) url("../images/box.png") no-repeat scroll 9px 180px / 85% auto;
-    min-height: 426px;
+    background: rgba(0, 0, 0, 0) url("../images/box.png") no-repeat scroll 4px 13px / 85% auto;
+    min-height: 335px;
   }
   .progress {
     width: 73%;
@@ -1018,28 +1034,19 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
   #candidate-answer .btn-yes, #candidate-answer .btn-no, #candidate-answer .btn-white {
     width: 18%;
   }
-  
   #candidate-answer .text {
     width: 56%;
   }
+    .btn-yes {
+    margin: 0 auto 10px auto;
+  }
+  .btn-yes, .btn-no {
+    width: 42%;
+  }
+  #demo7 {
+    margin-left: 0;
+  }
 
-}
-@media (max-width: 600px) {
-  #candidate-answer img {
-    float: left;
-  }
-  #candidate-answer .text {
-    width: 48%;
-  }
-  .btn.btn-main {
-    margin: 20px 35%;
-  }
-  .bck-gray {
-  padding: 20px;
-  }
-  .box-name {
-    margin-top: 30px;
-  }
 }
 @media (max-width: 736px) {
   .navbar {
@@ -1104,6 +1111,26 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
   #interna .navbar-toggle {
       right: 0;
   }
+  header.ico-social-media {
+    right: 0;
+  }
+}
+@media (max-width: 600px) {
+  #candidate-answer img {
+    float: left;
+  }
+  #candidate-answer .text {
+    width: 48%;
+  }
+  .btn.btn-main {
+    margin: 20px 35%;
+  }
+  .bck-gray {
+  padding: 20px;
+  }
+  .box-name {
+    margin-top: 30px;
+  }
 }
 @media (max-width: 640px) {
   #interna #main-menu, #main-menu {
@@ -1147,6 +1174,12 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
     display: inline-block;
     margin: 15px 0 15px 37%;
   }
+  header .ico-social-media {
+    display: none;
+  }
+  .navbar-toggle {
+    margin-top: 20px;
+}
 }
 @media (max-width: 568px) {
 .navbar {
@@ -1166,6 +1199,9 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
   .img-cc {
     margin: 15px 0 15px 35%;
   }
+  .btn.btn-main {
+    margin: 20px 29%;
+}
 }
 
 @media (max-width: 480px) {
@@ -1222,11 +1258,11 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
     height: 191px;
   }
   .navbar-toggle {
-    right: -229px;
-    top: -23px;
+    right: -120px;
+    top: 0;
   }
   .btn.btn-main {
-    margin: 20px 0;
+    margin: 20px 23%;
   }
   #candidate-answer .text {
     width: 100%;
@@ -1264,6 +1300,9 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
   .img-cc {
     margin: 15px 0 15px 31%;
   }
+    .btn.btn-main {
+    margin: 20px 20%;
+  }
 }
 @media (max-width: 360px) {
   h1 {
@@ -1293,9 +1332,7 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
   .progress-bar {
     font-size: 30px;;
   }
-  #form-2 .form-group.select {
-    margin: 0 -50px 20px;
-  }
+
   .logo-fcd {
     display: block;
     float: none;
