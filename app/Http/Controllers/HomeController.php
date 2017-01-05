@@ -58,6 +58,18 @@ class HomeController extends Controller
 
         arsort($arrayResultado);
 
+        $objPart = participantes::where('estado','=','1')->get();
+        foreach ($objPart as $opp){
+            $objParticipantesPregunta = participantes_preguntas::where('participantes_id','=',$opp->id)->groupBy('preguntas_id','respuesta')->get();
+
+            foreach ($objParticipantesPregunta as $pp) {
+                $pp->estado = 1;
+                $pp->save();
+            }
+        }
+
+        
+
         $data = array(
                     'objCandidato' => candidatos::activas()->orderBy('apellido')->get(),
                     'objPreguntas' => preguntas::activas()->get(),
@@ -75,25 +87,7 @@ class HomeController extends Controller
         $objParticipantes = null;
         //Obtengo el objeto de los candidatos
         $objCandidato = candidatos::activas()->orderBy('apellido')->get();
-        //$objP = participantes_preguntas::select('SELECT count(*),respuesta FROM `participantes_preguntas` where preguntas_id = 1 group by preguntas_id, respuesta');
 
-        $objP = DB::table('participantes_preguntas as pp')
-                                ->join('participantes', 'participantes.id', '=', 'pp.participantes_id')
-                                ->selectRaw('count(*) as count,pp.respuesta')
-                                ->where('pp.preguntas_id','=','1')
-                                ->where('participantes.estado','=','1')
-                                //->where('pp.id', '=', 'select max(p1.id) from participantes_preguntas p1 where p1.participantes_id = pp.participantes_id')
-                                ->groupBy('pp.preguntas_id', 'pp.respuesta')
-                                ->get();
-
-                                
-        echo '<pre>';
-        //var_dump($objP);
-        echo '</pre>';
-         foreach($objP as $p){
-            echo $p->count.' ';
-            echo $p->respuesta.'<br>';
-         }
         
          /*
         foreach($objCandidato as $candidato){
@@ -509,6 +503,15 @@ class HomeController extends Controller
                         //Activo el participante despues que haya contestado todas las preguntas
                         $objParticipante->estado = 1;
                         $objParticipante->save();
+
+                        $objParticipantesPregunta = participantes_preguntas::where('participantes_id','=',$objParticipante->id)->groupBy('preguntas_id','respuesta')->get();
+
+                        foreach ($objParticipantesPregunta as $pp) {
+                            $pp->estado = 1;
+                            $pp->save();
+                        }
+
+
                         return redirect('juego-resultado');
                     }else{
                         return redirect('juego-login');
