@@ -109,7 +109,11 @@ class ExcelController extends Controller
             $consulta = [$preguntaP->pregunta,'Todas las edades',$rGenero];
             $participantesCriterio = participantes::where('estado','=','1')->where('genero','=',$rGenero)->get();
             //Obtengo el objeto de los candidatos
-            $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();            
+            $objCandidato = candidatos::activas()->orderBy('apellido')->get();
+            foreach($objCandidato as $candidato){
+                $porcentaje = 0;
+                //obtengo el objeto preguntas por candidato
+                $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();            
                 foreach($objCandidatoPregunta as $pregunta){
                     if($pregunta->id == $preguntaP->id){
                         //obtengo el objeto de los participantes que terminaron de cotestar todas las preguntas
@@ -135,8 +139,8 @@ class ExcelController extends Controller
                 }
                 $arrayResultado[] = array(
                     'candidatos' => $candidato->nombre .' '. $candidato->apellido,
-					'porcentaje' => $porcentaje*100/(count($objCandidatoPregunta)*count($participantesCriterio)),
-					);
+                    'porcentaje' => $porcentaje*100/(count($objCandidatoPregunta)*count($participantesCriterio)),
+                    );
             }
             /* --- FIN FUNCTION ---- */
         }elseif($rPregunta == "" and $rEdad != "" and $rGenero != ""){
