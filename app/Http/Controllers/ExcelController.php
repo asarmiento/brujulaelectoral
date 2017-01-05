@@ -293,6 +293,7 @@ class ExcelController extends Controller
             $consulta = ['Todas las preguntas','Todas las edades','Todos los géneros'];
             //Obtengo el objeto de los candidatos
             $objCandidato = candidatos::activas()->get();
+            $objParticipantes = participantes::where('estado','=','1')->get();
             foreach($objCandidato as $candidato){
                 $porcentaje = 0;
                 //obtengo el objeto preguntas por candidato
