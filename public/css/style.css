@@ -1044,7 +1044,7 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
     margin: 0 auto 10px auto;
   }
   .btn-yes, .btn-no {
-    width: 42%;
+    width: 34%;
   }
   #demo7 {
     margin-left: 0;
@@ -1298,6 +1298,9 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
     display: block !important;
     width: 300px !important;
   }
+  #btn-yes.btn-yes {
+    width: 15%;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1378,7 +1381,7 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
   
   }
   #form-voto {
-  left: 38px;
+  left: 60px;
   }
     .more-asw {
     left: -71px;
@@ -1402,7 +1405,7 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
   .img-cc {
     margin: 15px 0 15px 31%;
   }
-    .btn.btn-main {
+  .btn.btn-main {
     margin: 20px 20%;
   }
   .navbar-toggle {
@@ -1420,7 +1423,10 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
     background: transparent none repeat scroll 0 0;
   }
   #btn-yes.btn-yes {
-    width: 19%;
+    width: 21%;
+  }
+  #form-voto {
+    left: 28px;
   }
 }
 @media (max-width: 360px) {
@@ -1505,7 +1511,7 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
     left: 60px;
   }
     #btn-yes.btn-yes {
-    margin-left: 22%;
+    widows: 23%;
   }
   .more-asw {
     left: -68px;
@@ -1572,7 +1578,7 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
     left: -68px;
   }
   #btn-yes.btn-yes {
-    width: 27%;
+    width: 28%;
   }
   .btn-white {
     width: 61%;
