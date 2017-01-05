@@ -74,6 +74,23 @@ class HomeController extends Controller
         $objParticipantes = null;
         //Obtengo el objeto de los candidatos
         $objCandidato = candidatos::activas()->orderBy('apellido')->get();
+        //$objP = participantes_preguntas::select('SELECT count(*),respuesta FROM `participantes_preguntas` where preguntas_id = 1 group by preguntas_id, respuesta');
+
+        $objP = participantes_preguntas::selectRaw('count(*) as count,respuesta')
+                                ->where('preguntas_id','=','1')
+                                ->groupBy('preguntas_id', 'respuesta')
+                                ->get();
+
+
+        echo '<pre>';
+        //var_dump($objP);
+        echo '</pre>';
+         foreach($objP as $p){
+            echo $p->count.' ';
+            echo $p->respuesta.'<br>';
+         }
+        die();
+
         foreach($objCandidato as $candidato){
             $porcentaje = 0;
             //obtengo el objeto preguntas por candidato
@@ -103,7 +120,7 @@ class HomeController extends Controller
             }
         }
 
-        arsort($arrayResultado);
+        //arsort($arrayResultado);
 
         $data = array(
                     'objCandidato' => candidatos::activas()->orderBy('apellido')->get(),
