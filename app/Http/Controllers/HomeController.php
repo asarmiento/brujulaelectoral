@@ -9,6 +9,7 @@ use App\participantes;
 use App\preguntas;
 use App\participantes_preguntas;
 use App\candidatos_preguntas;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -76,12 +77,16 @@ class HomeController extends Controller
         $objCandidato = candidatos::activas()->orderBy('apellido')->get();
         //$objP = participantes_preguntas::select('SELECT count(*),respuesta FROM `participantes_preguntas` where preguntas_id = 1 group by preguntas_id, respuesta');
 
-        $objP = participantes_preguntas::selectRaw('count(*) as count,respuesta')
-                                ->where('preguntas_id','=','1')
-                                ->groupBy('preguntas_id', 'respuesta')
+        $objP = DB::table('participantes_preguntas as pp')
+                                ->join('participantes', 'participantes.id', '=', 'pp.participantes_id')
+                                ->selectRaw('count(*) as count,pp.respuesta')
+                                ->where('pp.preguntas_id','=','1')
+                                ->where('participantes.estado','=','1')
+                                //->where('pp.id', '=', 'select max(p1.id) from participantes_preguntas p1 where p1.participantes_id = pp.participantes_id')
+                                ->groupBy('pp.preguntas_id', 'pp.respuesta')
                                 ->get();
 
-
+                                
         echo '<pre>';
         //var_dump($objP);
         echo '</pre>';
@@ -89,8 +94,8 @@ class HomeController extends Controller
             echo $p->count.' ';
             echo $p->respuesta.'<br>';
          }
-        die();
-
+        
+         /*
         foreach($objCandidato as $candidato){
             $porcentaje = 0;
             //obtengo el objeto preguntas por candidato
@@ -118,9 +123,40 @@ class HomeController extends Controller
             }else{
                 $arrayResultado[$candidato->nombre .' '. $candidato->apellido] = 0;
             }
+        }*/
+        
+        foreach($objCandidato as $candidato){
+            $porcentaje = 0;
+            //obtengo el objeto preguntas por candidato
+            $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();            
+            foreach($objCandidatoPregunta as $pregunta){
+                //obtengo el objeto de los participantes que terminaron de cotestar todas las preguntas
+                $objP = DB::table('participantes_preguntas as pp')
+                                ->join('participantes', 'participantes.id', '=', 'pp.participantes_id')
+                                ->selectRaw('count(*) as count,pp.respuesta')
+                                ->where('pp.preguntas_id','=',$pregunta->id)
+                                ->where('participantes.estado','=','1')
+                                //->where('pp.id', '=', 'select max(p1.id) from participantes_preguntas p1 where p1.participantes_id = pp.participantes_id')
+                                ->groupBy('pp.preguntas_id', 'pp.respuesta')
+                                ->get();
+                foreach($objP as $p){
+                    if($p->respuesta == $pregunta->pivot->respuesta_corta){
+                            $porcentaje = $porcentaje + $p->count;
+                        }
+                    if($p->respuesta == $pregunta->pivot->opcion){
+                            $porcentaje = $porcentaje + $p->count;
+                        }
+                 }
+            }
+            $objParticipantes = participantes::where('estado','=','1')->get();
+            if(count($objParticipantes)){
+                $arrayResultado[$candidato->nombre .' '. $candidato->apellido] = $porcentaje*100/(count($objCandidatoPregunta)*count($objParticipantes));
+            }else{
+                $arrayResultado[$candidato->nombre .' '. $candidato->apellido] = 0;
+            }
         }
 
-        //arsort($arrayResultado);
+        arsort($arrayResultado);
 
         $data = array(
                     'objCandidato' => candidatos::activas()->orderBy('apellido')->get(),
