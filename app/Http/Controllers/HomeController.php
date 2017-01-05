@@ -62,16 +62,6 @@ class HomeController extends Controller
 
         arsort($arrayResultado);
 
-        $objPart = participantes::where('estado','=','1')->get();
-        foreach ($objPart as $opp){
-            $objParticipantesPregunta = participantes_preguntas::where('participantes_id','=',$opp->id)->groupBy('preguntas_id','respuesta')->get();
-
-            foreach ($objParticipantesPregunta as $pp) {
-                $pp->estado = 1;
-                $pp->save();
-            }
-        }
-
         $data = array(
                     'objCandidato' => candidatos::activas()->orderBy('apellido')->get(),
                     'objPreguntas' => preguntas::activas()->get(),
@@ -120,6 +110,16 @@ class HomeController extends Controller
                 $arrayResultado[$candidato->nombre .' '. $candidato->apellido] = 0;
             }
         }
+        /*
+        $objPart = participantes::where('estado','=','1')->get();
+        foreach ($objPart as $opp){
+            $objParticipantesPregunta = participantes_preguntas::where('participantes_id','=',$opp->id)->groupBy('preguntas_id','respuesta')->get();
+
+            foreach ($objParticipantesPregunta as $pp) {
+                $pp->estado = 1;
+                $pp->save();
+            }
+        }*/
 
         arsort($arrayResultado);
 
