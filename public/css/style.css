@@ -1378,14 +1378,18 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
   
   }
   #form-voto {
-  left: 70px;
+  left: 38px;
   }
     .more-asw {
     left: -71px;
   }
   .img-fcd {
   margin-right: 27%;
-}
+  }
+  #box-game h3, #box-game p {
+    left: -30px;
+    position: relative;
+  }
 }
 @media (max-width: 414px) {
   #form-2 {
@@ -1501,11 +1505,12 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
     left: 60px;
   }
     #btn-yes.btn-yes {
-    margin-left: 2px;
+    margin-left: 22%;
   }
   .more-asw {
     left: -68px;
   }
+
 }
 @media (max-width: 320px) {
   h1 {
@@ -1565,6 +1570,15 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
   }
   .more-asw {
     left: -68px;
+  }
+  #btn-yes.btn-yes {
+    width: 27%;
+  }
+  .btn-white {
+    width: 61%;
+  }
+  #form-voto {
+    left: 44px;
   }
 }
 /*nuevos*/
