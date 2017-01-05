@@ -171,7 +171,7 @@ button.btn.btn-main {
 }
 #form-2 button.btn.btn-main {
   display: block;
-  margin: 20px auto;
+  margin: 20px auto 32px auto;
 }
 form {
   display: block;
@@ -1058,6 +1058,13 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
   #form-voto {
     left: 8px;
   }
+  #check-face .checkbox-inline {
+    width: 26%;
+    vertical-align: top;
+  }
+  #form-2 {
+    margin-left: 0px;
+  }
 }
 @media (max-width: 736px) {
   .navbar {
@@ -1082,11 +1089,10 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
   }
   #box-2-face {
     background-color: #dbe1e1;
-    height: 423px;
     margin: 20px;
   }
   #interna .navbar-toggle {
-    right: 148px;
+    right: 0;
   }
   .box-question {
     width: 664px !important;
@@ -1125,6 +1131,20 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
     left: 188px;
     margin: 0 auto;
   }
+  #form-2 {
+    margin-left: 115px;
+  }
+  .pull-right {
+    margin-right: 31%;
+  }
+  .pull-left {
+    float: left !important;
+    margin-left: 40%;
+  }
+  .ico-social-media {
+    text-align: center;
+    margin-top: 20px;
+  }
 }
 @media (max-width: 667px) {
   #interna .navbar-toggle {
@@ -1132,6 +1152,12 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
   }
   header.ico-social-media {
     right: 0;
+  }
+  .more-asw {
+    left: -187px;
+  }
+  .pic-box {
+    margin: 0 0 20px 20%;
   }
 }
 @media (max-width: 600px) {
@@ -1211,6 +1237,12 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
   #form-voto {
     left: 144px;
   }
+  .more-asw {
+    left: -145px;
+  }
+  .pic-box {
+    margin: 0 20px 0 19%;
+  }
 }
 @media (max-width: 568px) {
 .navbar {
@@ -1245,6 +1277,9 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
   .img-box {
     min-height: 317px;
   }
+    .more-asw {
+    left: -101px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1268,9 +1303,6 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
   .img-box {
     background: rgba(0, 0, 0, 0) url("../images/box.png") no-repeat scroll 60px 0px / 70% auto;
     min-height: 280px;
-  }
-  #box-2-face {
-    height: 458px;
   }
   .logo-planv {
     display: block;
@@ -1329,7 +1361,10 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
   }
   #form-voto {
   left: 70px;
-}
+  }
+    .more-asw {
+    left: -71px;
+  }
 }
 @media (max-width: 414px) {
   #form-2 {
@@ -1378,14 +1413,13 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
   #form-3 .btn.btn-main {
     display: block;
     margin: 0 auto 0 5%;
-}
+  }
   .f2f-right {
     display: none;
   }
   .progress-bar {
     font-size: 30px;;
   }
-
   .logo-fcd {
     display: block;
     float: none;
@@ -1396,11 +1430,9 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
     height: 157px;
     margin: 20px 0 14px 5px;
   }
-  .btn-yes, .btn-no, .btn-white {
-    margin: 0 70px 10px;
-  }
   .img-box {
-    background: rgba(0, 0, 0, 0) url("../images/box.png") no-repeat scroll 19px 0px / 90% auto;
+    background: rgba(0, 0, 0, 0) url("../images/box.png") no-repeat scroll 19px 15px / 88% auto;
+    min-height: 310px;
   }
   #interna .navbar-toggle {
     right: 0;
@@ -1426,13 +1458,27 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
     width: 113%;
   }
   .btn-yes{width: 40%;}
+  #btn-yes.btn-yes {
+    width: 24%;
+  }
   .btn-no{width: 40%;}
-  .btn-white{width: 40%;}
+  .btn-white{width: 52%;}
   .img-fcd {
     margin-right: 17%;
   }
   #nombre.form-control {
     width: 100%;
+  }
+  #form-voto {
+    left: -7px;
+  }
+  #btn-yes.btn-yes {
+    width: 23%;
+    margin-bottom: 20px;
+    margin-left: 113px;
+  }
+  .more-asw {
+    left: -68px;
   }
 }
 @media (max-width: 320px) {
@@ -1490,6 +1536,9 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
   }
   .img-cc {
     margin: 15px 0 15px 25%;
+  }
+  .more-asw {
+    left: -68px;
   }
 }
 /*nuevos*/
