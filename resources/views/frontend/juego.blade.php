@@ -27,7 +27,7 @@
             {{ $objPreguntaAct->id  }}.
           </div>
         </div>
-        <div class="col-xs=10 col-sm-6 col-md-5">
+        <div class="col-xs-10 col-sm-6 col-md-5">
           
           @if(count($objPreguntaAct))
             <h3 class="headline-3">{{ $objPreguntaAct->pregunta }}</h3>
