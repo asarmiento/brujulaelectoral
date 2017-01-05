@@ -12,6 +12,7 @@ use App\participantes;
 use App\preguntas;
 use App\participantes_preguntas;
 use App\candidatos_preguntas;
+use Illuminate\Support\Facades\DB;
 
 class ExcelController extends Controller
 {
