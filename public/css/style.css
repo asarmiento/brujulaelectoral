@@ -1046,7 +1046,18 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
   #demo7 {
     margin-left: 0;
   }
-
+  .navbar-toggle {
+    margin-top: 20px;
+  }
+  #nombre.form-control {
+    width: 97%;
+  }
+  .btn-white {
+    margin-left: 5px;
+  }
+  #form-voto {
+    left: 8px;
+  }
 }
 @media (max-width: 736px) {
   .navbar {
@@ -1062,17 +1073,14 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
   p.info-question {
     margin-bottom: 30px;
   }
-  .btn-yes, .btn-no, .btn-white {
-    margin: 0 150px 10px;
-  }
   .img-box {
-    background: rgba(0, 0, 0, 0) url("../images/box.png") no-repeat scroll 136px 180px / 59% auto;
+    background: rgba(0, 0, 0, 0) url("../images/box.png") no-repeat scroll 136px 24px / 52% auto;
     min-height: 429px;
   }
   .form-control.box-candidate {
     width: 413px;
   }
-    #box-2-face {
+  #box-2-face {
     background-color: #dbe1e1;
     height: 423px;
     margin: 20px;
@@ -1105,6 +1113,17 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
   }
   footer p {
     width: 100%;
+  }
+  #btn-yes.btn-yes {
+    width: 10%;
+  }
+  .btn-white {
+    margin-left: 0;
+    margin-top: 0;
+  }
+  #form-voto {
+    left: 188px;
+    margin: 0 auto;
   }
 }
 @media (max-width: 667px) {
@@ -1179,7 +1198,19 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
   }
   .navbar-toggle {
     margin-top: 20px;
-}
+  }
+  .headline-3 {
+    font-size: 32px;
+  }
+  #form-voto {
+    left: 139px;
+  }
+  #btn-yes.btn-yes {
+  width: 12%;
+  }
+  #form-voto {
+    left: 144px;
+  }
 }
 @media (max-width: 568px) {
 .navbar {
@@ -1201,7 +1232,19 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
   }
   .btn.btn-main {
     margin: 20px 29%;
-}
+  }
+  .headline-3 {
+    font-size: 27px;
+  }
+  p.txt-question {
+    font-size: 12px;
+  }
+  #form-voto {
+    left: 102px;
+  }
+  .img-box {
+    min-height: 317px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1222,12 +1265,9 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
   p.txt-question {
     display: none;
   }
-  .btn-yes, .btn-no, .btn-white {
-    margin: 0 100px 10px;
-  }
   .img-box {
     background: rgba(0, 0, 0, 0) url("../images/box.png") no-repeat scroll 60px 0px / 70% auto;
-        min-height: 280px;
+    min-height: 280px;
   }
   #box-2-face {
     height: 458px;
@@ -1258,7 +1298,6 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
     height: 191px;
   }
   .navbar-toggle {
-    right: -120px;
     top: 0;
   }
   .btn.btn-main {
@@ -1288,6 +1327,9 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
     margin-right: 26%;
     width: 113px;
   }
+  #form-voto {
+  left: 70px;
+}
 }
 @media (max-width: 414px) {
   #form-2 {
@@ -1302,6 +1344,13 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
   }
     .btn.btn-main {
     margin: 20px 20%;
+  }
+  .navbar-toggle {
+    margin-top: 5px;
+  }
+  #form-3 .btn.btn-main {
+    display: block;
+    margin: 0 auto 0 14%;
   }
 }
 @media (max-width: 360px) {
@@ -1326,6 +1375,10 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
   .btn.btn-main {
     margin: 20px 13%;
   }
+  #form-3 .btn.btn-main {
+    display: block;
+    margin: 0 auto 0 5%;
+}
   .f2f-right {
     display: none;
   }
@@ -1378,6 +1431,9 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
   .img-fcd {
     margin-right: 17%;
   }
+  #nombre.form-control {
+    width: 100%;
+  }
 }
 @media (max-width: 320px) {
   h1 {
@@ -1391,6 +1447,9 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
   }
   .btn.btn-main {
     margin: 20px 6%;
+  }
+    #form-3 .btn.btn-main {
+    margin: 0 auto 0 -7px;
   }
   .ico-tw > a, .ico-fb > a {
     padding-bottom: 10px;
