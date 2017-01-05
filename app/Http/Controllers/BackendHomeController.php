@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\candidatos;
 use App\preguntas;
 use App\participantes;
+use Illuminate\Support\Facades\DB;
 
 
 class BackendHomeController extends Controller
@@ -62,14 +63,26 @@ class BackendHomeController extends Controller
                 $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();            
                 foreach($objCandidatoPregunta as $pregunta){
                     //obtengo el objeto de los participantes que terminaron de cotestar todas las preguntas
-                    $objParticipantes = participantes::where('estado','=','1')->get();
-                    foreach ($objParticipantes as $participante) {
-                        $objPreguntaParticipante = preguntas::find($pregunta->id)->participantes()->where('participantes_preguntas.participantes_id','=',$participante->id)->orderBy('pivot_id','desc')->first();
-                        if($objPreguntaParticipante->pivot->respuesta == $pregunta->pivot->respuesta_corta){
-                                $porcentaje = $porcentaje + 1;
+                    
+                    $objP = DB::table('participantes_preguntas as pp')
+                                ->join('participantes', 'participantes.id', '=', 'pp.participantes_id')
+                                ->selectRaw('count(*) as count,pp.respuesta')
+                                ->where('pp.preguntas_id','=',$pregunta->id)
+                                ->where('participantes.estado','=','1')
+                                ->where('pp.estado','=','1')
+                                //->where('pp.id', '=', 'select max(p1.id) from participantes_preguntas p1 where p1.participantes_id = pp.participantes_id')
+                                ->groupBy('pp.preguntas_id', 'pp.respuesta')
+                                ->get();
+                    foreach($objP as $p){
+                        if($p->respuesta == $pregunta->pivot->respuesta_corta){
+                                $porcentaje = $porcentaje + $p->count;
                             }
-                    }
+                        if($p->respuesta == $pregunta->pivot->opcion){
+                                $porcentaje = $porcentaje + $p->count;
+                            }
+                     }
                 }
+                $objParticipantes = participantes::where('estado','=','1')->get();
                 if(count($objParticipantes)){
                     $arrayResultado[] = array(
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
@@ -115,26 +128,37 @@ class BackendHomeController extends Controller
                 $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();            
                 foreach($objCandidatoPregunta as $pregunta){
                     //obtengo el objeto de los participantes que terminaron de cotestar todas las preguntas
-                    $objParticipantes = participantes::where('estado','=','1')->get();
-                    foreach ($objParticipantes as $participante) {
-                        if($participante->genero == 'Femenino' ){
-                            $objPreguntaParticipante = preguntas::find($pregunta->id)->participantes()->where('participantes_preguntas.participantes_id','=',$participante->id)->orderBy('pivot_id','desc')->first();
-                            if($objPreguntaParticipante->pivot->respuesta == $pregunta->pivot->respuesta_corta){
-                                $porcentaje = $porcentaje + 1;
+                    
+                    $objP = DB::table('participantes_preguntas as pp')
+                                ->join('participantes', 'participantes.id', '=', 'pp.participantes_id')
+                                ->selectRaw('count(*) as count,pp.respuesta')
+                                ->where('pp.preguntas_id','=',$pregunta->id)
+                                ->where('participantes.estado','=','1')
+                                ->where('participantes.genero','=','Femenino')
+                                ->where('pp.estado','=','1')
+                                //->where('pp.id', '=', 'select max(p1.id) from participantes_preguntas p1 where p1.participantes_id = pp.participantes_id')
+                                ->groupBy('pp.preguntas_id', 'pp.respuesta')
+                                ->get();
+                    foreach($objP as $p){
+                        if($p->respuesta == $pregunta->pivot->respuesta_corta){
+                                $porcentaje = $porcentaje + $p->count;
                             }
-                        }
-                    }
+                        if($p->respuesta == $pregunta->pivot->opcion){
+                                $porcentaje = $porcentaje + $p->count;
+                            }
+                     }
                 }
+                $objParticipantes = participantes::where('estado','=','1')->get();
                 if(count($objParticipantes)){
                     $arrayResultado[] = array(
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
                         'porcentaje' => $porcentaje*100/(count($objCandidatoPregunta)*count($objParticipantes)),
-                        );
+                    );    
                 }else{
                     $arrayResultado[] = array(
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
                         'porcentaje' => 0,
-                        );
+                    );    
                 }
             }
             /* --- FIN FUNCTION ---- */
@@ -167,26 +191,37 @@ class BackendHomeController extends Controller
                 $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();            
                 foreach($objCandidatoPregunta as $pregunta){
                     //obtengo el objeto de los participantes que terminaron de cotestar todas las preguntas
-                    $objParticipantes = participantes::where('estado','=','1')->get();
-                    foreach ($objParticipantes as $participante) {
-                        if($participante->genero == 'Masculino' ){
-                            $objPreguntaParticipante = preguntas::find($pregunta->id)->participantes()->where('participantes_preguntas.participantes_id','=',$participante->id)->orderBy('pivot_id','desc')->first();
-                            if($objPreguntaParticipante->pivot->respuesta == $pregunta->pivot->respuesta_corta){
-                                $porcentaje = $porcentaje + 1;
+                    
+                    $objP = DB::table('participantes_preguntas as pp')
+                                ->join('participantes', 'participantes.id', '=', 'pp.participantes_id')
+                                ->selectRaw('count(*) as count,pp.respuesta')
+                                ->where('pp.preguntas_id','=',$pregunta->id)
+                                ->where('participantes.estado','=','1')
+                                ->where('participantes.genero','=','Masculino')
+                                ->where('pp.estado','=','1')
+                                //->where('pp.id', '=', 'select max(p1.id) from participantes_preguntas p1 where p1.participantes_id = pp.participantes_id')
+                                ->groupBy('pp.preguntas_id', 'pp.respuesta')
+                                ->get();
+                    foreach($objP as $p){
+                        if($p->respuesta == $pregunta->pivot->respuesta_corta){
+                                $porcentaje = $porcentaje + $p->count;
                             }
-                        }
-                    }
+                        if($p->respuesta == $pregunta->pivot->opcion){
+                                $porcentaje = $porcentaje + $p->count;
+                            }
+                     }
                 }
+                $objParticipantes = participantes::where('estado','=','1')->get();
                 if(count($objParticipantes)){
                     $arrayResultado[] = array(
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
                         'porcentaje' => $porcentaje*100/(count($objCandidatoPregunta)*count($objParticipantes)),
-                    );
+                    );    
                 }else{
                     $arrayResultado[] = array(
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
                         'porcentaje' => 0,
-                    );
+                    );    
                 }
             }
             /* --- FIN FUNCTION ---- */
@@ -215,30 +250,40 @@ class BackendHomeController extends Controller
         if(count($objCandidato))  {
             foreach($objCandidato as $candidato){
                 $porcentaje = 0;
-                //obtengo el objeto preguntas por candidato
                 $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();            
                 foreach($objCandidatoPregunta as $pregunta){
                     //obtengo el objeto de los participantes que terminaron de cotestar todas las preguntas
-                    $objParticipantes = participantes::where('estado','=','1')->get();
-                    foreach ($objParticipantes as $participante) {
-                        if($participante->genero == 'GLTB' ){
-                            $objPreguntaParticipante = preguntas::find($pregunta->id)->participantes()->where('participantes_preguntas.participantes_id','=',$participante->id)->orderBy('pivot_id','desc')->first();
-                            if($objPreguntaParticipante->pivot->respuesta == $pregunta->pivot->respuesta_corta){
-                                $porcentaje = $porcentaje + 1;
+                    
+                    $objP = DB::table('participantes_preguntas as pp')
+                                ->join('participantes', 'participantes.id', '=', 'pp.participantes_id')
+                                ->selectRaw('count(*) as count,pp.respuesta')
+                                ->where('pp.preguntas_id','=',$pregunta->id)
+                                ->where('participantes.estado','=','1')
+                                ->where('participantes.genero','=','GLTB')
+                                ->where('pp.estado','=','1')
+                                //->where('pp.id', '=', 'select max(p1.id) from participantes_preguntas p1 where p1.participantes_id = pp.participantes_id')
+                                ->groupBy('pp.preguntas_id', 'pp.respuesta')
+                                ->get();
+                    foreach($objP as $p){
+                        if($p->respuesta == $pregunta->pivot->respuesta_corta){
+                                $porcentaje = $porcentaje + $p->count;
                             }
-                        }
-                    }
+                        if($p->respuesta == $pregunta->pivot->opcion){
+                                $porcentaje = $porcentaje + $p->count;
+                            }
+                     }
                 }
+                $objParticipantes = participantes::where('estado','=','1')->get();
                 if(count($objParticipantes)){
                     $arrayResultado[] = array(
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
                         'porcentaje' => $porcentaje*100/(count($objCandidatoPregunta)*count($objParticipantes)),
-                    );
+                    );    
                 }else{
                     $arrayResultado[] = array(
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
                         'porcentaje' => 0,
-                    );
+                    );    
                 }
             }
             /* --- FIN FUNCTION ---- */
@@ -271,26 +316,37 @@ class BackendHomeController extends Controller
                 $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();            
                 foreach($objCandidatoPregunta as $pregunta){
                     //obtengo el objeto de los participantes que terminaron de cotestar todas las preguntas
-                    $objParticipantes = participantes::where('estado','=','1')->get();
-                    foreach ($objParticipantes as $participante) {
-                        if($participante->edad == '16 - 25' ){
-                            $objPreguntaParticipante = preguntas::find($pregunta->id)->participantes()->where('participantes_preguntas.participantes_id','=',$participante->id)->orderBy('pivot_id','desc')->first();
-                            if($objPreguntaParticipante->pivot->respuesta == $pregunta->pivot->respuesta_corta){
-                                $porcentaje = $porcentaje + 1;
+                    
+                    $objP = DB::table('participantes_preguntas as pp')
+                                ->join('participantes', 'participantes.id', '=', 'pp.participantes_id')
+                                ->selectRaw('count(*) as count,pp.respuesta')
+                                ->where('pp.preguntas_id','=',$pregunta->id)
+                                ->where('participantes.estado','=','1')
+                                ->where('participantes.edad','=','16 - 25')
+                                ->where('pp.estado','=','1')
+                                //->where('pp.id', '=', 'select max(p1.id) from participantes_preguntas p1 where p1.participantes_id = pp.participantes_id')
+                                ->groupBy('pp.preguntas_id', 'pp.respuesta')
+                                ->get();
+                    foreach($objP as $p){
+                        if($p->respuesta == $pregunta->pivot->respuesta_corta){
+                                $porcentaje = $porcentaje + $p->count;
                             }
-                        }
-                    }
+                        if($p->respuesta == $pregunta->pivot->opcion){
+                                $porcentaje = $porcentaje + $p->count;
+                            }
+                     }
                 }
+                $objParticipantes = participantes::where('estado','=','1')->get();
                 if(count($objParticipantes)){
                     $arrayResultado[] = array(
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
                         'porcentaje' => $porcentaje*100/(count($objCandidatoPregunta)*count($objParticipantes)),
-                    );
+                    );    
                 }else{
                     $arrayResultado[] = array(
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
                         'porcentaje' => 0,
-                    );
+                    );    
                 }
             }
             /* --- FIN FUNCTION ---- */
@@ -323,26 +379,37 @@ class BackendHomeController extends Controller
                 $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();            
                 foreach($objCandidatoPregunta as $pregunta){
                     //obtengo el objeto de los participantes que terminaron de cotestar todas las preguntas
-                    $objParticipantes = participantes::where('estado','=','1')->get();
-                    foreach ($objParticipantes as $participante) {
-                        if($participante->edad == '25 - 35' ){
-                            $objPreguntaParticipante = preguntas::find($pregunta->id)->participantes()->where('participantes_preguntas.participantes_id','=',$participante->id)->orderBy('pivot_id','desc')->first();
-                            if($objPreguntaParticipante->pivot->respuesta == $pregunta->pivot->respuesta_corta){
-                                $porcentaje = $porcentaje + 1;
+                    
+                    $objP = DB::table('participantes_preguntas as pp')
+                                ->join('participantes', 'participantes.id', '=', 'pp.participantes_id')
+                                ->selectRaw('count(*) as count,pp.respuesta')
+                                ->where('pp.preguntas_id','=',$pregunta->id)
+                                ->where('participantes.estado','=','1')
+                                ->where('participantes.edad','=','25 - 35')
+                                ->where('pp.estado','=','1')
+                                //->where('pp.id', '=', 'select max(p1.id) from participantes_preguntas p1 where p1.participantes_id = pp.participantes_id')
+                                ->groupBy('pp.preguntas_id', 'pp.respuesta')
+                                ->get();
+                    foreach($objP as $p){
+                        if($p->respuesta == $pregunta->pivot->respuesta_corta){
+                                $porcentaje = $porcentaje + $p->count;
                             }
-                        }
-                    }
+                        if($p->respuesta == $pregunta->pivot->opcion){
+                                $porcentaje = $porcentaje + $p->count;
+                            }
+                     }
                 }
+                $objParticipantes = participantes::where('estado','=','1')->get();
                 if(count($objParticipantes)){
                     $arrayResultado[] = array(
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
                         'porcentaje' => $porcentaje*100/(count($objCandidatoPregunta)*count($objParticipantes)),
-                    );
+                    );    
                 }else{
                     $arrayResultado[] = array(
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
                         'porcentaje' => 0,
-                    );
+                    );    
                 }
             }
             /* --- FIN FUNCTION ---- */
@@ -375,26 +442,37 @@ class BackendHomeController extends Controller
                 $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();            
                 foreach($objCandidatoPregunta as $pregunta){
                     //obtengo el objeto de los participantes que terminaron de cotestar todas las preguntas
-                    $objParticipantes = participantes::where('estado','=','1')->get();
-                    foreach ($objParticipantes as $participante) {
-                        if($participante->edad == '35 - 45' ){
-                            $objPreguntaParticipante = preguntas::find($pregunta->id)->participantes()->where('participantes_preguntas.participantes_id','=',$participante->id)->orderBy('pivot_id','desc')->first();
-                            if($objPreguntaParticipante->pivot->respuesta == $pregunta->pivot->respuesta_corta){
-                                $porcentaje = $porcentaje + 1;
+                    
+                    $objP = DB::table('participantes_preguntas as pp')
+                                ->join('participantes', 'participantes.id', '=', 'pp.participantes_id')
+                                ->selectRaw('count(*) as count,pp.respuesta')
+                                ->where('pp.preguntas_id','=',$pregunta->id)
+                                ->where('participantes.estado','=','1')
+                                ->where('participantes.edad','=','35 - 45')
+                                ->where('pp.estado','=','1')
+                                //->where('pp.id', '=', 'select max(p1.id) from participantes_preguntas p1 where p1.participantes_id = pp.participantes_id')
+                                ->groupBy('pp.preguntas_id', 'pp.respuesta')
+                                ->get();
+                    foreach($objP as $p){
+                        if($p->respuesta == $pregunta->pivot->respuesta_corta){
+                                $porcentaje = $porcentaje + $p->count;
                             }
-                        }
-                    }
+                        if($p->respuesta == $pregunta->pivot->opcion){
+                                $porcentaje = $porcentaje + $p->count;
+                            }
+                     }
                 }
+                $objParticipantes = participantes::where('estado','=','1')->get();
                 if(count($objParticipantes)){
                     $arrayResultado[] = array(
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
                         'porcentaje' => $porcentaje*100/(count($objCandidatoPregunta)*count($objParticipantes)),
-                    );
+                    );    
                 }else{
                     $arrayResultado[] = array(
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
                         'porcentaje' => 0,
-                    );
+                    );    
                 }
             }
             /* --- FIN FUNCTION ---- */
@@ -427,26 +505,37 @@ class BackendHomeController extends Controller
                 $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();            
                 foreach($objCandidatoPregunta as $pregunta){
                     //obtengo el objeto de los participantes que terminaron de cotestar todas las preguntas
-                    $objParticipantes = participantes::where('estado','=','1')->get();
-                    foreach ($objParticipantes as $participante) {
-                        if($participante->edad == '45 en adelante' ){
-                            $objPreguntaParticipante = preguntas::find($pregunta->id)->participantes()->where('participantes_preguntas.participantes_id','=',$participante->id)->orderBy('pivot_id','desc')->first();
-                            if($objPreguntaParticipante->pivot->respuesta == $pregunta->pivot->respuesta_corta){
-                                $porcentaje = $porcentaje + 1;
+                    
+                    $objP = DB::table('participantes_preguntas as pp')
+                                ->join('participantes', 'participantes.id', '=', 'pp.participantes_id')
+                                ->selectRaw('count(*) as count,pp.respuesta')
+                                ->where('pp.preguntas_id','=',$pregunta->id)
+                                ->where('participantes.estado','=','1')
+                                ->where('participantes.edad','=','45 en adelante')
+                                ->where('pp.estado','=','1')
+                                //->where('pp.id', '=', 'select max(p1.id) from participantes_preguntas p1 where p1.participantes_id = pp.participantes_id')
+                                ->groupBy('pp.preguntas_id', 'pp.respuesta')
+                                ->get();
+                    foreach($objP as $p){
+                        if($p->respuesta == $pregunta->pivot->respuesta_corta){
+                                $porcentaje = $porcentaje + $p->count;
                             }
-                        }
-                    }
+                        if($p->respuesta == $pregunta->pivot->opcion){
+                                $porcentaje = $porcentaje + $p->count;
+                            }
+                     }
                 }
+                $objParticipantes = participantes::where('estado','=','1')->get();
                 if(count($objParticipantes)){
                     $arrayResultado[] = array(
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
                         'porcentaje' => $porcentaje*100/(count($objCandidatoPregunta)*count($objParticipantes)),
-                    );
+                    );    
                 }else{
                     $arrayResultado[] = array(
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
                         'porcentaje' => 0,
-                    );
+                    );    
                 }
             }
             /* --- FIN FUNCTION ---- */
