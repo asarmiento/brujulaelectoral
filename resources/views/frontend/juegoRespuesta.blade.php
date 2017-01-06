@@ -37,19 +37,18 @@
 							<ul class="closer-match">
 							@foreach($objRespuestas as $respuesta)
 								<!-- Valido si existe respuesta  -->
-								
-									@if($respuesta->pivot->opcion == $objMiRespuesta->pivot->respuesta)
+								{{$objMiRespuesta->pivot->respuesta}}
+									@if($respuesta->pivot->respuesta_corta == $objMiRespuesta->pivot->respuesta)
 										<li class="match-candidate">
 											<img src="{{ asset('imgJuego/'.$respuesta->foto) }}" class="foto70">
 										</li>
 										<?php $nan++; ?>
-									@elseif($respuesta->pivot->respuesta_corta == substr($objMiRespuesta->pivot->respuesta,0,3))
-										<li class="match-candidate">
-											<img src="{{ asset('imgJuego/'.$respuesta->foto) }}" class="foto70">
-										</li>
-										<?php $nan++; ?>
+									@elseif($respuesta->pivot->opcion == $objMiRespuesta->pivot->respuesta)
+											<li class="match-candidate">
+												<img src="{{ asset('imgJuego/'.$respuesta->foto) }}" class="foto70">
+											</li>
+											<?php $nan++; ?>
 									@endif
-
 							@endforeach
 							</ul>
 						@endif
