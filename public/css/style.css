@@ -1429,7 +1429,7 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
     left: 28px;
   }
 }
-@media (max-width: 360px) {
+@media (max-width: 375px) {
   h1 {
     font-size: 32px;
     left: 124px;
@@ -1440,6 +1440,30 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
     width: 100px;
    top: 41px;
   }
+  .btn.btn-main {
+  margin: 20px 16%;
+  }
+  .select select, .form-control {
+    padding: 20px 15px;
+  }
+  #form-voto {
+      left: 10px;
+    }
+  .box-answer {
+    left: -3px;
+  }
+  .box-middle {
+    margin: 10px 2% 0;
+  }
+  #candidate-answer .btn-yes, #candidate-answer .btn-no, #candidate-answer .btn-white {
+    width: 33%;
+  }
+  #answer-content p {
+    margin-left: 0;
+  }
+}
+@media (max-width: 360px) {
+
   h2 {
     font-size: 48px;
   }
@@ -1601,4 +1625,11 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
 }
 .more-asw li a {
   color: #000;
+}
+.btn-no.btn-nobut {
+  background-color: #ff7043;
+}
+
+.btn-yes.bth-yesbut {
+  background-color: #65a642;
 }
