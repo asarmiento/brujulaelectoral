@@ -778,6 +778,33 @@ a.op_1, a.op_2, a.op_3, a.op_4, a.op_5 {
 .img-mpv{float: left; margin-right: 10px;}
 .img-fcd{float: left;}
 
+#box-text {
+  background-color: #c5e4db;
+  margin: 20px;
+  padding: 20px 0;
+}
+h2 {
+  line-height: 100% !important;
+}
+ol.lista-numeros {
+  color: inherit;
+  font-size: inherit;
+  font-weight: normal;
+  list-style-type: decimal !important;
+
+}
+ol.lista-numeros li {
+
+  margin: 0 20px 0 0;
+  padding: 0 0 0 10px;
+  border-left: medium none;
+  height: auto;
+}
+.img-mail {
+  max-width: 100%;
+}
+
+
 @media screen and (-webkit-min-device-pixel-ratio:0) {
     header li p {
         top: 8px;

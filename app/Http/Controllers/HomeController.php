@@ -693,5 +693,17 @@ class HomeController extends Controller
                 );
         return view('frontend.afrente',$data);
     }
+
+    public function nosotros()
+    {
+        
+        $data = array(
+                    'objCandidato' => candidatos::activas()->orderBy('apellido')->get(),
+                    
+                    
+                    'titulo' => 'Brújula Electoral',
+                );
+        return view('frontend.nosotros',$data);
+    }
     
 }

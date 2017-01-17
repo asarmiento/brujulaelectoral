@@ -177,6 +177,9 @@ Route::get('juego-resultado', 'HomeController@resultado');
 Route::get('frente-a-frente', 'HomeController@frenteafrente');
 Route::post('frente-a-frente', 'HomeController@showfrenteafrente');
 
+Route::get('nosotros', 'HomeController@nosotros');
+
+
 
 Route::post('excel','ExcelController@index');
 

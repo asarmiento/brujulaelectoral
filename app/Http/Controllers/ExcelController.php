@@ -342,7 +342,6 @@ class ExcelController extends Controller
 	 		
 	            $excel->sheet('Participantes', function($sheet) use($arrayResultado,$consulta,$participantesCriterio,$totalParticipantes) {
 	            	
-	            	
 	                $sheet->with($arrayResultado);
 	                
 	                $sheet->prependRow(array(
@@ -419,7 +418,11 @@ class ExcelController extends Controller
 					    $cell->setFontSize(16);
 					    $cell->setFontWeight('bold');
 					});
-	 
+	                $sheet->cell('A21', function($cell) {
+                        $cell->setValue('*Es el porcentaje sobre el 100% de participaciones. Si el candidato A alcanzó, por ejemplo, 50% esto significa que fue compatible con el 50% de las participaciones en el juego. Un usuario puede filtrar estos resultados por totales globales, así como por género y edad.');
+                        $cell->setBackground('#fff49b');
+                        $cell->setFontSize(12);
+                    });
 	            });
 	        })->export('xls');
 	    }else{

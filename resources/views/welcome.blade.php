@@ -12,6 +12,7 @@
                     </div>
                     <a href="{{URL::to('juego-login')}}" class="btn btn-main">Juega y Averígualo</a>
                     <div class="quiz-game"></div>
+                    <p><a href="{{URL::to('nosotros')}}">El recorrido periodístico y el desarrollo tecnológico de la Brújula Electoral</a></p>
                 </div>
             </div>
         </div>
