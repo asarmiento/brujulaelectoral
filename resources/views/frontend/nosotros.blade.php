@@ -17,7 +17,7 @@
           </p>
           <h4>¿Por qué no está Lenín Moreno?</h4>
           <p>Plan V solicitó entrevistas con los ocho candidatos presidenciales. Los candidatos Cynthia Viteri, Guillermo Lasso, Paco Moncayo, Washington Pesántez, Patricio Zuquilanda, Iván Espinel y Dalo Bucaram respondieron el cuestionario en entrevistas personales o por correo electrónico. Pero no hubo respuesta por parte del equipo del postulante oficialista Lenín Moreno. Plan V insistió en este pedido por correos, llamadas y mensajes a Andrés Michelena, asesor de comunicación del candidato, sin que hasta el momento haya una respuesta siquiera</p>
-          <img class="img-mail" src="{{asset('images/correo2.png)}}">
+          <img class="img-mail" src="{{asset('images/correo2.png')}}">
           <h4>¿Cómo funciona la Brújula Electoral?</h4>
           <p>Cada usuario tiene la oportunidad de votar sí o no en cada una de las 10 preguntas del cuestionario. En algunas aparece un botón adicional llamado “Más opciones”. Allí los usuarios pueden afinar más su voto y dar uno a aquella propuesta que le parece mejor. Por ejemplo, en la pregunta “¿Está de acuerdo con derogar la Ley de Comunicación?”,  hay las siguientes opciones adicionales: </p>
           <ul>

@@ -698,9 +698,6 @@ class HomeController extends Controller
     {
         
         $data = array(
-                    'objCandidato' => candidatos::activas()->orderBy('apellido')->get(),
-                    
-                    
                     'titulo' => 'Brújula Electoral',
                 );
         return view('frontend.nosotros',$data);
