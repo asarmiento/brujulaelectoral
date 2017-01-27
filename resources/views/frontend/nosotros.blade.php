@@ -16,8 +16,7 @@
           Para determinar cuáles son los temas que interesan se hicieron grupos focales con jóvenes entre 20 y 30 años. De ellos, el equipo recibió un total de 25 preguntas sobre sus principales preocupaciones respecto al nuevo Gobierno. Este bloque de preguntas planteó inquietudes sobre siete temas: educación, economía, los poderes del Estado, leyes, derechos políticos, derechos sexuales y corrupción. Después de una selección final, por parte del equipo periodístico, quedó un cuestionario de 10 preguntas para los ocho candidatos presidenciales. Pero solo siete aspirantes respondieron las preguntas.  
           </p>
           <h4>¿Por qué no está Lenín Moreno?</h4>
-          <p>Plan V solicitó entrevistas con los ocho candidatos presidenciales. Los candidatos Cynthia Viteri, Guillermo Lasso, Paco Moncayo, Washington Pesántez, Patricio Zuquilanda, Iván Espinel y Dalo Bucaram respondieron el cuestionario en entrevistas personales o por correo electrónico. Pero no hubo respuesta por parte del equipo del postulante oficialista Lenín Moreno. Plan V insistió en este pedido por correos, llamadas y mensajes a Andrés Michelena, asesor de comunicación del candidato, sin que hasta el momento haya una respuesta siquiera</p>
-          <img class="img-mail" src="{{asset('images/correo2.png')}}">
+          <p>Plan V solicitó entrevistas con los ocho candidatos presidenciales. Los candidatos Cynthia Viteri, Guillermo Lasso, Paco Moncayo, Washington Pesántez, Patricio Zuquilanda, Iván Espinel y Dalo Bucaram respondieron el cuestionario en entrevistas personales o por correo electrónico. El último en hacerlo fue el postulante oficialista Lenín Moreno. Su equipo de comunicación envió las respuestas del cuestionario el pasado 27 de enero de 2017, 24 días después de la salida al aire de este portal.</p>
           <h4>¿Cómo funciona la Brújula Electoral?</h4>
           <p>Cada usuario tiene la oportunidad de votar sí o no en cada una de las 10 preguntas del cuestionario. En algunas aparece un botón adicional llamado “Más opciones”. Allí los usuarios pueden afinar más su voto y dar uno a aquella propuesta que le parece mejor. Por ejemplo, en la pregunta “¿Está de acuerdo con derogar la Ley de Comunicación?”,  hay las siguientes opciones adicionales: </p>
           <ul>
@@ -57,7 +56,8 @@
           <h2><span>¿Quién es tu </span>Candidato afín?</h2>
           <h4></h4>
           <div class="col-xs-12 col-sm-12 col-md-12">
-                      Después de grupos focales con jóvenes de entre 20 y 30 años, la revista digital Plan V, con el apoyo de la Fundación Ciudadanía y Desarrollo, desarrolló este portal para que los electores, sobre todo los jóvenes, encuentren al candidato presidencial que más se acerque a sus aspiraciones y creencias. Solo 7 de los 8 candidatos contestaron el cuestionario. Pese a reiterados pedidos, el oficialista Lenín Moreno no accedió a la entrevista y por eso sus respuestas aparecen en blanco. No olvides hacer clic en <i>Opciones</i> para afinar más tu voto. <br>¿Coincides con ellos?
+                      Después de grupos focales con jóvenes de entre 20 y 30 años, la revista digital Plan V, con el apoyo de la Fundación Ciudadanía y Desarrollo, desarrolló este portal para que los electores, sobre todo los jóvenes, encuentren al candidato presidencial que más se acerque a sus aspiraciones y creencias. Su contenido fue actualizado el 27 de enero de 2017 con las respuestas del candidato oficialista Lenín Moreno, el único aspirante que estaba pendiente. No olvides hacer clic en <i>Opciones</i> para afinar más tu voto.
+                      <br/>¿Coincides con ellos?
                     </div>
                     <a href="{{URL::to('juego-login')}}" class="btn btn-main">Juega y Averígualo</a>
                     <div class="quiz-game"></div>

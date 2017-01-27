@@ -119,7 +119,8 @@
 					<h2><span>¿Quién es tu </span>Candidato afín?</h2>
 					<h4></h4>
 					<div class="col-xs-12 col-sm-12 col-md-12">
-                      Después de grupos focales con jóvenes de entre 20 y 30 años, la revista digital Plan V, con el apoyo de la Fundación Ciudadanía y Desarrollo, desarrolló este portal para que los electores, sobre todo los jóvenes, encuentren al candidato presidencial que más se acerque a sus aspiraciones y creencias. Solo 7 de los 8 candidatos contestaron el cuestionario. Pese a reiterados pedidos, el oficialista Lenín Moreno no accedió a la entrevista y por eso sus respuestas aparecen en blanco. No olvides hacer clic en <i>Opciones</i> para afinar más tu voto. <br/>¿Coincides con ellos?
+                      Después de grupos focales con jóvenes de entre 20 y 30 años, la revista digital Plan V, con el apoyo de la Fundación Ciudadanía y Desarrollo, desarrolló este portal para que los electores, sobre todo los jóvenes, encuentren al candidato presidencial que más se acerque a sus aspiraciones y creencias. Su contenido fue actualizado el 27 de enero de 2017 con las respuestas del candidato oficialista Lenín Moreno, el único aspirante que estaba pendiente. No olvides hacer clic en <i>Opciones</i> para afinar más tu voto.
+					 <br/>¿Coincides con ellos?
                     </div>
                     <a href="{{URL::to('juego-login')}}" class="btn btn-main">Juega y Averígualo</a>
                     <div class="quiz-game"></div>
