@@ -31,7 +31,7 @@ class BackendHomeController extends Controller
      */
     public function index()
     {   
-
+        //$this->reporte();
         $data = array(
                     'objCandidatos' => candidatos::activas()->get(),
                     'objPreguntas' => preguntas::activas()->get(),
@@ -489,6 +489,26 @@ class BackendHomeController extends Controller
             return $arrayResultado;
         }else{
             return false;
+        }
+    }
+
+    public function reporte()
+    {
+        $objPreguntas = preguntas::activas()->get();
+        if(count($objPreguntas))  {
+            foreach($objPreguntas as $pregunta){
+                echo $pregunta->pregunta.'<br>';
+                $objP = DB::table('participantes_preguntas as pp')
+                            ->selectRaw('count(*) as counta,pp.respuesta')
+                            ->where('pp.preguntas_id','=',$pregunta->id)
+                            ->where('pp.estado','=','1')
+                            //->where('pp.id', '=', 'select max(p1.id) from participantes_preguntas p1 where p1.participantes_id = pp.participantes_id')
+                            ->groupBy('pp.preguntas_id', 'pp.respuesta')
+                            ->get();
+                foreach($objP as $p){
+                    echo 'respuesta' . $p->respuesta . ' num' . $p->counta . '<br>'; 
+                 }
+            }
         }
     }
 

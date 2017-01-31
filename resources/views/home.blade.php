@@ -301,6 +301,34 @@
                   </div>
                 </div>
               </div>
+
+              
+
+             
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Reporte de respuestas por pregunta <small>consolidado</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    @foreach($objPreguntas as $pregunta)
+                    <strong><br><br>{{$pregunta->id .'. '. $pregunta->pregunta}}</strong>
+                    <?php $objRespuesta = App\participantes_preguntas::reportes($pregunta->id);
+                      foreach($objRespuesta as $p){
+                        echo '<br>'. $p->counta . ' -> ' . $p->respuesta ; 
+                      }
+                    ?>
+                    @endforeach
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
