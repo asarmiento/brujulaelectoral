@@ -49,7 +49,7 @@
     <script src="{{ asset('js/jszip/dist/jszip.min.js') }}"></script>
     <script src="{{ asset('js/pdfmake/build/pdfmake.min.js') }}"></script>
     <script src="{{ asset('js/pdfmake/build/vfs_fonts.js') }}"></script>
-    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+    <script src="{{ asset('public/ckeditor/ckeditor.js') }}"></script>
 
     <!-- Custom Theme Scripts -->
     <script src="{{ asset('js/custom.min.js') }}"></script>
