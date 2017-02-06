@@ -91,6 +91,104 @@
                         </div>
                       </div>
                       <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="binomio">Binomio
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="binomio" name="binomio" required="required" class="form-control col-md-7 col-xs-12" value="{{ $objCandidato->binomio }}">
+                            @if($errors->has('binomio'))
+                                <p class="alert alert-danger">{{ $errors->first('binomio')}}</p>
+                            @endif
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="seguridad">Seguridad
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <small><a onclick="javascript: replaceEditor('seguridad')" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-edit"></i> Cargar Editor</a></small>
+                          <textarea id="seguridad" name="seguridad" required="required" class="form-control col-md-7 col-xs-12" >{{ $objCandidato->seguridad }}</textarea> 
+                            @if($errors->has('seguridad'))
+                                <p class="alert alert-danger">{{ $errors->first('seguridad')}}</p>
+                            @endif
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="empleo">Empleo
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                        <small><a onclick="javascript: replaceEditor('empleo')" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-edit"></i> Cargar Editor</a></small>
+                          <textarea id="empleo" name="empleo" required="required" class="form-control col-md-7 col-xs-12" >{{ $objCandidato->empleo }}</textarea> 
+                            @if($errors->has('empleo'))
+                                <p class="alert alert-danger">{{ $errors->first('empleo')}}</p>
+                            @endif
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="agricultura">Agricultura
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                        <small><a onclick="javascript: replaceEditor('agricultura')" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-edit"></i> Cargar Editor</a></small>
+                          <textarea id="agricultura" name="agricultura" required="required" class="form-control col-md-7 col-xs-12" >{{ $objCandidato->agricultura }}</textarea> 
+                            @if($errors->has('agricultura'))
+                                <p class="alert alert-danger">{{ $errors->first('agricultura')}}</p>
+                            @endif
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="educacion">Educación
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                        <small><a onclick="javascript: replaceEditor('educacion')" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-edit"></i> Cargar Editor</a></small>
+                          <textarea id="educacion" name="educacion" required="required" class="form-control col-md-7 col-xs-12" >{{ $objCandidato->educacion }}</textarea> 
+                            @if($errors->has('educacion'))
+                                <p class="alert alert-danger">{{ $errors->first('educacion')}}</p>
+                            @endif
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="salud">Salud
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                        <small><a onclick="javascript: replaceEditor('salud')" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-edit"></i> Cargar Editor</a></small>
+                          <textarea id="salud" name="salud" required="required" class="form-control col-md-7 col-xs-12" >{{ $objCandidato->salud }}</textarea> 
+                            @if($errors->has('salud'))
+                                <p class="alert alert-danger">{{ $errors->first('salud')}}</p>
+                            @endif
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="democracia">Democracia
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                        <small><a onclick="javascript: replaceEditor('democracia')" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-edit"></i> Cargar Editor</a></small>
+                          <textarea id="democracia" name="democracia" required="required" class="form-control col-md-7 col-xs-12" >{{ $objCandidato->democracia }}</textarea> 
+                            @if($errors->has('democracia'))
+                                <p class="alert alert-danger">{{ $errors->first('democracia')}}</p>
+                            @endif
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="economia">Economía
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                        <small><a onclick="javascript: replaceEditor('economia')" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-edit"></i> Cargar Editor</a></small>
+                          <textarea id="economia" name="economia" required="required" class="form-control col-md-7 col-xs-12" >{{ $objCandidato->economia }}</textarea> 
+                            @if($errors->has('economia'))
+                                <p class="alert alert-danger">{{ $errors->first('economia')}}</p>
+                            @endif
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ambiente">Ambiente
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                        <small><a onclick="javascript: replaceEditor('ambiente')" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-edit"></i> Cargar Editor</a></small>
+                          <textarea id="ambiente" name="ambiente" required="required" class="form-control col-md-7 col-xs-12" >{{ $objCandidato->ambiente }}</textarea> 
+                            @if($errors->has('ambiente'))
+                                <p class="alert alert-danger">{{ $errors->first('ambiente')}}</p>
+                            @endif
+                        </div>
+                      </div>
+                      <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Estado</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <div id="estado" class="btn-group" data-toggle="buttons">

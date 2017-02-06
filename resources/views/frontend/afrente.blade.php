@@ -102,6 +102,129 @@
 				</div>
 				@endforeach
 				@endif
+
+
+
+				@if($objCandidato1 and $objCandidato2)
+				<!-- propuestas -->
+				<div class="col-xs-12 col-sm-12 col-md-12 face-group face-group-propuestas">
+					<h3 class="headline-propuestas">Propuestas electorales</h3>
+					<!-- tema 1-->
+					<aside>
+						<h4>Seguridad</h4>
+						<div class="col-xs-12 col-sm-6 col-md-6">
+							<h5 class="box-binomio">Binomio: <span>{{$objCandidato1->binomio}}</span></h5>
+							{!!$objCandidato1->seguridad!!}
+						</div>
+
+						<div class="col-xs-12 col-sm-6 col-md-6">
+							<h5 class="box-binomio">Binomio: <span>{{$objCandidato2->binomio}}</span></h5>
+							{!!$objCandidato2->seguridad!!}
+						</div>
+					</aside>
+
+					<!-- end tema -->
+					<!-- tema 2-->
+					<aside>
+						<h4>Empleo</h4>
+						<div class="col-xs-12 col-sm-6 col-md-6">
+							<h5 class="box-binomio">Binomio: <span>{{$objCandidato1->binomio}}</span></h5>
+							{!!$objCandidato1->empleo!!}
+						</div>
+
+						<div class="col-xs-12 col-sm-6 col-md-6">
+							<h5 class="box-binomio">Binomio: <span>{{$objCandidato2->binomio}}</span></h5>
+							{!!$objCandidato2->empleo!!}
+						</div>
+					</aside>
+					<!-- end tema -->
+					<!-- tema 3-->
+					<aside>
+						<h4>Agricultura</h4>
+						<div class="col-xs-12 col-sm-6 col-md-6">
+							<h5 class="box-binomio">Binomio: <span>{{$objCandidato1->binomio}}</span></h5>
+							{!!$objCandidato1->agricultura!!}
+						</div>
+
+						<div class="col-xs-12 col-sm-6 col-md-6">
+							<h5 class="box-binomio">Binomio: <span>{{$objCandidato2->binomio}}</span></h5>
+							{!!$objCandidato2->agricultura!!}
+						</div>
+					</aside>
+					<!-- tema 4-->
+					<aside>
+						<h4>Educación</h4>
+						<div class="col-xs-12 col-sm-6 col-md-6">
+							<h5 class="box-binomio">Binomio: <span>{{$objCandidato1->binomio}}</span></h5>
+							{!!$objCandidato1->educacion!!}
+						</div>
+
+						<div class="col-xs-12 col-sm-6 col-md-6">
+							<h5 class="box-binomio">Binomio: <span>{{$objCandidato2->binomio}}</span></h5>
+							{!!$objCandidato2->educacion!!}
+						</div>
+					</aside>
+					<!-- tema 5-->
+					<aside>
+						<h4>Salud</h4>
+						<div class="col-xs-12 col-sm-6 col-md-6">
+							<h5 class="box-binomio">Binomio: <span>{{$objCandidato1->binomio}}</span></h5>
+							{!!$objCandidato1->salud!!}
+						</div>
+
+						<div class="col-xs-12 col-sm-6 col-md-6">
+							<h5 class="box-binomio">Binomio: <span>{{$objCandidato2->binomio}}</span></h5>
+							{!!$objCandidato2->salud!!}
+						</div>
+					</aside>
+					<!-- tema 6-->
+					<aside>
+						<h4>Democracia</h4>
+						<div class="col-xs-12 col-sm-6 col-md-6">
+							<h5 class="box-binomio">Binomio: <span>{{$objCandidato1->binomio}}</span></h5>
+							{!!$objCandidato1->democracia!!}
+						</div>
+
+						<div class="col-xs-12 col-sm-6 col-md-6">
+							<h5 class="box-binomio">Binomio: <span>{{$objCandidato2->binomio}}</span></h5>
+							{!!$objCandidato2->democracia!!}
+						</div>
+					</aside>
+					<!-- tema 7-->
+					<aside>
+						<h4>Economía</h4>
+						<div class="col-xs-12 col-sm-6 col-md-6">
+							<h5 class="box-binomio">Binomio: <span>{{$objCandidato1->binomio}}</span></h5>
+							{!!$objCandidato1->economia!!}
+						</div>
+
+						<div class="col-xs-12 col-sm-6 col-md-6">
+							<h5 class="box-binomio">Binomio: <span>{{$objCandidato2->binomio}}</span></h5>
+							{!!$objCandidato2->economia!!}
+						</div>
+					</aside>
+					<!-- tema 8-->
+					<aside>
+						<h4>Ambiente</h4>
+						<div class="col-xs-12 col-sm-6 col-md-6">
+							<h5 class="box-binomio">Binomio: <span>{{$objCandidato1->binomio}}</span></h5>
+							{!!$objCandidato1->ambiente!!}
+						</div>
+
+						<div class="col-xs-12 col-sm-6 col-md-6">
+							<h5 class="box-binomio">Binomio: <span>{{$objCandidato2->binomio}}</span></h5>
+							{!!$objCandidato2->ambiente!!}
+						</div>
+					</aside>
+					
+					
+					<!-- end tema -->
+					<span class="ico-face"></span>
+				</div>
+				<!-- end propuestas -->
+
+				@endif
+
 				
 				<div class="col-xs-12 col-sm-12 col-md-3 col-md-offset-4">
 					<a href="#" class="btn btn-main btnMostrarTodos">Mostrar todas</a>

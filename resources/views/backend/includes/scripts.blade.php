@@ -49,6 +49,7 @@
     <script src="{{ asset('js/jszip/dist/jszip.min.js') }}"></script>
     <script src="{{ asset('js/pdfmake/build/pdfmake.min.js') }}"></script>
     <script src="{{ asset('js/pdfmake/build/vfs_fonts.js') }}"></script>
+    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 
     <!-- Custom Theme Scripts -->
     <script src="{{ asset('js/custom.min.js') }}"></script>
@@ -63,6 +64,17 @@
           console.log(start.toISOString(), end.toISOString(), label);
         });
       });
+
+      function replaceEditor(idItem){
+            CKEDITOR.replace(idItem,{
+                uiColor : '#FAFAFA',
+                toolbar: [
+                    [ 'Source', 'Bold', 'Italic','Underline','Strike'],
+                    ['NumberedList', 'BulletedList', 'Outdent', 'Indent', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+                    ['Link', 'Unlink'],
+                ]
+            });
+        }
     </script>
     <!-- /bootstrap-daterangepicker -->
 

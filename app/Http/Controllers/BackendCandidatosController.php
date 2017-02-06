@@ -76,6 +76,16 @@ class BackendCandidatosController extends Controller
         $candidato->apellido = $request->apellido;
         $candidato->estado = $request->estado;
         $candidato->partidos_id = $request->partidos;
+        $candidato->binomio = $request->binomio;
+        $candidato->seguridad = $request->seguridad;
+        $candidato->empleo = $request->empleo;
+        $candidato->agricultura = $request->agricultura;
+        $candidato->educacion = $request->educacion;
+        $candidato->salud = $request->salud;
+        $candidato->democracia = $request->democracia;
+        $candidato->economia = $request->economia;
+        $candidato->ambiente = $request->ambiente;
+        
 
     
         $img = $request->file('foto');
@@ -157,6 +167,15 @@ class BackendCandidatosController extends Controller
         $candidato->apellido = $request->apellido;
         $candidato->estado = $request->estado;
         $candidato->partidos_id = $request->partidos;
+        $candidato->binomio = $request->binomio;
+        $candidato->seguridad = $request->seguridad;
+        $candidato->empleo = $request->empleo;
+        $candidato->agricultura = $request->agricultura;
+        $candidato->educacion = $request->educacion;
+        $candidato->salud = $request->salud;
+        $candidato->democracia = $request->democracia;
+        $candidato->economia = $request->economia;
+        $candidato->ambiente = $request->ambiente;
 
         if($request->file('foto')){
 
