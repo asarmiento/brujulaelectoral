@@ -5,7 +5,7 @@
 					<div class="row">
 						<div class="col-xs-12 col-sm-6 col-md-6">
 							
-								
+								<img class="img-responsive pull-right img-fcd"  src="{{ asset('images/logo-media.png') }}" />
 								<img class="img-responsive pull-right img-fcd"  src="{{ asset('images/img-fcd.jpg') }}" />
 								<img class="img-responsive pull-right img-mpv"  src="{{ asset('images/img-multimedia-planv.jpg') }}" />
 							
