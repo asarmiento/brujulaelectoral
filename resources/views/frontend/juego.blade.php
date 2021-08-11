@@ -34,7 +34,7 @@
             <p class="txt-context-2">{{ $objPreguntaAct->descripcion }}</p>
           @endif
 
-          <p class="info-question"><span>{{ $objPreguntaAct->id  }}</span> /{{ count($objPreguntas) }} preguntas</p>
+          <p class="info-question"><span>{{ $objPreguntaAct->id  }}</span> /{{ count([$objPreguntas]) }} preguntas</p>
           <p></p>
         </div>
         <div class="col-xs-12 col-sm-4 col-md-4 ">
