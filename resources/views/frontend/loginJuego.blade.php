@@ -14,7 +14,7 @@
           <form id="form-3" class="form-horizontal col-xs-12 col-sm-12 col-md-offset-2 col-md-8" method="POST" action="{{ url('juego-login') }}" >
           {{ csrf_field() }}
 
-          @if(count($errors))
+          @if(count([$errors]))
               <p class="alert alert-danger">No se puede empezar el juego porque existen errores en el formulario</p>
           @endif
 
