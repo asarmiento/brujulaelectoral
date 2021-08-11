@@ -33,14 +33,14 @@ Route::group(array('prefix' => 'backend'), function(){
 		Route::get('/', 'BackendHomeController@index');
 
 		/***************************************************************************************************************************
-        
+
          ADMINISTRACION DE PARTIDOS
-        
+
         ****************************************************************************************************************************/
 
         // Esta instruccion indica que las rutas deben tener el prefijo "backend/partidos", ej: backend/partidos/listaPartidos
         Route::group(array('prefix' => 'partidos'), function(){
-            
+
             // Lista de Partidos
             Route::match(array('GET', 'POST'), 'listaPartidos', 'BackendPartidosController@index');
             Route::match(array('GET', 'POST'), '', 'BackendPartidosController@index');
@@ -51,7 +51,7 @@ Route::group(array('prefix' => 'backend'), function(){
             // Agregar Partido
             Route::get('agregarPartido', 'BackendPartidosController@create');
             Route::post('agregarPartido', 'BackendPartidosController@store');
-            
+
             // Editar Partido
             Route::get('editarPartido/{id?}', 'BackendPartidosController@edit');
             Route::post('editarPartido/{id?}', 'BackendPartidosController@update');
@@ -64,14 +64,14 @@ Route::group(array('prefix' => 'backend'), function(){
         });
 
         /***************************************************************************************************************************
-        
+
          ADMINISTRACION DE CANDIDATOS
-        
+
         ****************************************************************************************************************************/
 
         // Esta instruccion indica que las rutas deben tener el prefijo "backend/candidatos", ej: backend/candidatos/listaCandidatos
         Route::group(array('prefix' => 'candidatos'), function(){
-            
+
             // Lista de Candidatos
             Route::match(array('GET', 'POST'), 'listaCandidatos', 'BackendCandidatosController@index');
             Route::match(array('GET', 'POST'), '', 'BackendCandidatosController@index');
@@ -81,8 +81,8 @@ Route::group(array('prefix' => 'backend'), function(){
 
             // Agregar Candidato
             Route::get('agregarCandidato', 'BackendCandidatosController@create');
-            Route::post('agregarCandidato', 'BackendCandidatosController@store');
-            
+            Route::post('agregarCandidato', 'BackendCandidatosController@store')->name('agregar_Candidato');
+
             // Editar Candidato
             Route::get('editarCandidato/{id?}', 'BackendCandidatosController@edit');
             Route::post('editarCandidato/{id?}', 'BackendCandidatosController@update');
@@ -95,14 +95,14 @@ Route::group(array('prefix' => 'backend'), function(){
         });
 
         /***************************************************************************************************************************
-        
+
          ADMINISTRACION DE PREGUNTAS
-        
+
         ****************************************************************************************************************************/
 
         // Esta instruccion indica que las rutas deben tener el prefijo "backend/preguntas", ej: backend/preguntas/listaPreguntas
         Route::group(array('prefix' => 'preguntas'), function(){
-            
+
             // Lista de preguntas
             Route::match(array('GET', 'POST'), 'listaPreguntas', 'BackendPreguntasController@index');
             Route::match(array('GET', 'POST'), '', 'BackendPreguntasController@index');
@@ -113,7 +113,7 @@ Route::group(array('prefix' => 'backend'), function(){
             // Agregar Pregunta
             Route::get('agregarPregunta', 'BackendPreguntasController@create');
             Route::post('agregarPregunta', 'BackendPreguntasController@store');
-            
+
             // Editar Pregunta
             Route::get('editarPregunta/{id?}', 'BackendPreguntasController@edit');
             Route::post('editarPregunta/{id?}', 'BackendPreguntasController@update');
@@ -126,14 +126,14 @@ Route::group(array('prefix' => 'backend'), function(){
         });
 
         /***************************************************************************************************************************
-        
+
          ADMINISTRACION DE RESPUESTAS
-        
+
         ****************************************************************************************************************************/
 
         // Esta instruccion indica que las rutas deben tener el prefijo "backend/respuestas", ej: backend/respuestas/listaRespuestas
         Route::group(array('prefix' => 'respuestas'), function(){
-            
+
             // Lista de respuestas
             Route::match(array('GET', 'POST'), 'listaRespuestas', 'BackendRespuestasController@index');
             Route::match(array('GET', 'POST'), '', 'BackendRespuestasController@index');
@@ -144,7 +144,7 @@ Route::group(array('prefix' => 'backend'), function(){
             // Agregar Respuesta
             Route::get('agregarRespuesta', 'BackendRespuestasController@create');
             Route::post('agregarRespuesta', 'BackendRespuestasController@store');
-            
+
             // Editar Respuesta
             Route::get('editarRespuesta/{id?}', 'BackendRespuestasController@edit');
             Route::post('editarRespuesta/{id?}', 'BackendRespuestasController@update');
@@ -156,7 +156,7 @@ Route::group(array('prefix' => 'backend'), function(){
             Route::get('cambiaEstadoRespuesta/{id?}', 'BackendRespuestasController@cambiaEstado');
         });
 
-	
+
 	});
 
 });

@@ -9,7 +9,7 @@
                 <h3>Candidatos</h3>
               </div>
 
-              
+
             </div>
             <div class="clearfix"></div>
             <div class="row">
@@ -31,7 +31,7 @@
                         <p class="alert alert-danger" role="alert">{{ session('msj_error') }}</p>
                       @endif
                     <br />
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" role="form" method="POST" action="{{ url('backend/candidatos/agregarCandidato') }}" enctype="multipart/form-data">
+                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" role="form" method="POST" action="{{ route('agregar_Candidato') }}" enctype="multipart/form-data">
                     {{ csrf_field() }}
 
                         @if(count($errors))
@@ -42,7 +42,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nombre">Nombre <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="nombre" name="nombre" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese el nombre del candidato">
+                          <input type="text" id="nombre" name="nombre" required="required"  value="{{trim(old('nombre'))}}" class="form-control col-md-7 col-xs-12" placeholder="Ingrese el nombre del candidato">
                             @if($errors->has('nombre'))
                                 <p class="alert alert-danger">{{ $errors->first('nombre')}}</p>
                             @endif
@@ -52,7 +52,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="apellido">Apellido <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="apellido" name="apellido" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese el apellido del candidato">
+                          <input type="text" id="apellido" name="apellido" required="required" value="{{trim(old('apellido'))}}" class="form-control col-md-7 col-xs-12" placeholder="Ingrese el apellido del candidato">
                             @if($errors->has('apellido'))
                                 <p class="alert alert-danger">{{ $errors->first('apellido')}}</p>
                             @endif
@@ -62,14 +62,14 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="numero">Partido político <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                        <select name="partidos" class="col-md-7 col-xs-12 form-control" id="partidos">
+                        <select name="partidos" class="col-md-7 col-xs-12 form-control"   id="partidos">
                          <option value="">Selecciones el partido político</option>
                           @if(count($listaPartidos))
                              @foreach($listaPartidos as $partido)
                               <option value="{{ $partido->id }}">{{ $partido->nombre }}</option>
-                             @endforeach 
+                             @endforeach
                           @endif
-                          </select> 
+                          </select>
                           @if($errors->has('partido'))
                                 <p class="alert alert-danger">{{ $errors->first('partido')}}</p>
                             @endif
@@ -78,7 +78,7 @@
                       <div class="form-group">
                         <label for="foto" class="control-label col-md-3 col-sm-3 col-xs-12">Foto</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="foto" class="form-control col-md-7 col-xs-12" type="file" name="foto">
+                          <input id="foto" class="form-control col-md-7 col-xs-12" type="file"  value="{{old('foto')}}" name="foto">
                           @if($errors->has('foto'))
                                 <p class="alert alert-danger">{{ $errors->first('foto')}}</p>
                             @endif
@@ -88,7 +88,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="binomio">Binomio
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="binomio" name="binomio" required="required" class="form-control col-md-7 col-xs-12" placeholder="Ingrese el binomio del candidato">
+                          <input type="text" id="binomio" name="binomio" required="required"  value="{{trim(old('binomio'))}}" class="form-control col-md-7 col-xs-12" placeholder="Ingrese el binomio del candidato">
                             @if($errors->has('binomio'))
                                 <p class="alert alert-danger">{{ $errors->first('binomio')}}</p>
                             @endif
@@ -99,7 +99,7 @@
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <small><a onclick="javascript: replaceEditor('seguridad')" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-edit"></i> Cargar Editor</a></small>
-                          <textarea id="seguridad" name="seguridad" required="required" class="form-control col-md-7 col-xs-12" placeholder="Propuesta sobre seguridad del candidato"></textarea> 
+                          <textarea id="seguridad" name="seguridad" required="required" class="form-control col-md-7 col-xs-12"   placeholder="Propuesta sobre seguridad del candidato">{{trim(old('seguridad'))}}</textarea>
                             @if($errors->has('seguridad'))
                                 <p class="alert alert-danger">{{ $errors->first('seguridad')}}</p>
                             @endif
@@ -110,7 +110,7 @@
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                         <small><a onclick="javascript: replaceEditor('empleo')" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-edit"></i> Cargar Editor</a></small>
-                          <textarea id="empleo" name="empleo" required="required" class="form-control col-md-7 col-xs-12" placeholder="Propuesta sobre empleo del candidato"></textarea> 
+                          <textarea id="empleo" name="empleo" required="required" class="form-control col-md-7 col-xs-12"  placeholder="Propuesta sobre empleo del candidato">{{trim(old('empleo'))}}</textarea>
                             @if($errors->has('empleo'))
                                 <p class="alert alert-danger">{{ $errors->first('empleo')}}</p>
                             @endif
@@ -121,7 +121,7 @@
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                         <small><a onclick="javascript: replaceEditor('agricultura')" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-edit"></i> Cargar Editor</a></small>
-                          <textarea id="agricultura" name="agricultura" required="required" class="form-control col-md-7 col-xs-12" placeholder="Propuesta sobre agricultura del candidato"></textarea> 
+                          <textarea id="agricultura" name="agricultura" required="required" class="form-control col-md-7 col-xs-12"  placeholder="Propuesta sobre agricultura del candidato">{{trim(old('agricultura'))}}</textarea>
                             @if($errors->has('agricultura'))
                                 <p class="alert alert-danger">{{ $errors->first('agricultura')}}</p>
                             @endif
@@ -132,7 +132,7 @@
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                         <small><a onclick="javascript: replaceEditor('educacion')" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-edit"></i> Cargar Editor</a></small>
-                          <textarea id="educacion" name="educacion" required="required" class="form-control col-md-7 col-xs-12" placeholder="Propuesta sobre educacion del candidato"></textarea> 
+                          <textarea id="educacion" name="educacion" required="required" class="form-control col-md-7 col-xs-12"  placeholder="Propuesta sobre educacion del candidato">{{trim(old('educacion'))}}</textarea>
                             @if($errors->has('educacion'))
                                 <p class="alert alert-danger">{{ $errors->first('educacion')}}</p>
                             @endif
@@ -143,7 +143,7 @@
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                         <small><a onclick="javascript: replaceEditor('salud')" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-edit"></i> Cargar Editor</a></small>
-                          <textarea id="salud" name="salud" required="required" class="form-control col-md-7 col-xs-12" placeholder="Propuesta sobre salud del candidato"></textarea> 
+                          <textarea id="salud" name="salud" required="required" class="form-control col-md-7 col-xs-12"  placeholder="Propuesta sobre salud del candidato">{{trim(old('salud'))}}</textarea>
                             @if($errors->has('salud'))
                                 <p class="alert alert-danger">{{ $errors->first('salud')}}</p>
                             @endif
@@ -154,7 +154,7 @@
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                         <small><a onclick="javascript: replaceEditor('democracia')" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-edit"></i> Cargar Editor</a></small>
-                          <textarea id="democracia" name="democracia" required="required" class="form-control col-md-7 col-xs-12" placeholder="Propuesta sobre democracia del candidato"></textarea> 
+                          <textarea id="democracia" name="democracia" required="required" class="form-control col-md-7 col-xs-12"   placeholder="Propuesta sobre democracia del candidato">{{trim(old('democracia'))}}</textarea>
                             @if($errors->has('democracia'))
                                 <p class="alert alert-danger">{{ $errors->first('democracia')}}</p>
                             @endif
@@ -165,7 +165,7 @@
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                         <small><a onclick="javascript: replaceEditor('economia')" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-edit"></i> Cargar Editor</a></small>
-                          <textarea id="economia" name="economia" required="required" class="form-control col-md-7 col-xs-12" placeholder="Propuesta sobre economia del candidato"></textarea> 
+                          <textarea id="economia" name="economia" required="required" class="form-control col-md-7 col-xs-12" placeholder="Propuesta sobre economia del candidato">{{trim(old('economia'))}}</textarea>
                             @if($errors->has('economia'))
                                 <p class="alert alert-danger">{{ $errors->first('economia')}}</p>
                             @endif
@@ -176,7 +176,7 @@
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                         <small><a onclick="javascript: replaceEditor('ambiente')" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-edit"></i> Cargar Editor</a></small>
-                          <textarea id="ambiente" name="ambiente" required="required" class="form-control col-md-7 col-xs-12" placeholder="Propuesta sobre ambiente del candidato"></textarea> 
+                          <textarea id="ambiente" name="ambiente" required="required" class="form-control col-md-7 col-xs-12"  placeholder="Propuesta sobre ambiente del candidato">{{trim(old('ambiente'))}}</textarea>
                             @if($errors->has('ambiente'))
                                 <p class="alert alert-danger">{{ $errors->first('ambiente')}}</p>
                             @endif
@@ -195,7 +195,7 @@
                           </div>
                         </div>
                       </div>
-                      
+
                       <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
