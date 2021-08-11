@@ -29,8 +29,8 @@ class partido extends Model
         'nombre', 'numero', 'logo','estado'
     ];
 
-    public function scopeActivas($query){
-		return $query->whereEstado(1);
-	}
+    public static function activas(){
+        return self::where('estado',1);
+    }
 
 }

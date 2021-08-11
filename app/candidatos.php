@@ -21,8 +21,8 @@ class candidatos extends Model
         return $this->belongsToMany('App\preguntas')->withPivot('respuesta_corta', 'respuesta_larga', 'opcion', 'respuesta_ff', 'estado');
     }
 
-	public function scopeActivas($query){
-		return $query->whereEstado(1);
+	public static function activas(){
+		return self::where('estado',1);
 	}
 
     /**
