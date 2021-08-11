@@ -45,7 +45,7 @@ class BackendCandidatosController extends Controller
         if (!Auth::check()) {
             return redirect('backend/home');
         }
-        
+
         $data = array(
                     'listaPartidos' => partido::activas()->get(),
                 );
@@ -64,7 +64,7 @@ class BackendCandidatosController extends Controller
         if (!Auth::check()) {
             return redirect('backend/home');
         }
-        $this->validate($request,[
+        $validation =  $this->validate($request,[
             'nombre' =>  'required',
             'apellido' => 'required',
             'partidos' => 'required',
@@ -85,19 +85,20 @@ class BackendCandidatosController extends Controller
         $candidato->democracia = $request->democracia;
         $candidato->economia = $request->economia;
         $candidato->ambiente = $request->ambiente;
-        
 
-    
+
+
         $img = $request->file('foto');
         $file_route = time().'_'.$img->getClientOriginalName();
         Storage::disk('imgJuego')->put($file_route, file_get_contents($img->getRealPath() ) );
-        
+
         $candidato->foto = $file_route;
 
         if($candidato->save()){
             return redirect('backend/candidatos/listaCandidatos')->with('msj','Datos Guardados');
         }else{
-            return back()->with('error_msj','Datos no guardados');
+            return back()->with('error_msj','Datos no guardados')->withInput()
+                ->withErrors($validation);
         };
     }
 
@@ -182,12 +183,12 @@ class BackendCandidatosController extends Controller
             $img = $request->file('foto');
             $file_route = time().'_'.$img->getClientOriginalName();
             Storage::disk('imgJuego')->put($file_route, file_get_contents($img->getRealPath() ) );
-            Storage::disk('imgJuego')->delete($request->imgOld);            
+            Storage::disk('imgJuego')->delete($request->imgOld);
 
             $candidato->foto = $file_route;
         }
-        
-        
+
+
 
         if($candidato->save()){
             return redirect('backend/candidatos/listaCandidatos')->with('msj','Datos Guardados');
@@ -222,7 +223,7 @@ class BackendCandidatosController extends Controller
                 return redirect('backend/candidatos/listaCandidatos')->with('msj','Cambiado el estado Reg:'.$id);
             }else{
                 return redirect('backend/candidatos/listaCandidatos')->with('msj','El candidato seleccionado no existe');
-            }           
+            }
         }else{
             return redirect('backend/candidatos/listaCandidatos')->with('msj','Por favor seleccione un candidato para poder editar');
         }
