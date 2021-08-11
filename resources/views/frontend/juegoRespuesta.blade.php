@@ -33,7 +33,7 @@
 					<div class="box-middle">
 						<h4>Candidatos afines:</h4>
 						<?php $nan = 0; ?>
-						@if(count($objRespuestas))
+						@if(count([$objRespuestas]))
 							<ul class="closer-match">
 							@foreach($objRespuestas as $respuesta)
 								<!-- Valido si existe respuesta  -->
@@ -65,7 +65,7 @@
 					</h3>
 
 					<ul id="candidate-answer">
-					@if(count($objRespuestas))
+					@if(count([$objRespuestas]))
 						@foreach($objRespuestas as $respuesta)
 							 <?php
 							 	if($respuesta->pivot->respuesta_corta == 'Sí'){
@@ -96,7 +96,7 @@
 					@endif
 					</ul>
 					<div>
-					@if( count($objPreguntasTodas) == $objPregunta->id)
+					@if( count([$objPreguntasTodas]) == $objPregunta->id)
 						<a href="{{ url('juego') }}" class="btn btn-main btn-result">Mira el resultado</a>
 					@else
 						<a href="{{ url('juego') }}" class="btn btn-main btn-result">Siguiente</a>
