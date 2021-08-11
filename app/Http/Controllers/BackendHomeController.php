@@ -495,7 +495,7 @@ class BackendHomeController extends Controller
     public function reporte()
     {
         $objPreguntas = preguntas::activas()->get();
-        if(count($objPreguntas))  {
+        if(count([$objPreguntas]))  {
             foreach($objPreguntas as $pregunta){
                 echo $pregunta->pregunta.'<br>';
                 $objP = DB::table('participantes_preguntas as pp')
