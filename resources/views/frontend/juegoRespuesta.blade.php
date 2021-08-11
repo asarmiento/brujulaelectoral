@@ -1,9 +1,9 @@
 @extends('layouts.default')
 
 @section('contenido')
-    
+
     @if(!session()->has('participante'))
-        <?php 
+        <?php
           return redirect('juego-login')->with('error_msj','Ingrese sus datos para participar');
           //{{ session('participante') }}
         ?>
@@ -55,9 +55,9 @@
 
 							<h4 ><strong>Ninguna afinidad con candidatos</strong></h4>
 						@endif
-						
+
 					</div>
-					
+
 				</div>
 				<div id="answer-content" class="col-xs-12 col-sm-12 col-md-12">
 					<h3 class="info-question">
@@ -67,7 +67,7 @@
 					<ul id="candidate-answer">
 					@if(count($objRespuestas))
 						@foreach($objRespuestas as $respuesta)
-							 <?php 
+							 <?php
 							 	if($respuesta->pivot->respuesta_corta == 'Sí'){
 							 		$estiloBtn = "yes";
 							 	}elseif($respuesta->pivot->respuesta_corta == 'No'){
@@ -77,7 +77,7 @@
 							 	}
 							 ?>
 							@if($respuesta->pivot->respuesta_corta == 'Blanco')
-							<?php 
+							<?php
 								$blanco .=  '<li><span class="btn-'.$estiloBtn.'">'.$respuesta->pivot->respuesta_corta.'</span><img src="imgJuego/'.$respuesta->foto.'" class="foto126"><div class="text"><h4>'.$respuesta->nombre.' '.$respuesta->apellido.'</h4><p>'.$respuesta->pivot->respuesta_larga.'</p></div></li>';
 							?>
 							@else
@@ -90,7 +90,7 @@
 									</div>
 								</li>
 							@endif
-							
+
 						@endforeach
 						<?php echo $blanco; ?>
 					@endif
@@ -116,7 +116,7 @@
 				<div class="col-xs-12 col-sm-12 col-md-12">
 					<h2><span>Frente </span><span class="headline">a</span> Frente</h2>
 					<h4>Compara las Propuestas Presidenciales</h4>
-					
+
 
 
 					<!-- formulario -->
@@ -124,7 +124,7 @@
 					  <div class="form-group select">
 					  	<select id="frente_1" name="frente_1" class="form-control box-candidate classic">
               <option>ESCOGE UN CANDIDATO</option>
-              @if(count($objCandidato))
+              @if(count([$objCandidato]))
                             @foreach($objCandidato as $candidato)
                               <option value="{{ $candidato->id }}">{{ $candidato->nombre }} {{ $candidato->apellido }}</option>
                             @endforeach
@@ -134,7 +134,7 @@
             <div class="form-group select">
               <select id="frente_2" name="frente_2" class="form-control box-candidate classic">
               <option>ESCOGE UN CANDIDATO</option>
-              @if(count($objCandidato))
+              @if(count([$objCandidato]))
                             @foreach($objCandidato as $candidato)
                               <option value="{{ $candidato->id }}">{{ $candidato->nombre }} {{ $candidato->apellido }}</option>
                             @endforeach
@@ -148,7 +148,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 	</section>
-  
+
 @stop

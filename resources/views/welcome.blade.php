@@ -82,7 +82,7 @@
                         <span>edad:</span>
                         <p>{{ $consulta[1] }}</p>
                     </div>
-                    
+
                 </div>
             </div>
         </div><!-- end resultados -->
@@ -99,7 +99,7 @@
                       $nomCandidato = explode(' ', $key);
                       $objCandidatoPregunta = App\candidatos::where('nombre','like','%'.$nomCandidato[0].'%')->where('apellido','like', '%'.$nomCandidato[1].'%')->first();
                       ?>
-                        @if(count($objCandidatoPregunta))
+                        @if(count([$objCandidatoPregunta]))
                           <!--barra 1 -->
                           <div class="row">
                               <p class="box-name col-xs-12 col-sm-3 col-md-2">{{$key}}</p>
@@ -134,7 +134,7 @@
                 </div>
             </div>
         </div><!-- end estadisticas -->
-        
+
     </section>
     <section id="box-2-face">
         <div class="f2f-left"></div>
@@ -144,7 +144,7 @@
                 <div class="col-xs=12 col-sm-12 col-md-12">
                     <h2><span>Frente </span><span class="headline">a</span> Frente</h2>
                     <h4>Compara las Propuestas Presidenciales</h4>
-                    
+
 
 
                     <!-- formulario -->
@@ -153,7 +153,7 @@
                       <div class="form-group select">
                         <select id="frente_1" name="frente_1" class="form-control box-candidate classic">
                           <option>ESCOGE UN CANDIDATO</option>
-                          @if(count($objCandidato))
+                          @if(count([$objCandidato]))
                                         @foreach($objCandidato as $candidato)
                                           <option value="{{ $candidato->id }}">{{ $candidato->nombre }} {{ $candidato->apellido }}</option>
                                         @endforeach
@@ -163,7 +163,7 @@
                         <div class="form-group select">
                           <select id="frente_2" name="frente_2" class="form-control box-candidate classic">
                           <option>ESCOGE UN CANDIDATO</option>
-                          @if(count($objCandidato))
+                          @if(count([$objCandidato]))
                                         @foreach($objCandidato as $candidato)
                                           <option value="{{ $candidato->id }}">{{ $candidato->nombre }} {{ $candidato->apellido }}</option>
                                         @endforeach
@@ -173,13 +173,13 @@
                       <button type="submit" class="btn btn-main">Comparar</button>
                     </form>
                     <!-- end formulario -->
-                
+
 
 
 
                 </div>
             </div>
         </div>
-        
+
     </section>
 @endsection

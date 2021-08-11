@@ -8,7 +8,7 @@
           <h2><span>¿Quién es tu </span>Candidato afín?</h2>
           <h4></h4>
           <div class="col-xs=12 col-sm-12 col-md-12">
-            
+
 
           <!-- formulario login -->
           <form id="form-3" class="form-horizontal col-xs-12 col-sm-12 col-md-offset-2 col-md-8" method="POST" action="{{ url('juego-login') }}" >
@@ -26,7 +26,7 @@
               <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Tu nombre o Seudónimo">
               @if($errors->has('nombre'))
                   <p class="alert alert-danger">{{ $errors->first('nombre')}}</p>
-              @endif    
+              @endif
             </div>
             <div class="form-group select">
               <select class="form-control" id="genero" name="genero">
@@ -56,7 +56,7 @@
           <!-- end formulario login -->
 
           </div>
-          
+
           <div class="quiz-game"></div>
         </div>
       </div>
@@ -71,7 +71,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
           <h2><span>Frente </span><span class="headline">a</span> Frente</h2>
           <h4>Compara las Propuestas Presidenciales</h4>
-          
+
 
 
           <!-- formulario -->
@@ -80,7 +80,7 @@
             <div class="form-group select">
               <select id="frente_1" name="frente_1" class="form-control box-candidate classic">
                     <option>ESCOGE UN CANDIDATO</option>
-                    @if(count($objCandidato))
+                    @if(count([$objCandidato]))
                                   @foreach($objCandidato as $candidato)
                                     <option value="{{ $candidato->id }}">{{ $candidato->nombre }} {{ $candidato->apellido }}</option>
                                   @endforeach
@@ -90,7 +90,7 @@
                   <div class="form-group select">
                     <select id="frente_2" name="frente_2" class="form-control box-candidate classic">
                     <option>ESCOGE UN CANDIDATO</option>
-                    @if(count($objCandidato))
+                    @if(count([$objCandidato]))
                                   @foreach($objCandidato as $candidato)
                                     <option value="{{ $candidato->id }}">{{ $candidato->nombre }} {{ $candidato->apellido }}</option>
                                   @endforeach
@@ -100,13 +100,13 @@
             <button type="submit" class="btn btn-main">Comparar</button>
           </form>
           <!-- end formulario -->
-        
+
 
 
 
         </div>
       </div>
     </div>
-    
+
   </section>
 @endsection

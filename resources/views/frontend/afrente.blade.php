@@ -10,7 +10,7 @@
 				<div class="col-xs-12 col-sm-12 col-md-12">
 					<h2><span>Frente </span><span class="headline">a</span> Frente</h2>
 					<h4>Compara las Propuestas Presidenciales</h4>
-					
+
 
 
 					<!-- formulario -->
@@ -19,7 +19,7 @@
 					  <div class="form-group select">
 					  	<select id="frente_1" name="frente_1" class="form-control box-candidate classic">
 				              <option>ESCOGE UN CANDIDATO</option>
-				              @if(count($objCandidato))
+				              @if(count([$objCandidato]))
 	                            @foreach($objCandidato as $candidato)
 	                              <option value="{{ $candidato->id }}">{{ $candidato->nombre }} {{ $candidato->apellido }}</option>
 	                            @endforeach
@@ -29,7 +29,7 @@
 				            <div class="form-group select">
 				              <select id="frente_2" name="frente_2" class="form-control box-candidate classic">
 				              <option>ESCOGE UN CANDIDATO</option>
-				              @if(count($objCandidato))
+				              @if(count([$objCandidato]))
 	                            @foreach($objCandidato as $candidato)
 	                              <option value="{{ $candidato->id }}">{{ $candidato->nombre }} {{ $candidato->apellido }}</option>
 	                            @endforeach
@@ -39,7 +39,7 @@
 					  <button type="submit" class="btn btn-main">Comparar</button>
 					</form>
 					<!-- end formulario -->
-			
+
 
 
 				</div>
@@ -68,14 +68,14 @@
 							$objPartido2 = App\partido::whereId($objCandidato2->partidos_id)->first();
 						?>
 				<div class="col-xs-12 col-sm-12 col-md-12 face-group contpreguntas divpregunta{{$pregunta->id}}">
-				
+
 					<h3 >{{$pregunta->pregunta}}</h3>
 					<p class="txt-context">{{$pregunta->descripcion}}</p>
 					<div class="col-xs-12 col-sm-6 col-md-6">
 						<div>
 							<div class="pic-box">
 								<img src="{{ asset('imgJuego/'.$objCandidato1->foto) }}" class="foto126">
-								<h4 class="box-2-face">{{$objCandidato1->nombre}} {{$objCandidato1->apellido}}<br> {{ $objPartido1->nombre }}</h4>	
+								<h4 class="box-2-face">{{$objCandidato1->nombre}} {{$objCandidato1->apellido}}<br> {{ $objPartido1->nombre }}</h4>
 							</div>
 							<?php
 								$respuesta1 = App\candidatos_preguntas::where('candidatos_id','like','%'.$objCandidato1->id.'%')->where('preguntas_id','like','%'.$pregunta->id.'%')->first()->respuesta_ff;
@@ -84,21 +84,21 @@
 								$respuestaC1 = App\candidatos_preguntas::where('candidatos_id','like','%'.$objCandidato1->id.'%')->where('preguntas_id','like','%'.$pregunta->id.'%')->first()->respuesta_corta;
 								$respuestaC2 = App\candidatos_preguntas::where('candidatos_id','like','%'.$objCandidato2->id.'%')->where('preguntas_id','like','%'.$pregunta->id.'%')->first()->respuesta_corta;
 							?>
-							<p><strong>{{$respuestaC1}}</strong> | {{$respuesta1}}</p>		
+							<p><strong>{{$respuestaC1}}</strong> | {{$respuesta1}}</p>
 						</div>
 					</div>
 					<div class="col-xs-12 col-sm-6 col-md-6">
 						<div>
 							<div class="pic-box">
 								<img src="{{ asset('imgJuego/'.$objCandidato2->foto) }}" class="foto126">
-								<h4 class="box-2-face">{{$objCandidato2->nombre}} {{$objCandidato2->apellido}}<br> {{ $objPartido2->nombre }}</h4>	
+								<h4 class="box-2-face">{{$objCandidato2->nombre}} {{$objCandidato2->apellido}}<br> {{ $objPartido2->nombre }}</h4>
 							</div>
 
-							<p><strong>{{$respuestaC2}}</strong> | {{$respuesta2}}</p>		
+							<p><strong>{{$respuestaC2}}</strong> | {{$respuesta2}}</p>
 						</div>
 					</div>
 					<span class="ico-face"></span>
-				
+
 				</div>
 				@endforeach
 				@endif
@@ -216,8 +216,8 @@
 							{!!$objCandidato2->ambiente!!}
 						</div>
 					</aside>
-					
-					
+
+
 					<!-- end tema -->
 					<span class="ico-face"></span>
 				</div>
@@ -225,7 +225,7 @@
 
 				@endif
 
-				
+
 				<div class="col-xs-12 col-sm-12 col-md-3 col-md-offset-4">
 					<a href="#" class="btn btn-main btnMostrarTodos">Mostrar todas</a>
 				</div>
@@ -233,7 +233,7 @@
 
 			</div>
 		</div>
-		
+
 	</section>
 	<section id="box-game">
 		<div class="container">

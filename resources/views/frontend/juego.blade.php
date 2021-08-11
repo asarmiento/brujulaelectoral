@@ -1,9 +1,9 @@
 @extends('layouts.default')
 
 @section('contenido')
-    
+
     @if(!session()->has('participante'))
-        <?php 
+        <?php
           return redirect('juego-login')->with('error_msj','Ingrese sus datos para participar');
           //{{ session('participante') }}
         ?>
@@ -28,12 +28,12 @@
           </div>
         </div>
         <div class="col-xs-10 col-sm-6 col-md-5">
-          
+
           @if(count($objPreguntaAct))
             <h3 class="headline-3">{{ $objPreguntaAct->pregunta }}</h3>
             <p class="txt-context-2">{{ $objPreguntaAct->descripcion }}</p>
           @endif
-          
+
           <p class="info-question"><span>{{ $objPreguntaAct->id  }}</span> /{{ count($objPreguntas) }} preguntas</p>
           <p></p>
         </div>
@@ -44,7 +44,7 @@
             <a class="btn-no draggable" href="" id="btn-no">NO</a>
              @if($objPreguntaAct->opcion_1)
               <a class="btn-white draggable" href="" id="btn-white">Más opciones</a>
-             @endif 
+             @endif
             <div class="more-asw" style="display: none;">
             <div class="btn-exit">x</div>
               <!--h4 style="text-align: center;font-size: 16px;margin: 0px 0 15px 0;">Más Opciones</h4-->
@@ -68,7 +68,7 @@
               <div class="op-mas">* Opciones con base en las respuestas de los candidatos</div>
             </div>
             <input type="hidden" name="respuesta" id="respuesta" value="">
-           
+
               <input type="hidden" name="pregunta" id="pregunta" value="{{ $objPreguntaAct->id }}">
           </form>
           <div style="clear: both;"></div>
@@ -93,7 +93,7 @@
             <div class="form-group select">
               <select id="frente_1" name="frente_1" class="form-control box-candidate classic">
               <option>ESCOGE UN CANDIDATO</option>
-              @if(count($objCandidato))
+              @if(count([$objCandidato]))
                             @foreach($objCandidato as $candidato)
                               <option value="{{ $candidato->id }}">{{ $candidato->nombre }} {{ $candidato->apellido }}</option>
                             @endforeach
@@ -103,7 +103,7 @@
             <div class="form-group select">
               <select id="frente_2" name="frente_2" class="form-control box-candidate classic">
               <option>ESCOGE UN CANDIDATO</option>
-              @if(count($objCandidato))
+              @if(count([$objCandidato]))
                             @foreach($objCandidato as $candidato)
                               <option value="{{ $candidato->id }}">{{ $candidato->nombre }} {{ $candidato->apellido }}</option>
                             @endforeach
@@ -113,12 +113,12 @@
             <button type="submit" class="btn btn-main">Comparar</button>
           </form>
           <!-- end formulario -->
-        
+
         </div>
       </div>
     </div>
-    
+
   </section>
 
-  
+
   @stop

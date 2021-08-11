@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\DB;
 
 class BackendHomeController extends Controller
 {
-    
+
     /**
      * Create a new controller instance.
      *
@@ -30,7 +30,7 @@ class BackendHomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
+    {
         //$this->reporte();
         $data = array(
                     'objCandidatos' => candidatos::activas()->get(),
@@ -47,7 +47,7 @@ class BackendHomeController extends Controller
                     'array45' => $this->show45(),
                     'titulo' => 'Home',
                 );
-        
+
         return view('home',$data);
     }
 
@@ -56,14 +56,14 @@ class BackendHomeController extends Controller
         //Obtengo el objeto de los candidatos
         $objParticipantes = null;
         $objCandidato = candidatos::activas()->get();
-        if(count($objCandidato))  {
+        if(count([$objCandidato]))  {
             foreach($objCandidato as $candidato){
                 $porcentaje = 0;
                 //obtengo el objeto preguntas por candidato
-                $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();            
+                $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();
                 foreach($objCandidatoPregunta as $pregunta){
                     //obtengo el objeto de los participantes que terminaron de cotestar todas las preguntas
-                    
+
                     $objP = DB::table('participantes_preguntas as pp')
                                 ->join('participantes', 'participantes.id', '=', 'pp.participantes_id')
                                 ->selectRaw('count(*) as count,pp.respuesta')
@@ -86,15 +86,15 @@ class BackendHomeController extends Controller
                 if(count($objParticipantes)){
                     $arrayResultado[] = array(
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
-                        'porcentaje' => $porcentaje*100/(count($objCandidatoPregunta)*count($objParticipantes)),
-                    );    
+                        'porcentaje' => $porcentaje*100/(count([$objCandidatoPregunta])*count($objParticipantes)),
+                    );
                 }else{
                     $arrayResultado[] = array(
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
                         'porcentaje' => 0,
-                    );    
+                    );
                 }
-                
+
             }
             /* --- FIN FUNCTION ---- */
 
@@ -111,7 +111,7 @@ class BackendHomeController extends Controller
         }else{
             return false;
         }
-        
+
     }
 
     public function showFemenino()
@@ -120,15 +120,15 @@ class BackendHomeController extends Controller
         $objCandidato = candidatos::activas()->get();
         $objParticipantes = null;
 
-        if(count($objCandidato))  {
+        if(count([$objCandidato]))  {
 
             foreach($objCandidato as $candidato){
                 $porcentaje = 0;
                 //obtengo el objeto preguntas por candidato
-                $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();            
+                $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();
                 foreach($objCandidatoPregunta as $pregunta){
                     //obtengo el objeto de los participantes que terminaron de cotestar todas las preguntas
-                    
+
                     $objP = DB::table('participantes_preguntas as pp')
                                 ->join('participantes', 'participantes.id', '=', 'pp.participantes_id')
                                 ->selectRaw('count(*) as count,pp.respuesta')
@@ -152,13 +152,13 @@ class BackendHomeController extends Controller
                 if(count($objParticipantes)){
                     $arrayResultado[] = array(
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
-                        'porcentaje' => $porcentaje*100/(count($objCandidatoPregunta)*count($objParticipantes)),
-                    );    
+                        'porcentaje' => $porcentaje*100/(count([$objCandidatoPregunta])*count($objParticipantes)),
+                    );
                 }else{
                     $arrayResultado[] = array(
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
                         'porcentaje' => 0,
-                    );    
+                    );
                 }
             }
             /* --- FIN FUNCTION ---- */
@@ -184,14 +184,14 @@ class BackendHomeController extends Controller
         $objCandidato = candidatos::activas()->get();
         $objParticipantes = null;
 
-        if(count($objCandidato))  {
+        if(count([$objCandidato]))  {
             foreach($objCandidato as $candidato){
                 $porcentaje = 0;
                 //obtengo el objeto preguntas por candidato
-                $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();            
+                $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();
                 foreach($objCandidatoPregunta as $pregunta){
                     //obtengo el objeto de los participantes que terminaron de cotestar todas las preguntas
-                    
+
                     $objP = DB::table('participantes_preguntas as pp')
                                 ->join('participantes', 'participantes.id', '=', 'pp.participantes_id')
                                 ->selectRaw('count(*) as count,pp.respuesta')
@@ -215,13 +215,13 @@ class BackendHomeController extends Controller
                 if(count($objParticipantes)){
                     $arrayResultado[] = array(
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
-                        'porcentaje' => $porcentaje*100/(count($objCandidatoPregunta)*count($objParticipantes)),
-                    );    
+                        'porcentaje' => $porcentaje*100/(count([$objCandidatoPregunta])*count($objParticipantes)),
+                    );
                 }else{
                     $arrayResultado[] = array(
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
                         'porcentaje' => 0,
-                    );    
+                    );
                 }
             }
             /* --- FIN FUNCTION ---- */
@@ -247,13 +247,13 @@ class BackendHomeController extends Controller
         $objCandidato = candidatos::activas()->get();
         $objParticipantes = null;
 
-        if(count($objCandidato))  {
+        if(count([$objCandidato]))  {
             foreach($objCandidato as $candidato){
                 $porcentaje = 0;
-                $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();            
+                $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();
                 foreach($objCandidatoPregunta as $pregunta){
                     //obtengo el objeto de los participantes que terminaron de cotestar todas las preguntas
-                    
+
                     $objP = DB::table('participantes_preguntas as pp')
                                 ->join('participantes', 'participantes.id', '=', 'pp.participantes_id')
                                 ->selectRaw('count(*) as count,pp.respuesta')
@@ -277,13 +277,13 @@ class BackendHomeController extends Controller
                 if(count($objParticipantes)){
                     $arrayResultado[] = array(
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
-                        'porcentaje' => $porcentaje*100/(count($objCandidatoPregunta)*count($objParticipantes)),
-                    );    
+                        'porcentaje' => $porcentaje*100/(count([$objCandidatoPregunta])*count($objParticipantes)),
+                    );
                 }else{
                     $arrayResultado[] = array(
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
                         'porcentaje' => 0,
-                    );    
+                    );
                 }
             }
             /* --- FIN FUNCTION ---- */
@@ -309,14 +309,14 @@ class BackendHomeController extends Controller
         $objCandidato = candidatos::activas()->get();
         $objParticipantes = null;
 
-        if(count($objCandidato))  {
+        if(count([$objCandidato]))  {
             foreach($objCandidato as $candidato){
                 $porcentaje = 0;
                 //obtengo el objeto preguntas por candidato
-                $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();            
+                $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();
                 foreach($objCandidatoPregunta as $pregunta){
                     //obtengo el objeto de los participantes que terminaron de cotestar todas las preguntas
-                    
+
                     $objP = DB::table('participantes_preguntas as pp')
                                 ->join('participantes', 'participantes.id', '=', 'pp.participantes_id')
                                 ->selectRaw('count(*) as count,pp.respuesta')
@@ -340,13 +340,13 @@ class BackendHomeController extends Controller
                 if(count($objParticipantes)){
                     $arrayResultado[] = array(
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
-                        'porcentaje' => $porcentaje*100/(count($objCandidatoPregunta)*count($objParticipantes)),
-                    );    
+                        'porcentaje' => $porcentaje*100/(count([$objCandidatoPregunta])*count($objParticipantes)),
+                    );
                 }else{
                     $arrayResultado[] = array(
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
                         'porcentaje' => 0,
-                    );    
+                    );
                 }
             }
             /* --- FIN FUNCTION ---- */
@@ -372,14 +372,14 @@ class BackendHomeController extends Controller
         $objCandidato = candidatos::activas()->get();
         $objParticipantes = null;
 
-        if(count($objCandidato))  {
+        if(count([$objCandidato]))  {
             foreach($objCandidato as $candidato){
                 $porcentaje = 0;
                 //obtengo el objeto preguntas por candidato
-                $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();            
+                $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();
                 foreach($objCandidatoPregunta as $pregunta){
                     //obtengo el objeto de los participantes que terminaron de cotestar todas las preguntas
-                    
+
                     $objP = DB::table('participantes_preguntas as pp')
                                 ->join('participantes', 'participantes.id', '=', 'pp.participantes_id')
                                 ->selectRaw('count(*) as count,pp.respuesta')
@@ -403,13 +403,13 @@ class BackendHomeController extends Controller
                 if(count($objParticipantes)){
                     $arrayResultado[] = array(
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
-                        'porcentaje' => $porcentaje*100/(count($objCandidatoPregunta)*count($objParticipantes)),
-                    );    
+                        'porcentaje' => $porcentaje*100/(count([$objCandidatoPregunta])*count($objParticipantes)),
+                    );
                 }else{
                     $arrayResultado[] = array(
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
                         'porcentaje' => 0,
-                    );    
+                    );
                 }
             }
             /* --- FIN FUNCTION ---- */
@@ -435,14 +435,14 @@ class BackendHomeController extends Controller
         $objCandidato = candidatos::activas()->get();
         $objParticipantes = null;
 
-        if(count($objCandidato))  {
+        if(count([$objCandidato]))  {
             foreach($objCandidato as $candidato){
                 $porcentaje = 0;
                 //obtengo el objeto preguntas por candidato
-                $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();            
+                $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();
                 foreach($objCandidatoPregunta as $pregunta){
                     //obtengo el objeto de los participantes que terminaron de cotestar todas las preguntas
-                    
+
                     $objP = DB::table('participantes_preguntas as pp')
                                 ->join('participantes', 'participantes.id', '=', 'pp.participantes_id')
                                 ->selectRaw('count(*) as count,pp.respuesta')
@@ -466,13 +466,13 @@ class BackendHomeController extends Controller
                 if(count($objParticipantes)){
                     $arrayResultado[] = array(
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
-                        'porcentaje' => $porcentaje*100/(count($objCandidatoPregunta)*count($objParticipantes)),
-                    );    
+                        'porcentaje' => $porcentaje*100/(count([$objCandidatoPregunta])*count($objParticipantes)),
+                    );
                 }else{
                     $arrayResultado[] = array(
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
                         'porcentaje' => 0,
-                    );    
+                    );
                 }
             }
             /* --- FIN FUNCTION ---- */
@@ -506,7 +506,7 @@ class BackendHomeController extends Controller
                             ->groupBy('pp.preguntas_id', 'pp.respuesta')
                             ->get();
                 foreach($objP as $p){
-                    echo 'respuesta' . $p->respuesta . ' num' . $p->counta . '<br>'; 
+                    echo 'respuesta' . $p->respuesta . ' num' . $p->counta . '<br>';
                  }
             }
         }
@@ -518,14 +518,14 @@ class BackendHomeController extends Controller
         $objCandidato = candidatos::activas()->get();
         $objParticipantes = null;
 
-        if(count($objCandidato))  {
+        if(count([$objCandidato]))  {
             foreach($objCandidato as $candidato){
                 $porcentaje = 0;
                 //obtengo el objeto preguntas por candidato
-                $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();            
+                $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();
                 foreach($objCandidatoPregunta as $pregunta){
                     //obtengo el objeto de los participantes que terminaron de cotestar todas las preguntas
-                    
+
                     $objP = DB::table('participantes_preguntas as pp')
                                 ->join('participantes', 'participantes.id', '=', 'pp.participantes_id')
                                 ->selectRaw('count(*) as count,pp.respuesta')
@@ -549,13 +549,13 @@ class BackendHomeController extends Controller
                 if(count($objParticipantes)){
                     $arrayResultado[] = array(
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
-                        'porcentaje' => $porcentaje*100/(count($objCandidatoPregunta)*count($objParticipantes)),
-                    );    
+                        'porcentaje' => $porcentaje*100/(count([$objCandidatoPregunta])*count($objParticipantes)),
+                    );
                 }else{
                     $arrayResultado[] = array(
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
                         'porcentaje' => 0,
-                    );    
+                    );
                 }
             }
             /* --- FIN FUNCTION ---- */

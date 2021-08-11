@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\DB;
 
 class ExcelController extends Controller
 {
-    public function index(Request $request)    
+    public function index(Request $request)
 	{
 		$rPregunta = $request->rPregunta;
         $rEdad = $request->rEdad;
@@ -27,7 +27,7 @@ class ExcelController extends Controller
 
         $arrayResultado = array();
 
-        
+
 
     	if($rPregunta != "" and $rEdad != "" and $rGenero != ""){
             $consulta = [$preguntaP->pregunta,$rEdad,$rGenero];
@@ -37,7 +37,7 @@ class ExcelController extends Controller
             foreach($objCandidato as $candidato){
                 $porcentaje = 0;
                 //obtengo el objeto preguntas por candidato
-                $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();            
+                $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();
                 foreach($objCandidatoPregunta as $pregunta){
                     if($pregunta->id == $preguntaP->id){
                         //obtengo el objeto de los participantes que terminaron de cotestar todas las preguntas
@@ -64,7 +64,7 @@ class ExcelController extends Controller
                 }
                 $arrayResultado[] = array(
                     'candidatos' => $candidato->nombre .' '. $candidato->apellido,
-					'porcentaje' => $porcentaje*100/(count($objCandidatoPregunta)*count($participantesCriterio)),
+					'porcentaje' => $porcentaje*100/(count([$objCandidatoPregunta])*count($participantesCriterio)),
 					);
             }
             /* --- FIN FUNCTION ---- */
@@ -76,7 +76,7 @@ class ExcelController extends Controller
             foreach($objCandidato as $candidato){
                 $porcentaje = 0;
                 //obtengo el objeto preguntas por candidato
-                $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();            
+                $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();
                 foreach($objCandidatoPregunta as $pregunta){
                     if($pregunta->id == $preguntaP->id){
                         //obtengo el objeto de los participantes que terminaron de cotestar todas las preguntas
@@ -102,7 +102,7 @@ class ExcelController extends Controller
                 }
                 $arrayResultado[] = array(
                     'candidatos' => $candidato->nombre .' '. $candidato->apellido,
-					'porcentaje' => $porcentaje*100/(count($objCandidatoPregunta)*count($participantesCriterio)),
+					'porcentaje' => $porcentaje*100/(count([$objCandidatoPregunta])*count($participantesCriterio)),
 					);
             }
             /* --- FIN FUNCTION ---- */
@@ -114,7 +114,7 @@ class ExcelController extends Controller
             foreach($objCandidato as $candidato){
                 $porcentaje = 0;
                 //obtengo el objeto preguntas por candidato
-                $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();            
+                $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();
                 foreach($objCandidatoPregunta as $pregunta){
                     if($pregunta->id == $preguntaP->id){
                         //obtengo el objeto de los participantes que terminaron de cotestar todas las preguntas
@@ -140,7 +140,7 @@ class ExcelController extends Controller
                 }
                 $arrayResultado[] = array(
                     'candidatos' => $candidato->nombre .' '. $candidato->apellido,
-                    'porcentaje' => $porcentaje*100/(count($objCandidatoPregunta)*count($participantesCriterio)),
+                    'porcentaje' => $porcentaje*100/(count([$objCandidatoPregunta])*count($participantesCriterio)),
                     );
             }
             /* --- FIN FUNCTION ---- */
@@ -152,7 +152,7 @@ class ExcelController extends Controller
             foreach($objCandidato as $candidato){
                 $porcentaje = 0;
                 //obtengo el objeto preguntas por candidato
-                $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();            
+                $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();
                 foreach($objCandidatoPregunta as $pregunta){
                         //obtengo el objeto de los participantes que terminaron de cotestar todas las preguntas
                         $objP = DB::table('participantes_preguntas as pp')
@@ -177,7 +177,7 @@ class ExcelController extends Controller
                 }
                 $arrayResultado[] = array(
                     'candidatos' => $candidato->nombre .' '. $candidato->apellido,
-					'porcentaje' => $porcentaje*100/(count($objCandidatoPregunta)*count($participantesCriterio)),
+					'porcentaje' => $porcentaje*100/(count([$objCandidatoPregunta])*count($participantesCriterio)),
 					);
             }
             /* --- FIN FUNCTION ---- */
@@ -189,7 +189,7 @@ class ExcelController extends Controller
             foreach($objCandidato as $candidato){
                 $porcentaje = 0;
                 //obtengo el objeto preguntas por candidato
-                $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();            
+                $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();
                 foreach($objCandidatoPregunta as $pregunta){
                         //obtengo el objeto de los participantes que terminaron de cotestar todas las preguntas
                         $objP = DB::table('participantes_preguntas as pp')
@@ -213,7 +213,7 @@ class ExcelController extends Controller
                 }
                 $arrayResultado[] = array(
                     'candidatos' => $candidato->nombre .' '. $candidato->apellido,
-					'porcentaje' => $porcentaje*100/(count($objCandidatoPregunta)*count($participantesCriterio)),
+					'porcentaje' => $porcentaje*100/(count([$objCandidatoPregunta])*count($participantesCriterio)),
 					);
             }
             /* --- FIN FUNCTION ---- */
@@ -224,7 +224,7 @@ class ExcelController extends Controller
             foreach($objCandidato as $candidato){
                 $porcentaje = 0;
                 //obtengo el objeto preguntas por candidato
-                $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();            
+                $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();
                 foreach($objCandidatoPregunta as $pregunta){
                     if($pregunta->id == $preguntaP->id){
                         //obtengo el objeto de los participantes que terminaron de cotestar todas las preguntas
@@ -249,7 +249,7 @@ class ExcelController extends Controller
                 }
                 $arrayResultado[] = array(
                     'candidatos' => $candidato->nombre .' '. $candidato->apellido,
-					'porcentaje' => $porcentaje*100/(count($objCandidatoPregunta)*count($objParticipantes)),
+					'porcentaje' => $porcentaje*100/(count([$objCandidatoPregunta])*count($objParticipantes)),
 					);
             }
             /* --- FIN FUNCTION ---- */
@@ -261,7 +261,7 @@ class ExcelController extends Controller
             foreach($objCandidato as $candidato){
                 $porcentaje = 0;
                 //obtengo el objeto preguntas por candidato
-                $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();            
+                $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();
                 foreach($objCandidatoPregunta as $pregunta){
                         //obtengo el objeto de los participantes que terminaron de cotestar todas las preguntas
                         $objP = DB::table('participantes_preguntas as pp')
@@ -285,7 +285,7 @@ class ExcelController extends Controller
                 }
                 $arrayResultado[] = array(
                     'candidatos' => $candidato->nombre .' '. $candidato->apellido,
-					'porcentaje' => $porcentaje*100/(count($objCandidatoPregunta)*count($participantesCriterio)),
+					'porcentaje' => $porcentaje*100/(count([$objCandidatoPregunta])*count($participantesCriterio)),
 					);
             }
             /* --- FIN FUNCTION ---- */
@@ -297,7 +297,7 @@ class ExcelController extends Controller
             foreach($objCandidato as $candidato){
                 $porcentaje = 0;
                 //obtengo el objeto preguntas por candidato
-                $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();            
+                $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();
                 foreach($objCandidatoPregunta as $pregunta){
                     //obtengo el objeto de los participantes que terminaron de cotestar todas las preguntas
                     $objP = DB::table('participantes_preguntas as pp')
@@ -320,7 +320,7 @@ class ExcelController extends Controller
                 }
                 $arrayResultado[] = array(
                     'candidatos' => $candidato->nombre .' '. $candidato->apellido,
-					'porcentaje' => number_format($porcentaje*100/(count($objCandidatoPregunta)*count($objParticipantes))),
+					'porcentaje' => number_format($porcentaje*100/(count([$objCandidatoPregunta])*count($objParticipantes))),
 					);
             }
             /* --- FIN FUNCTION ---- */
@@ -332,18 +332,18 @@ class ExcelController extends Controller
 		}
 
 		array_multisort($porcentaje1, SORT_DESC, $arrayResultado);
-		
+
 		$participantesCriterio = count($participantesCriterio);
 		$totalParticipantes = count($objParticipantes);
 
 		if($tipoDownload=='excel'){
-			//ARMADO DEL EXCEL CON LOS DATOS DEL ARRAY	
+			//ARMADO DEL EXCEL CON LOS DATOS DEL ARRAY
 			Excel::create('Brújula Electoral Excel', function($excel) use($arrayResultado,$consulta,$participantesCriterio,$totalParticipantes){
-	 		
+
 	            $excel->sheet('Participantes', function($sheet) use($arrayResultado,$consulta,$participantesCriterio,$totalParticipantes) {
-	            	
+
 	                $sheet->with($arrayResultado);
-	                
+
 	                $sheet->prependRow(array(
                            'Participantes por criterio de búsqueda',$participantesCriterio
                         ));
@@ -426,14 +426,14 @@ class ExcelController extends Controller
 	            });
 	        })->export('xls');
 	    }else{
-	    	//ARMADO DEL EXCEL CON LOS DATOS DEL ARRAY	
+	    	//ARMADO DEL EXCEL CON LOS DATOS DEL ARRAY
 			Excel::create('Brújula Electoral Excel', function($excel) use($arrayResultado,$consulta,$participantesCriterio,$totalParticipantes){
-	 		
+
 	            $excel->sheet('Participantes', function($sheet) use($arrayResultado,$consulta,$participantesCriterio,$totalParticipantes) {
-	            	
-	            	
+
+
 	                $sheet->with($arrayResultado);
-	                
+
 	                $sheet->prependRow(array(
 						    'Participantes por criterio de búsqueda',$participantesCriterio,'Total de participantes en el sitio', $totalParticipantes
 						));
@@ -482,12 +482,12 @@ class ExcelController extends Controller
 					    $cell->setFontSize(16);
 					    $cell->setFontWeight('bold');
 					});
-	 
+
 	            });
 	        })->export('csv');
 	    }
- 
+
 	}
 
-	
+
 }
