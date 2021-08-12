@@ -42,41 +42,25 @@
                 </div>
                 <div class="col-xs-12 col-sm-4 col-md-4 ">
                     <form id="form-voto" class="form-horizontal col-xs-12 col-sm-12  col-md-12" method="POST"
-                          action="{{ url('juego') }}">
+                          action="{{ route('storeJuego') }}">
                         {{ csrf_field() }}
-                        <a class="btn-yes draggable" href="" id="btn-yes">SÍ</a>
-                        <a class="btn-no draggable" href="" id="btn-no">NO</a>
-                        @if($objPreguntaAct->opcion_1)
-                            <a class="btn-white draggable" href="" id="btn-white">Más opciones</a>
-                        @endif
-                        <div class="more-asw" style="display: none;">
-                            <div class="btn-exit">x</div>
-                            <!--h4 style="text-align: center;font-size: 16px;margin: 0px 0 15px 0;">Más Opciones</h4-->
-                            <ul style="margin-left: -20px;">
-                                @if($objPreguntaAct->opcion_1)
-                                    <li><a class="op_1">{{ $objPreguntaAct->opcion_1 }}</a></li>
-                                @endif
-                                @if($objPreguntaAct->opcion_2)
-                                    <li><a class="op_2">{{ $objPreguntaAct->opcion_2 }}</a></li>
-                                @endif
-                                @if($objPreguntaAct->opcion_3)
-                                    <li><a class="op_3">{{ $objPreguntaAct->opcion_3 }}</a></li>
-                                @endif
-                                @if($objPreguntaAct->opcion_4)
-                                    <li><a class="op_4">{{ $objPreguntaAct->opcion_4 }}</a></li>
-                                @endif
-                                @if($objPreguntaAct->opcion_5)
-                                    <li><a class="op_5">{{ $objPreguntaAct->opcion_5 }}</a></li>
-                                @endif
-                            </ul>
-                            <div class="op-mas">* Opciones con base en las respuestas de los candidatos</div>
-                        </div>
-                        <input type="hidden" name="respuesta" id="respuesta" value="">
+                        <button class="btn-yes "  id="btn-yes">A favor</button>
+
+                        <input type="hidden" name="respuesta" id="respuesta" value="Si">
 
                         <input type="hidden" name="pregunta" id="pregunta" value="{{ $objPreguntaAct->id }}">
                     </form>
-                    <div style="clear: both;"></div>
-                    <div class="img-box droppable " id="demo7"></div>
+                    <form id="form-voto" class="form-horizontal col-xs-12 col-sm-12  col-md-12" method="POST"
+                          action="{{ route('storeJuego') }}">
+                        {{ csrf_field() }}
+
+                        <button class="btn-no "  id="btn-no">En contra</button>
+
+                        <input type="hidden" name="respuesta" id="respuesta" value="No">
+
+                        <input type="hidden" name="pregunta" id="pregunta" value="{{ $objPreguntaAct->id }}">
+                    </form>
+
                 </div>
             </div>
         </div>
@@ -98,7 +82,7 @@
                         <div class="form-group select">
                             <select id="frente_1" name="frente_1" class="form-control box-candidate classic">
                                 <option>ESCOGE UN CANDIDATO</option>
-                                @if(count($objCandidato))
+                                @if(isset($objCandidato))
                                     @foreach($objCandidato as $candidato)
                                         <option value="{{ $candidato->id }}">{{ $candidato->nombre }} {{ $candidato->apellido }}</option>
                                     @endforeach
@@ -108,7 +92,7 @@
                         <div class="form-group select">
                             <select id="frente_2" name="frente_2" class="form-control box-candidate classic">
                                 <option>ESCOGE UN CANDIDATO</option>
-                                @if(count($objCandidato))
+                                @if(isset($objCandidato))
                                     @foreach($objCandidato as $candidato)
                                         <option value="{{ $candidato->id }}">{{ $candidato->nombre }} {{ $candidato->apellido }}</option>
                                     @endforeach

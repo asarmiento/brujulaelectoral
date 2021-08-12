@@ -58,14 +58,17 @@
 
 					</div>
 
+					<div>
+							<a href="{{ route('viewJuego') }}" class="btn btn-main btn-result">Siguiente</a>
+					</div>
 				</div>
 				<div id="answer-content" class="col-xs-12 col-sm-12 col-md-12">
 					<h3 class="info-question">
-						Respuestas
+						Respuesta de los candidatos
 					</h3>
 
 					<ul id="candidate-answer">
-					@if(count([$objRespuestas]))
+					@if(isset($objRespuestas))
 						@foreach($objRespuestas as $respuesta)
 							 <?php
 							 	if($respuesta->pivot->respuesta_corta == 'Sí'){
@@ -96,11 +99,6 @@
 					@endif
 					</ul>
 					<div>
-					@if( count([$objPreguntasTodas]) == $objPregunta->id)
-						<a href="{{ url('juego') }}" class="btn btn-main btn-result">Mira el resultado</a>
-					@else
-						<a href="{{ url('juego') }}" class="btn btn-main btn-result">Siguiente</a>
-					@endif
 						<p class="share">COMPARTIR: <span class="addthis_inline_share_toolbox"></span></p>
 					</div>
 				</div>
