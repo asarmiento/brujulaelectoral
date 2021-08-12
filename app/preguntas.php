@@ -12,15 +12,6 @@ class preguntas extends Model
 	 * @var string
 	 */
 	protected $table = 'preguntas';
-
-    public function participantes(){
-        return $this->belongsToMany('App\participantes')->withPivot('id','respuesta');
-    }
-
-    public function candidatos(){
-        return $this->belongsToMany('App\candidatos')->withPivot('respuesta_corta', 'respuesta_larga', 'opcion', 'respuesta_ff', 'estado');
-    }
-
     /**
      * The attributes that are mass assignable.
      *
@@ -29,6 +20,14 @@ class preguntas extends Model
     protected $fillable = [
         'pregunta', 'estado'
     ];
+
+    public function participantes(){
+        return $this->belongsToMany('App\participantes')->withPivot('id','respuesta');
+    }
+
+    public function candidatos(){
+        return $this->belongsToMany('App\candidatos')->withPivot('respuesta_corta', 'respuesta_larga', 'opcion', 'respuesta_ff', 'estado');
+    }
 
     public static function activas(){
         return self::where('estado',1);

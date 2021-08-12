@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 class participantes_preguntas extends Model
 {
+protected $table = 'participantes_preguntas';
 
 	public static function reportes($id){
 		if($id)  {
@@ -20,11 +21,11 @@ class participantes_preguntas extends Model
                             ->groupBy('pp.preguntas_id', 'pp.respuesta')
                             ->get();
             //}
-        	return $objP;    
+        	return $objP;
         }
 		else{
 			return false;
 		}
 	}
-        
+
 }
