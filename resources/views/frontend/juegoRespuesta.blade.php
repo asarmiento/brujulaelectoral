@@ -71,10 +71,10 @@
 					@if(isset($objRespuestas))
 						@foreach($objRespuestas as $respuesta)
 							 <?php
-							 	if($respuesta->pivot->respuesta_corta == 'Sí'){
-							 		$estiloBtn = "yes";
-							 	}elseif($respuesta->pivot->respuesta_corta == 'No'){
-							 		$estiloBtn = "no";
+							 	if($respuesta->pivot->respuesta_corta == 'A favor'){
+							 		$estiloBtn = "A favor";
+							 	}elseif($respuesta->pivot->respuesta_corta == 'En Contra'){
+							 		$estiloBtn = "En contra";
 							 	}else{
 							 		$estiloBtn = "white";
 							 	}
