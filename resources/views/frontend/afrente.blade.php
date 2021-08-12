@@ -85,19 +85,19 @@
                                     } else {
                                         $respuesta1 = "N/A";
                                     }
-                                    $respuesta2 = App\candidatos_preguntas::where('candidatos_id', 'like', '%' . $objCandidato2->id . '%')->where('preguntas_id', 'like', '%' . $pregunta->id . '%')->first()->respuesta_ff;
+                                    $respuesta2 = App\candidatos_preguntas::where('candidatos_id', 'like', '%' . $objCandidato2->id . '%')->where('preguntas_id', 'like', '%' . $pregunta->id . '%')->first();
                                     if ($respuesta2) {
                                         $respuesta2 = $respuesta2->respuesta_ff;
                                     } else {
                                         $respuesta2 = "N/A";
                                     }
-                                    $respuestaC1 = App\candidatos_preguntas::where('candidatos_id', 'like', '%' . $objCandidato1->id . '%')->where('preguntas_id', 'like', '%' . $pregunta->id . '%')->first()->respuesta_corta;
+                                    $respuestaC1 = App\candidatos_preguntas::where('candidatos_id', 'like', '%' . $objCandidato1->id . '%')->where('preguntas_id', 'like', '%' . $pregunta->id . '%')->first();
                                     if ($respuestaC1) {
                                         $respuestaC1 = $respuestaC1->respuesta_ff;
                                     } else {
                                         $respuestaC1 = "N/A";
                                     }
-                                    $respuestaC2 = App\candidatos_preguntas::where('candidatos_id', 'like', '%' . $objCandidato2->id . '%')->where('preguntas_id', 'like', '%' . $pregunta->id . '%')->first()->respuesta_corta;
+                                    $respuestaC2 = App\candidatos_preguntas::where('candidatos_id', 'like', '%' . $objCandidato2->id . '%')->where('preguntas_id', 'like', '%' . $pregunta->id . '%')->first();
                                     if ($respuestaC2) {
                                         $respuestaC2 = $respuestaC2->respuesta_ff;
                                     } else {
