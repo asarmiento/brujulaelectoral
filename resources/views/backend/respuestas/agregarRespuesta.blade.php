@@ -9,7 +9,7 @@
                 <h3>Respuestas</h3>
               </div>
 
-              
+
             </div>
             <div class="clearfix"></div>
             <div class="row">
@@ -47,9 +47,9 @@
                           @if(count($listaCandidatos))
                              @foreach($listaCandidatos as $candidato)
                               <option value="{{ $candidato->id }}">{{ $candidato->nombre ." ". $candidato->apellido }}</option>
-                             @endforeach 
+                             @endforeach
                           @endif
-                          </select> 
+                          </select>
                           @if($errors->has('candidatos_id'))
                                 <p class="alert alert-danger">{{ $errors->first('candidatos_id')}}</p>
                             @endif
@@ -65,9 +65,9 @@
                           @if(count($listaPreguntas))
                              @foreach($listaPreguntas as $pregunta)
                               <option value="{{ $pregunta->id }}">{{ $pregunta->pregunta }}</option>
-                             @endforeach 
+                             @endforeach
                           @endif
-                          </select> 
+                          </select>
                           @if($errors->has('preguntas_id'))
                                 <p class="alert alert-danger">{{ $errors->first('preguntas_id')}}</p>
                             @endif
@@ -79,13 +79,13 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <div id="respuesta_corta" class="btn-group" data-toggle="buttons">
                             <label class="btn btn-success" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                              <input type="radio" name="respuesta_corta" value="Sí"> &nbsp; SÍ &nbsp;
+                              <input type="radio" name="respuesta_corta" value="A favor"> &nbsp; A favor &nbsp;
                             </label>
                             <label class="btn btn-warning" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
                               <input type="radio" name="respuesta_corta" value="Blanco"> BLANCO
                             </label>
                             <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                              <input type="radio" name="respuesta_corta" value="No"> NO
+                              <input type="radio" name="respuesta_corta" value="En contra"> En contra
                             </label>
                           </div>
                           @if($errors->has('respuesta_corta'))
@@ -140,7 +140,7 @@
                           </div>
                         </div>
                       </div>
-                      
+
                       <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">

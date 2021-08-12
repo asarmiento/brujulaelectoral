@@ -72,9 +72,9 @@
 						@foreach($objRespuestas as $respuesta)
 							 <?php
 							 	if($respuesta->pivot->respuesta_corta == 'A favor'){
-							 		$estiloBtn = "A favor";
+							 		$estiloBtn = "yes";
 							 	}elseif($respuesta->pivot->respuesta_corta == 'En Contra'){
-							 		$estiloBtn = "En contra";
+							 		$estiloBtn = "no";
 							 	}else{
 							 		$estiloBtn = "white";
 							 	}
