@@ -10,6 +10,7 @@ use App\preguntas;
 use App\participantes_preguntas;
 use App\candidatos_preguntas;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class HomeController extends Controller
 {
@@ -582,7 +583,6 @@ class HomeController extends Controller
         ]);
 
         if (session('participante')) {
-
             $objParticipacion = new participantes_preguntas();
             $objParticipacion->respuesta = $request->respuesta;
             $objParticipacion->preguntas_id = $request->pregunta;

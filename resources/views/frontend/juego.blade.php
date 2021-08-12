@@ -50,7 +50,7 @@
 
                         <input type="hidden" name="pregunta" id="pregunta" value="{{ $objPreguntaAct->id }}">
                     </form>
-                    <form id="form-voto" class="form-horizontal col-xs-12 col-sm-12  col-md-12" method="POST"
+                    <form id="form-votos" class="form-horizontal col-xs-12 col-sm-12  col-md-12" method="POST"
                           action="{{ route('storeJuego') }}">
                         {{ csrf_field() }}
 
