@@ -10,7 +10,7 @@
                 <h3>Respuestas</h3>
               </div>
 
-              
+
             </div>
             <div class="clearfix"></div>
             <div class="row">
@@ -51,9 +51,9 @@
                                   <option selected="selected" value="{{ $candidato->id }}">{{ $candidato->nombre }}</option>
                                 @endif
                                   <option value="{{ $candidato->id }}">{{ $candidato->nombre }}</option>
-                             @endforeach 
+                             @endforeach
                           @endif
-                          </select> 
+                          </select>
                           @if($errors->has('candidatos_id'))
                                 <p class="alert alert-danger">{{ $errors->first('candidatos_id')}}</p>
                             @endif
@@ -72,9 +72,9 @@
                                   <option selected="selected" value="{{ $pregunta->id }}">{{ $pregunta->pregunta }}</option>
                                 @endif
                                 <option value="{{ $pregunta->id }}">{{ $pregunta->pregunta }}</option>
-                             @endforeach 
+                             @endforeach
                           @endif
-                          </select> 
+                          </select>
                           @if($errors->has('preguntas_id'))
                                 <p class="alert alert-danger">{{ $errors->first('preguntas_id')}}</p>
                             @endif
@@ -85,14 +85,14 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Respuesta</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <div id="respuesta_corta" class="btn-group" data-toggle="buttons">
-                            <label class="btn btn-success {{ $objRespuesta->respuesta_corta == 'Sí' ? 'active' : '' }}" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                              <input type="radio" name="respuesta_corta" value="Sí" {{ $objRespuesta->respuesta_corta == 'Sí' ? 'checked=checked' : '' }}> &nbsp; SÍ &nbsp;
+                            <label class="btn btn-success {{ $objRespuesta->respuesta_corta == 'A Favor' ? 'active' : '' }}" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                              <input type="radio" name="respuesta_corta" value="A favor" {{ $objRespuesta->respuesta_corta == 'A Favor' ? 'checked=checked' : '' }}> &nbsp; A favor&nbsp;
                             </label>
                             <label class="btn btn-warning {{ $objRespuesta->respuesta_corta == 'Blanco' ? 'active' : '' }}" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
                               <input type="radio" name="respuesta_corta" value="Blanco" {{ $objRespuesta->respuesta_corta == 'Blanco' ? 'checked=checked' : '' }}> BLANCO
                             </label>
-                            <label class="btn btn-primary {{ $objRespuesta->respuesta_corta == 'No' ? 'active' : '' }}" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                              <input type="radio" name="respuesta_corta" value="No" {{ $objRespuesta->respuesta_corta == 'No' ? 'checked=checked' : '' }}> NO
+                            <label class="btn btn-primary {{ $objRespuesta->respuesta_corta == 'En contra' ? 'active' : '' }}" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                              <input type="radio" name="respuesta_corta" value="En contra" {{ $objRespuesta->respuesta_corta == 'En contra' ? 'checked=checked' : '' }}> En contra
                             </label>
                           </div>
                           @if($errors->has('respuesta_corta'))
@@ -147,7 +147,7 @@
                           </div>
                         </div>
                       </div>
-                      
+
                       <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
