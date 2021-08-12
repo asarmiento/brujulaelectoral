@@ -30,6 +30,9 @@
 					@endif
 					</h3>
 
+					<div>
+						<a href="{{ route('viewJuego') }}" class="btn btn-main btn-result">Siguiente</a>
+					</div>
 					<div class="box-middle">
 						<h4>Candidatos afines:</h4>
 						<?php $nan = 0; ?>
@@ -58,9 +61,6 @@
 
 					</div>
 
-					<div>
-							<a href="{{ route('viewJuego') }}" class="btn btn-main btn-result">Siguiente</a>
-					</div>
 				</div>
 				<div id="answer-content" class="col-xs-12 col-sm-12 col-md-12">
 					<h3 class="info-question">
