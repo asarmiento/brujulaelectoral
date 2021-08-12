@@ -46,7 +46,7 @@
                         {{ csrf_field() }}
                         <button class="btn-yes "  id="btn-yes">A favor</button>
 
-                        <input type="hidden" name="respuesta" id="respuesta" value="Si">
+                        <input type="hidden" name="respuesta" id="respuesta" value="A favor">
 
                         <input type="hidden" name="pregunta" id="pregunta" value="{{ $objPreguntaAct->id }}">
                     </form>
@@ -56,7 +56,7 @@
 
                         <button class="btn-no "  id="btn-no">En contra</button>
 
-                        <input type="hidden" name="respuesta" id="respuesta" value="No">
+                        <input type="hidden" name="respuesta" id="respuesta" value="En contra">
 
                         <input type="hidden" name="pregunta" id="pregunta" value="{{ $objPreguntaAct->id }}">
                     </form>
