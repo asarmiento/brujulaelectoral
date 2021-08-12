@@ -4,22 +4,22 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="js/jquery.jrumble.1.3.min.js"></script>
-    
+
 
     <script type="text/javascript">
-    
+
     $(document).ready(function() {
         $('.btn-yes').click(function(e){
           e.preventDefault();
           $(".btn-yes").detach('slow').appendTo('.img-box')
-          $('#respuesta').val("Sí");
+          $('#respuesta').val("A favor");
           $('#form-voto').submit();
         });
         $('.btn-no').click(function(e){
         	e.preventDefault();
           $(".btn-no").detach('slow').appendTo('.img-box')
-          $('#respuesta').val("No");
-          $('#form-voto').submit();
+          $('#respuesta').val("En Contra");
+          $('#form-votos').submit();
         });
         $('.btn-white').click(function(e){
         	e.preventDefault();
@@ -61,8 +61,8 @@
         $('.btn-exit').click(function(){
           $(".more-asw").hide('slow');
         });
-        
-        
+
+
 
         $('#demo7').jrumble({
           speed: 200,
@@ -71,24 +71,24 @@
           rotation: 8
         });
 
-        
+
         $('#demo7').trigger('startRumble');
 
         $('#demo7').hover(function(){
           $(this).trigger('stopRumble');
         }, function(){
           $(this).trigger('startRumble');
-        }); 
-        
+        });
+
 
         $('.pregunta').click(function(){
           $('.contpreguntas').hide();
           $('.pregunta').each(function(){
-            
+
             if($(this).is(':checked')){
               $('.divpregunta'+$(this).val()).show();
             }
-            
+
           });
 
         });
@@ -97,10 +97,10 @@
           e.preventDefault();
           $('.contpreguntas').show();
           $('.pregunta').prop('checked',false)
-          
+
         });
         $('input.tipoDownload').on('change', function() {
-            $('input.tipoDownload').not(this).prop('checked', false);  
+            $('input.tipoDownload').not(this).prop('checked', false);
         });
 
     });
@@ -142,4 +142,4 @@
   ga('send', 'pageview');
 
 </script>
-<!-- Go to www.addthis.com/dashboard to customize your tools --> <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5837a1ef16779b75"></script> 
+<!-- Go to www.addthis.com/dashboard to customize your tools --> <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5837a1ef16779b75"></script>
