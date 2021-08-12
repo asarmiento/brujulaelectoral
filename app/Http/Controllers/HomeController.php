@@ -590,7 +590,7 @@ class HomeController extends Controller
 
             if ($objParticipacion->save()) {
 
-                if ($objParticipacion->respuesta == 'Sí' || substr($objParticipacion->respuesta, 0, 3) == 'Sí') {
+                if ($objParticipacion->respuesta == 'A favor' || substr($objParticipacion->respuesta, 0, 3) == 'A favor') {
                     $objRespuestas = preguntas::find($objParticipacion->preguntas_id)->candidatos()->orderBy('respuesta_corta', 'DESC')->get();
                 } else {
                     $objRespuestas = preguntas::find($objParticipacion->preguntas_id)->candidatos()->orderBy('respuesta_corta')->get();
