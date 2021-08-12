@@ -26,7 +26,7 @@
                     <h2><span>El Candidato </span><span class="headline">más</span> Compatible</h2>
 
                     <!-- formulario -->
-                    <form class="form-inline" method="POST" action="{{ url('/') }}">
+                    <form class="form-inline" method="POST" action="{{ route('compare') }}">
                     {{ csrf_field() }}
                     <label class="head-label" for="titulo">Ordenar</label>
                       <div class="form-group select">
