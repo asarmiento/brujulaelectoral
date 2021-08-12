@@ -93,13 +93,13 @@
                                     }
                                     $respuestaC1 = App\candidatos_preguntas::where('candidatos_id', 'like', '%' . $objCandidato1->id . '%')->where('preguntas_id', 'like', '%' . $pregunta->id . '%')->first();
                                     if ($respuestaC1) {
-                                        $respuestaC1 = $respuestaC1->respuesta_ff;
+                                        $respuestaC1 = $respuestaC1->respuesta_corta;
                                     } else {
                                         $respuestaC1 = "N/A";
                                     }
                                     $respuestaC2 = App\candidatos_preguntas::where('candidatos_id', 'like', '%' . $objCandidato2->id . '%')->where('preguntas_id', 'like', '%' . $pregunta->id . '%')->first();
                                     if ($respuestaC2) {
-                                        $respuestaC2 = $respuestaC2->respuesta_ff;
+                                        $respuestaC2 = $respuestaC2->respuesta_corta;
                                     } else {
                                         $respuestaC2 = "N/A";
                                     }
@@ -126,7 +126,7 @@
 
 
 
-                @if($objCandidato1 and $objCandidato2)
+             {{--   @if($objCandidato1 and $objCandidato2)
                 <!-- propuestas -->
                     <div class="col-xs-12 col-sm-12 col-md-12 face-group face-group-propuestas">
                         <h3 class="headline-propuestas">Propuestas electorales</h3>
@@ -244,7 +244,7 @@
                     </div>
                     <!-- end propuestas -->
 
-                @endif
+                @endif--}}
 
 
                 <div class="col-xs-12 col-sm-12 col-md-3 col-md-offset-4">
