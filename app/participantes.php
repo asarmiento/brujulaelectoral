@@ -14,7 +14,7 @@ class participantes extends Model
 	protected $table = 'participantes';
 
 	public function preguntas(){
-        return $this->belongsToMany('App\preguntas')->withPivot('id','respuesta');
+        return $this->belongsToMany(preguntas::class,'participantes_preguntas','participantes_id','preguntas_id')->withPivot('id','respuesta');
     }
 
     /**
