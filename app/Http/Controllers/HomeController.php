@@ -465,7 +465,7 @@ class HomeController extends Controller
             'arrayResultado' => $arrayResultado,
             'titulo' => 'Home',
         );
-        return view('welcome', $data);
+        return view('frontend.compare', $data);
     }
 
 

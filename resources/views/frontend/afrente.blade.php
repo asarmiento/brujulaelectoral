@@ -41,7 +41,7 @@
                     <!-- end formulario -->
 
 
-                </div>
+                </div>{{--
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <p class="head-label">
                         Mostrar solo estas preguntas
@@ -59,7 +59,7 @@
                         <div style="clear: both;"></div>
                         <!--button type="submit" class="btn btn-main">Mostrar</button-->
                     </form>
-                </div>
+                </div>--}}
                 <!-- tema -->
                 @if($objCandidato1 and $objCandidato2)
                     @foreach($objPreguntas as $pregunta)
