@@ -169,8 +169,8 @@ Route::get('/preview', 'HomeController@preview');
 Route::get('juego-login', 'HomeController@create');
 Route::post('juego-login', 'HomeController@store')->name('juego-login-post');
 
-Route::get('juego', 'HomeController@viewJuego');
-Route::post('juego', 'HomeController@storeJuego');
+Route::get('juego', 'HomeController@viewJuego')->name('viewJuego');
+Route::post('juego', 'HomeController@storeJuego')->name('storeJuego');
 
 Route::get('juego-resultado', 'HomeController@resultado');
 
