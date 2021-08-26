@@ -44,7 +44,7 @@
                     <form id="form-voto" class="form-horizontal col-xs-12 col-sm-12  col-md-12" method="POST"
                           action="{{ route('storeJuego') }}">
                         {{ csrf_field() }}
-                        <button class="btn-yes "  id="btn-yes">A favor</button>
+                        <button   id="btn-yes">A favor</button>
 
                         <input type="hidden" name="respuesta" id="respuesta" value="A favor">
 
@@ -54,9 +54,19 @@
                           action="{{ route('storeJuego') }}">
                         {{ csrf_field() }}
 
-                        <button class="btn-no "  id="btn-no">En contra</button>
+                        <button   id="btn-no">En contra</button>
 
                         <input type="hidden" name="respuesta" id="respuesta" value="En contra">
+
+                        <input type="hidden" name="pregunta" id="pregunta" value="{{ $objPreguntaAct->id }}">
+                    </form>
+                    <form id="form-votos" class="form-horizontal col-xs-12 col-sm-12  col-md-12" method="POST"
+                          action="{{ route('storeJuego') }}">
+                        {{ csrf_field() }}
+
+                        <button  id="btn-neutro">Neutro</button>
+
+                        <input type="hidden" name="respuesta" id="respuesta" value="Neutro">
 
                         <input type="hidden" name="pregunta" id="pregunta" value="{{ $objPreguntaAct->id }}">
                     </form>

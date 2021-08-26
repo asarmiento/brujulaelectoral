@@ -96,8 +96,9 @@
                     @if($arrayResultado)
                       @foreach($arrayResultado as $key => $value)
                       <?php
-                      $nomCandidato = explode(' ', $key);
-                      $objCandidatoPregunta = App\candidatos::where('nombre','like','%'.$nomCandidato[0].'%')->where('apellido','like', '%'.$nomCandidato[1].'%')->first();
+                    
+
+                      $objCandidatoPregunta = App\candidatos::find($key);
                       ?>
                         @if(count([$objCandidatoPregunta]))
                           <!--barra 1 -->
