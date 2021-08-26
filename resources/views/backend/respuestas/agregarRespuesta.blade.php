@@ -82,7 +82,7 @@
                               <input type="radio" name="respuesta_corta" value="A favor"> &nbsp; A favor &nbsp;
                             </label>
                             <label class="btn btn-warning" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                              <input type="radio" name="respuesta_corta" value="Blanco"> BLANCO
+                              <input type="radio" name="respuesta_corta" value="Neutro"> Neutro
                             </label>
                             <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
                               <input type="radio" name="respuesta_corta" value="En contra"> En contra

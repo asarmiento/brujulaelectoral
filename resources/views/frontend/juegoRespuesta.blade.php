@@ -43,11 +43,13 @@
 									@if($respuesta->pivot->respuesta_corta == $objMiRespuesta->pivot->respuesta)
 										<li class="match-candidate">
 											<img src="{{ asset('imgJuego/'.$respuesta->foto) }}" class="foto70">
+											<h4 style="color: black; background-color: white">{{ $respuesta->nombre }} {{ $respuesta->apellido }}</h4>
 										</li>
 										<?php $nan++; ?>
 									@elseif($respuesta->pivot->opcion == $objMiRespuesta->pivot->respuesta)
 											<li class="match-candidate">
 												<img src="{{ asset('imgJuego/'.$respuesta->foto) }}" class="foto70">
+												<h4 style="color: black; background-color: white">{{ $respuesta->nombre }} {{ $respuesta->apellido }}</h4>
 											</li>
 											<?php $nan++; ?>
 									@endif
@@ -75,11 +77,13 @@
 							 		$estiloBtn = "yes";
 							 	}elseif($respuesta->pivot->respuesta_corta == 'En Contra'){
 							 		$estiloBtn = "no";
+							 	}elseif($respuesta->pivot->respuesta_corta == 'Neutro'){
+							 		$estiloBtn = "neutro";
 							 	}else{
 							 		$estiloBtn = "white";
 							 	}
 							 ?>
-							@if($respuesta->pivot->respuesta_corta == 'Blanco')
+							@if($respuesta->pivot->respuesta_corta == 'Neutro')
 							<?php
 								$blanco .=  '<li><span class="btn-'.$estiloBtn.'">'.$respuesta->pivot->respuesta_corta.'</span><img src="imgJuego/'.$respuesta->foto.'" class="foto126"><div class="text"><h4>'.$respuesta->nombre.' '.$respuesta->apellido.'</h4><p>'.$respuesta->pivot->respuesta_larga.'</p></div></li>';
 							?>

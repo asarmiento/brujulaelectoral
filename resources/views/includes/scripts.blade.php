@@ -4,7 +4,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="js/jquery.jrumble.1.3.min.js"></script>
-
+     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script type="text/javascript">
 
@@ -21,6 +21,17 @@
           $('#respuesta').val("En Contra");
           $('#form-votos').submit();
         });
+
+        $('.btn-neutro').click(function(e){
+
+        	e.preventDefault();
+          $(".btn-neutro").detach('slow').appendTo('.img-box')
+          $('#respuesta').val("Neutro");
+
+          alert($('#respuesta').val("Neutro"))
+          $('#form-votos').submit();
+        });
+
         $('.btn-white').click(function(e){
         	e.preventDefault();
           $('.more-asw').show('slow');

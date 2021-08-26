@@ -88,8 +88,8 @@
                             <label class="btn btn-success {{ $objRespuesta->respuesta_corta == 'A Favor' ? 'active' : '' }}" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
                               <input type="radio" name="respuesta_corta" value="A favor" {{ $objRespuesta->respuesta_corta == 'A Favor' ? 'checked=checked' : '' }}> &nbsp; A favor&nbsp;
                             </label>
-                            <label class="btn btn-warning {{ $objRespuesta->respuesta_corta == 'Blanco' ? 'active' : '' }}" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                              <input type="radio" name="respuesta_corta" value="Blanco" {{ $objRespuesta->respuesta_corta == 'Blanco' ? 'checked=checked' : '' }}> BLANCO
+                            <label class="btn btn-warning {{ $objRespuesta->respuesta_corta == 'Neutro' ? 'active' : '' }}" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                              <input type="radio" name="respuesta_corta" value="Neutro" {{ $objRespuesta->respuesta_corta == 'Neutro' ? 'checked=checked' : '' }}> Neutro
                             </label>
                             <label class="btn btn-primary {{ $objRespuesta->respuesta_corta == 'En contra' ? 'active' : '' }}" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
                               <input type="radio" name="respuesta_corta" value="En contra" {{ $objRespuesta->respuesta_corta == 'En contra' ? 'checked=checked' : '' }}> En contra

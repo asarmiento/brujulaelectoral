@@ -55,9 +55,9 @@ class HomeController extends Controller
             }
             $objParticipantes = participantes::where('estado', '=', '1')->get();
             if (count($objParticipantes)) {
-                $arrayResultado[$candidato->nombre . ' ' . $candidato->apellido] = $porcentaje * 100 / (count([$objCandidatoPregunta]) * count($objParticipantes));
+                $arrayResultado[$candidato->id] = $porcentaje * 100 / (count([$objCandidatoPregunta]) * count($objParticipantes));
             } else {
-                $arrayResultado[$candidato->nombre . ' ' . $candidato->apellido] = 0;
+                $arrayResultado[$candidato->id] = 0;
             }
         }
 
@@ -591,6 +591,8 @@ class HomeController extends Controller
             if ($objParticipacion->save()) {
 
                 if ($objParticipacion->respuesta == 'A favor' || substr($objParticipacion->respuesta, 0, 3) == 'A favor') {
+                    $objRespuestas = preguntas::find($objParticipacion->preguntas_id)->candidatos()->orderBy('respuesta_corta', 'DESC')->get();
+                }else if ($objParticipacion->respuesta == 'Neutro' || substr($objParticipacion->respuesta, 0, 3) == 'Neutro') {
                     $objRespuestas = preguntas::find($objParticipacion->preguntas_id)->candidatos()->orderBy('respuesta_corta', 'DESC')->get();
                 } else {
                     $objRespuestas = preguntas::find($objParticipacion->preguntas_id)->candidatos()->orderBy('respuesta_corta')->get();
