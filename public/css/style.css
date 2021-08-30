@@ -10,7 +10,7 @@ a {
   color: #222832;
 }
 header {
-  background-color: #fee100;
+  background-color: #273538;
   height: 308px;
   margin: 20px;
 }
@@ -39,18 +39,18 @@ header h1 a, header h2 a {
   margin: 20px;
 }
 .brand-logo {
-  background: rgba(0, 0, 0, 0) url("../images/stripe-images.png") no-repeat scroll 0 0;
+  background: rgba(0, 0, 0, 0) url("../images/Logo-Brujula-PD.png") no-repeat scroll 0 0;
   height: 288px;
   position: absolute;
   top: 20px;
-  width: 283px;
+  width: 532px;
 }
 #interna .brand-logo {
-  background: rgba(0, 0, 0, 0) url("../images/stripe-images.png") no-repeat scroll 0 0 / 404px auto;
-  height: 93px;
+  background: rgba(0, 0, 0, 0) url("../images/Logo-Brujula-PD.png") no-repeat scroll 0 0 / 404px auto;
+  height: 130px;
   position: absolute;
   top: 20px;
-  width: 110px;
+  width: 532px;
 }
 #interna #main-menu {
   top: 28px;
