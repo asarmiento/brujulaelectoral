@@ -54,8 +54,7 @@
                   @if($arrayResultado)
                     @foreach($arrayResultado as $clave => $fila)
                     <?php
-                    $nomCandidato = explode(' ', $fila['candidatos']);
-                    $objCandidatoPregunta = App\candidatos::where('nombre','like','%'.$nomCandidato[0].'%')->where('apellido','like', '%'.$nomCandidato[1].'%')->first();
+                      $objCandidatoPregunta = App\candidatos::find($fila['candidatosId']);
                     ?>
                     <article class="media event">
                       <a class="pull-left ">
@@ -87,7 +86,7 @@
                     @foreach($arrayFemenino as $clave => $fila)
                     <?php
                     $nomCandidato = explode(' ', $fila['candidatos']);
-                    $objCandidatoPregunta = App\candidatos::where('nombre','like','%'.$nomCandidato[0].'%')->where('apellido','like', '%'.$nomCandidato[1].'%')->first();
+                    $objCandidatoPregunta = App\candidatos::find($fila['candidatosId']);;
                     ?>
                     <article class="media event">
                       <a class="pull-left ">
@@ -119,7 +118,7 @@
                     @foreach($arrayMasculino as $clave => $fila)
                     <?php
                     $nomCandidato = explode(' ', $fila['candidatos']);
-                    $objCandidatoPregunta = App\candidatos::where('nombre','like','%'.$nomCandidato[0].'%')->where('apellido','like', '%'.$nomCandidato[1].'%')->first();
+                    $objCandidatoPregunta = App\candidatos::find($fila['candidatosId']);
                     ?>
                     <article class="media event">
                       <a class="pull-left ">
@@ -152,7 +151,7 @@
                     @foreach($arrayGLTB as $clave => $fila)
                     <?php
                     $nomCandidato = explode(' ', $fila['candidatos']);
-                    $objCandidatoPregunta = App\candidatos::where('nombre','like','%'.$nomCandidato[0].'%')->where('apellido','like', '%'.$nomCandidato[1].'%')->first();
+                    $objCandidatoPregunta = App\candidatos::find($fila['candidatosId']);
                     ?>
                     <article class="media event">
                       <a class="pull-left ">
@@ -185,7 +184,7 @@
                     @foreach($array1625 as $clave => $fila)
                     <?php
                     $nomCandidato = explode(' ', $fila['candidatos']);
-                    $objCandidatoPregunta = App\candidatos::where('nombre','like','%'.$nomCandidato[0].'%')->where('apellido','like', '%'.$nomCandidato[1].'%')->first();
+                    $objCandidatoPregunta = App\candidatos::find($fila['candidatosId']);
                     ?>
                     <article class="media event">
                       <a class="pull-left ">
@@ -218,7 +217,7 @@
                     @foreach($array2535 as $clave => $fila)
                     <?php
                     $nomCandidato = explode(' ', $fila['candidatos']);
-                    $objCandidatoPregunta = App\candidatos::where('nombre','like','%'.$nomCandidato[0].'%')->where('apellido','like', '%'.$nomCandidato[1].'%')->first();
+                    $objCandidatoPregunta =App\candidatos::find($fila['candidatosId']);
                     ?>
                     <article class="media event">
                       <a class="pull-left ">
@@ -251,7 +250,7 @@
                     @foreach($array3545 as $clave => $fila)
                     <?php
                     $nomCandidato = explode(' ', $fila['candidatos']);
-                    $objCandidatoPregunta = App\candidatos::where('nombre','like','%'.$nomCandidato[0].'%')->where('apellido','like', '%'.$nomCandidato[1].'%')->first();
+                    $objCandidatoPregunta = App\candidatos::find($fila['candidatosId']);
                     ?>
                     <article class="media event">
                       <a class="pull-left ">
@@ -284,7 +283,7 @@
                     @foreach($array45 as $clave => $fila)
                     <?php
                     $nomCandidato = explode(' ', $fila['candidatos']);
-                    $objCandidatoPregunta = App\candidatos::where('nombre','like','%'.$nomCandidato[0].'%')->where('apellido','like', '%'.$nomCandidato[1].'%')->first();
+                    $objCandidatoPregunta = App\candidatos::find($fila['candidatosId']);
                     ?>
                     <article class="media event">
                       <a class="pull-left ">

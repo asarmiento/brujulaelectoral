@@ -85,11 +85,13 @@ class BackendHomeController extends Controller
                 $objParticipantes = participantes::where('estado','=','1')->get();
                 if(count($objParticipantes)){
                     $arrayResultado[] = array(
+                        'candidatosId' => $candidato->id,
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
                         'porcentaje' => $porcentaje*100/(count([$objCandidatoPregunta])*count($objParticipantes)),
                     );
                 }else{
                     $arrayResultado[] = array(
+                        'candidatosId' => $candidato->id,
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
                         'porcentaje' => 0,
                     );
@@ -99,6 +101,8 @@ class BackendHomeController extends Controller
             /* --- FIN FUNCTION ---- */
 
             foreach ($arrayResultado as $clave => $fila) {
+
+                $candidatoId[$clave] = $fila['candidatosId'];
                 $candidato[$clave] = $fila['candidatos'];
                 $porcentaje1[$clave] = $fila['porcentaje'];
             }
@@ -151,11 +155,13 @@ class BackendHomeController extends Controller
                 $objParticipantes = participantes::where('estado','=','1')->get();
                 if(count($objParticipantes)){
                     $arrayResultado[] = array(
+                        'candidatosId' => $candidato->id,
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
                         'porcentaje' => $porcentaje*100/(count([$objCandidatoPregunta])*count($objParticipantes)),
                     );
                 }else{
                     $arrayResultado[] = array(
+                        'candidatosId' => $candidato->id,
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
                         'porcentaje' => 0,
                     );
@@ -164,6 +170,7 @@ class BackendHomeController extends Controller
             /* --- FIN FUNCTION ---- */
 
             foreach ($arrayResultado as $clave => $fila) {
+                $candidatoId[$clave] = $fila['candidatosId'];
                 $candidato[$clave] = $fila['candidatos'];
                 $porcentaje1[$clave] = $fila['porcentaje'];
             }
@@ -214,11 +221,13 @@ class BackendHomeController extends Controller
                 $objParticipantes = participantes::where('estado','=','1')->get();
                 if(count($objParticipantes)){
                     $arrayResultado[] = array(
+                        'candidatosId' => $candidato->id,
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
                         'porcentaje' => $porcentaje*100/(count([$objCandidatoPregunta])*count($objParticipantes)),
                     );
                 }else{
                     $arrayResultado[] = array(
+                        'candidatosId' => $candidato->id,
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
                         'porcentaje' => 0,
                     );
@@ -227,6 +236,7 @@ class BackendHomeController extends Controller
             /* --- FIN FUNCTION ---- */
 
             foreach ($arrayResultado as $clave => $fila) {
+                $candidatoId[$clave] = $fila['candidatosId'];
                 $candidato[$clave] = $fila['candidatos'];
                 $porcentaje1[$clave] = $fila['porcentaje'];
             }
@@ -276,11 +286,13 @@ class BackendHomeController extends Controller
                 $objParticipantes = participantes::where('estado','=','1')->get();
                 if(count($objParticipantes)){
                     $arrayResultado[] = array(
+                        'candidatosId' => $candidato->id,
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
                         'porcentaje' => $porcentaje*100/(count([$objCandidatoPregunta])*count($objParticipantes)),
                     );
                 }else{
                     $arrayResultado[] = array(
+                        'candidatosId' => $candidato->id,
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
                         'porcentaje' => 0,
                     );
@@ -289,6 +301,7 @@ class BackendHomeController extends Controller
             /* --- FIN FUNCTION ---- */
 
             foreach ($arrayResultado as $clave => $fila) {
+                $candidatoId[$clave] = $fila['candidatosId'];
                 $candidato[$clave] = $fila['candidatos'];
                 $porcentaje1[$clave] = $fila['porcentaje'];
             }
@@ -339,11 +352,13 @@ class BackendHomeController extends Controller
                 $objParticipantes = participantes::where('estado','=','1')->get();
                 if(count($objParticipantes)){
                     $arrayResultado[] = array(
+                        'candidatosId' => $candidato->id,
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
                         'porcentaje' => $porcentaje*100/(count([$objCandidatoPregunta])*count($objParticipantes)),
                     );
                 }else{
                     $arrayResultado[] = array(
+                        'candidatosId' => $candidato->id,
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
                         'porcentaje' => 0,
                     );
@@ -352,6 +367,7 @@ class BackendHomeController extends Controller
             /* --- FIN FUNCTION ---- */
 
             foreach ($arrayResultado as $clave => $fila) {
+                $candidatoId[$clave] = $fila['candidatosId'];
                 $candidato[$clave] = $fila['candidatos'];
                 $porcentaje1[$clave] = $fila['porcentaje'];
             }
@@ -402,11 +418,13 @@ class BackendHomeController extends Controller
                 $objParticipantes = participantes::where('estado','=','1')->get();
                 if(count($objParticipantes)){
                     $arrayResultado[] = array(
+                        'candidatosId' => $candidato->id,
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
                         'porcentaje' => $porcentaje*100/(count([$objCandidatoPregunta])*count($objParticipantes)),
                     );
                 }else{
                     $arrayResultado[] = array(
+                        'candidatosId' => $candidato->id,
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
                         'porcentaje' => 0,
                     );
@@ -415,6 +433,7 @@ class BackendHomeController extends Controller
             /* --- FIN FUNCTION ---- */
 
             foreach ($arrayResultado as $clave => $fila) {
+                $candidatoId[$clave] = $fila['candidatosId'];
                 $candidato[$clave] = $fila['candidatos'];
                 $porcentaje1[$clave] = $fila['porcentaje'];
             }
@@ -465,11 +484,13 @@ class BackendHomeController extends Controller
                 $objParticipantes = participantes::where('estado','=','1')->get();
                 if(count($objParticipantes)){
                     $arrayResultado[] = array(
+                        'candidatosId' => $candidato->id,
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
                         'porcentaje' => $porcentaje*100/(count([$objCandidatoPregunta])*count($objParticipantes)),
                     );
                 }else{
                     $arrayResultado[] = array(
+                        'candidatosId' => $candidato->id,
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
                         'porcentaje' => 0,
                     );
@@ -478,6 +499,7 @@ class BackendHomeController extends Controller
             /* --- FIN FUNCTION ---- */
 
             foreach ($arrayResultado as $clave => $fila) {
+                $candidatoId[$clave] = $fila['candidatosId'];
                 $candidato[$clave] = $fila['candidatos'];
                 $porcentaje1[$clave] = $fila['porcentaje'];
             }
@@ -548,11 +570,13 @@ class BackendHomeController extends Controller
                 $objParticipantes = participantes::where('estado','=','1')->get();
                 if(count($objParticipantes)){
                     $arrayResultado[] = array(
+                        'candidatosId' => $candidato->id,
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
                         'porcentaje' => $porcentaje*100/(count([$objCandidatoPregunta])*count($objParticipantes)),
                     );
                 }else{
                     $arrayResultado[] = array(
+                        'candidatosId' => $candidato->id,
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
                         'porcentaje' => 0,
                     );
@@ -561,6 +585,7 @@ class BackendHomeController extends Controller
             /* --- FIN FUNCTION ---- */
 
             foreach ($arrayResultado as $clave => $fila) {
+                $candidatoId[$clave] = $fila['candidatosId'];
                 $candidato[$clave] = $fila['candidatos'];
                 $porcentaje1[$clave] = $fila['porcentaje'];
             }

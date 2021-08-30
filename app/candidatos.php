@@ -25,6 +25,11 @@ class candidatos extends Model
 		return self::where('estado',1);
 	}
 
+    public function completeName()
+    {
+        return $this->nombre.' '.$this->apellido;
+	}
+
     /**
      * The attributes that are mass assignable.
      *

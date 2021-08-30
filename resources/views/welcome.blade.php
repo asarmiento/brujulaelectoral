@@ -98,14 +98,14 @@
                     @if($arrayResultado)
                       @foreach($arrayResultado as $key => $value)
                       <?php
-                    
+
 
                       $objCandidatoPregunta = App\candidatos::find($key);
                       ?>
                         @if(count([$objCandidatoPregunta]))
                           <!--barra 1 -->
                           <div class="row">
-                              <p class="box-name col-xs-12 col-sm-3 col-md-2">{{$key}}</p>
+                              <p class="box-name col-xs-12 col-sm-3 col-md-2">{{$objCandidatoPregunta->completeName()}}</p>
                               <div class="col-xs-12 col-sm-9 col-md-10">
                                   <div class="progress">
                                       <img class="box-pic foto126" src="{{ asset('imgJuego/'.$objCandidatoPregunta->foto) }}" >
