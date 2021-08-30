@@ -27,35 +27,40 @@ class HomeController extends Controller
         $arrayResultado = array();
         $objParticipantes = null;
         //Obtengo el objeto de los candidatos
-        $objCandidato = candidatos::activas()->orderBy('apellido')->get();
+        $objCandidato = candidatos::activas()->with('preguntas')->orderBy('apellido')->get();
 
         foreach ($objCandidato as $candidato) {
             $porcentaje = 0;
             //obtengo el objeto preguntas por candidato
-            $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();
-            foreach ($objCandidatoPregunta as $pregunta) {
-                //obtengo el objeto de los participantes que terminaron de cotestar todas las preguntas
-                $objP = DB::table('participantes_preguntas as pp')
-                    ->join('participantes', 'participantes.id', '=', 'pp.participantes_id')
-                    ->selectRaw('count(*) as count,pp.respuesta')
-                    ->where('pp.preguntas_id', '=', $pregunta->id)
-                    ->where('participantes.estado', '=', '1')
-                    ->where('pp.estado', '=', '1')
-                    //->where('pp.id', '=', 'select max(p1.id) from participantes_preguntas p1 where p1.participantes_id = pp.participantes_id')
-                    ->groupBy('pp.preguntas_id', 'pp.respuesta')
-                    ->get();
-                foreach ($objP as $p) {
-                    if ($p->respuesta == $pregunta->pivot->respuesta_corta) {
-                        $porcentaje = $porcentaje + $p->count;
-                    }
-                    if ($p->respuesta == $pregunta->pivot->opcion) {
-                        $porcentaje = $porcentaje + $p->count;
+
+            if (count($candidato->preguntas)) {
+                foreach ($candidato->preguntas AS $pregunta) {
+                    //obtengo el objeto de los participantes que terminaron de cotestar todas las preguntas
+                    $objP = DB::table('participantes_preguntas as pp')
+                        ->join('participantes', 'participantes.id', '=', 'pp.participantes_id')
+                        ->selectRaw('count(*) as count,pp.respuesta')
+                        ->where('pp.preguntas_id', $pregunta->id)
+                        ->where('participantes.estado', '=', '1')
+                        ->where('pp.estado', '=', '1')
+                        //->where('pp.id', '=', 'select max(p1.id) from participantes_preguntas p1 where p1.participantes_id = pp.participantes_id')
+                        ->groupBy('pp.preguntas_id', 'pp.respuesta')
+                        ->get();
+
+                    foreach ($objP as $key => $p) {
+
+                        if ($p->respuesta == $pregunta->pivot->respuesta_corta) {
+                            $porcentaje = $porcentaje + $p->count;
+                        }
+                        if ($p->respuesta == $pregunta->pivot->opcion) {
+                            $porcentaje = $porcentaje + $p->count;
+                        }
                     }
                 }
             }
+
             $objParticipantes = participantes::where('estado', '=', '1')->get();
-            if (count($objParticipantes)) {
-                $arrayResultado[$candidato->id] = $porcentaje * 100 / (count([$objCandidatoPregunta]) * count($objParticipantes));
+            if (count($objParticipantes) && $porcentaje > 0) {
+                $arrayResultado[$candidato->id] = $porcentaje / (count([$candidato]) * count([$objParticipantes]));
             } else {
                 $arrayResultado[$candidato->id] = 0;
             }
@@ -70,6 +75,7 @@ class HomeController extends Controller
             'arrayResultado' => $arrayResultado,
             'consulta' => array('Todas las preguntas', 'Todas las edades', 'Todos los géneros'),
         );
+
         return view('welcome', $data);
     }
 
@@ -104,10 +110,11 @@ class HomeController extends Controller
                 }
 
             }
-            if (count($objParticipantes)) {
-                $arrayResultado[$candidato->nombre . ' ' . $candidato->apellido] = $porcentaje * 100 / (count([$objCandidatoPregunta]) * count($objParticipantes));
+
+            if (count($objParticipantes) && $porcentaje > 0) {
+                $arrayResultado[$candidato->id] = $porcentaje / (count([$objCandidatoPregunta]) * count($objParticipantes));
             } else {
-                $arrayResultado[$candidato->nombre . ' ' . $candidato->apellido] = 0;
+                $arrayResultado[$candidato->id] = 0;
             }
         }
         /*
@@ -179,9 +186,9 @@ class HomeController extends Controller
                 }
 
                 if (count($participantesCriterio)) {
-                    $arrayResultado[$candidato->nombre . ' ' . $candidato->apellido] = $porcentaje * 100 / (count([$objCandidatoPregunta]) * count($participantesCriterio));
+                    $arrayResultado[$candidato->id] = $porcentaje * 100 / (count([$objCandidatoPregunta]) * count($participantesCriterio));
                 } else {
-                    $arrayResultado[$candidato->nombre . ' ' . $candidato->apellido] = 0;
+                    $arrayResultado[$candidato->id] = 0;
                 }
 
 
@@ -220,9 +227,9 @@ class HomeController extends Controller
                     }
                 }
                 if (count($participantesCriterio)) {
-                    $arrayResultado[$candidato->nombre . ' ' . $candidato->apellido] = $porcentaje * 100 / (count([$objCandidatoPregunta]) * count($participantesCriterio));
+                    $arrayResultado[$candidato->id] = $porcentaje * 100 / (count([$objCandidatoPregunta]) * count($participantesCriterio));
                 } else {
-                    $arrayResultado[$candidato->nombre . ' ' . $candidato->apellido] = 0;
+                    $arrayResultado[$candidato->id] = 0;
                 }
             }
             /* --- FIN FUNCTION ---- */
@@ -259,9 +266,9 @@ class HomeController extends Controller
                     }
                 }
                 if (count($participantesCriterio)) {
-                    $arrayResultado[$candidato->nombre . ' ' . $candidato->apellido] = $porcentaje * 100 / (count([$objCandidatoPregunta]) * count($participantesCriterio));
+                    $arrayResultado[$candidato->id] = $porcentaje * 100 / (count([$objCandidatoPregunta]) * count($participantesCriterio));
                 } else {
-                    $arrayResultado[$candidato->nombre . ' ' . $candidato->apellido] = 0;
+                    $arrayResultado[$candidato->id] = 0;
                 }
             }
             /* --- FIN FUNCTION ---- */
@@ -297,9 +304,9 @@ class HomeController extends Controller
                     }
                 }
                 if (count($participantesCriterio)) {
-                    $arrayResultado[$candidato->nombre . ' ' . $candidato->apellido] = $porcentaje * 100 / (count([$objCandidatoPregunta]) * count($participantesCriterio));
+                    $arrayResultado[$candidato->id] = $porcentaje * 100 / (count([$objCandidatoPregunta]) * count($participantesCriterio));
                 } else {
-                    $arrayResultado[$candidato->nombre . ' ' . $candidato->apellido] = 0;
+                    $arrayResultado[$candidato->id] = 0;
                 }
             }
             /* --- FIN FUNCTION ---- */
@@ -334,9 +341,9 @@ class HomeController extends Controller
                     }
                 }
                 if (count($participantesCriterio)) {
-                    $arrayResultado[$candidato->nombre . ' ' . $candidato->apellido] = $porcentaje * 100 / (count([$objCandidatoPregunta]) * count($participantesCriterio));
+                    $arrayResultado[$candidato->id] = $porcentaje * 100 / (count([$objCandidatoPregunta]) * count($participantesCriterio));
                 } else {
-                    $arrayResultado[$candidato->nombre . ' ' . $candidato->apellido] = 0;
+                    $arrayResultado[$candidato->id] = 0;
                 }
             }
             /* --- FIN FUNCTION ---- */
@@ -372,9 +379,9 @@ class HomeController extends Controller
                 }
                 $objParticipantes = participantes::where('estado', '=', '1')->get();
                 if (count($objParticipantes)) {
-                    $arrayResultado[$candidato->nombre . ' ' . $candidato->apellido] = $porcentaje * 100 / (count([$objCandidatoPregunta]) * count($objParticipantes));
+                    $arrayResultado[$candidato->id] = $porcentaje * 100 / (count([$objCandidatoPregunta]) * count($objParticipantes));
                 } else {
-                    $arrayResultado[$candidato->nombre . ' ' . $candidato->apellido] = 0;
+                    $arrayResultado[$candidato->id] = 0;
                 }
 
             }
@@ -410,9 +417,9 @@ class HomeController extends Controller
                     }
                 }
                 if (count($participantesCriterio)) {
-                    $arrayResultado[$candidato->nombre . ' ' . $candidato->apellido] = $porcentaje * 100 / (count([$objCandidatoPregunta]) * count($participantesCriterio));
+                    $arrayResultado[$candidato->id] = $porcentaje * 100 / (count([$objCandidatoPregunta]) * count($participantesCriterio));
                 } else {
-                    $arrayResultado[$candidato->nombre . ' ' . $candidato->apellido] = 0;
+                    $arrayResultado[$candidato->id] = 0;
                 }
             }
             /* --- FIN FUNCTION ---- */
@@ -446,9 +453,9 @@ class HomeController extends Controller
                 }
                 $objParticipantes = participantes::where('estado', '=', '1')->get();
                 if (count($objParticipantes)) {
-                    $arrayResultado[$candidato->nombre . ' ' . $candidato->apellido] = $porcentaje * 100 / (count([$objCandidatoPregunta]) * count($objParticipantes));
+                    $arrayResultado[$candidato->id] = $porcentaje * 100 / (count([$objCandidatoPregunta]) * count($objParticipantes));
                 } else {
-                    $arrayResultado[$candidato->nombre . ' ' . $candidato->apellido] = 0;
+                    $arrayResultado[$candidato->id] = 0;
                 }
 
             }
@@ -558,17 +565,17 @@ class HomeController extends Controller
                 }
             } else {
 
-                    $objCandidato = candidatos::activas()->orderBy('apellido')->get();
-                    $objPreguntaAct = preguntas::activas()->first();
-                    $objPreguntas = preguntas::activas()->get();
-                    //'objPreguntasUsuario' => participantes::find(session('participante'))->preguntas()->get(),
-                    $titulo = 'Juego Brújula Electoral';
+                $objCandidato = candidatos::activas()->orderBy('apellido')->get();
+                $objPreguntaAct = preguntas::activas()->first();
+                $objPreguntas = preguntas::activas()->get();
+                //'objPreguntasUsuario' => participantes::find(session('participante'))->preguntas()->get(),
+                $titulo = 'Juego Brújula Electoral';
 
 
             }
 
 
-            return view('frontend.juego', compact('objCandidato','objPreguntaAct','objPreguntas','titulo'));
+            return view('frontend.juego', compact('objCandidato', 'objPreguntaAct', 'objPreguntas', 'titulo'));
 
         } else {
             return redirect('juego-login');
@@ -592,7 +599,7 @@ class HomeController extends Controller
 
                 if ($objParticipacion->respuesta == 'A favor' || substr($objParticipacion->respuesta, 0, 3) == 'A favor') {
                     $objRespuestas = preguntas::find($objParticipacion->preguntas_id)->candidatos()->orderBy('respuesta_corta', 'DESC')->get();
-                }else if ($objParticipacion->respuesta == 'Neutro' || substr($objParticipacion->respuesta, 0, 3) == 'Neutro') {
+                } else if ($objParticipacion->respuesta == 'Neutro' || substr($objParticipacion->respuesta, 0, 3) == 'Neutro') {
                     $objRespuestas = preguntas::find($objParticipacion->preguntas_id)->candidatos()->orderBy('respuesta_corta', 'DESC')->get();
                 } else {
                     $objRespuestas = preguntas::find($objParticipacion->preguntas_id)->candidatos()->orderBy('respuesta_corta')->get();
@@ -625,28 +632,28 @@ class HomeController extends Controller
         if (session('participante')) {
 
 
-            $objCandidato = candidatos::activas()->orderBy('apellido')->get();
+            $objCandidato = candidatos::activas()->with('preguntas')->orderBy('apellido')->get();
             $arrayResultado = array();
             foreach ($objCandidato as $candidato) {
                 $objCandidatoPregunta = candidatos::find($candidato->id)->preguntas()->get();
 
 
                 $porcentaje = 0;
-                foreach ($objCandidatoPregunta as $pregunta) {
+                if (count($candidato->preguntas)) {
+                    foreach ($candidato->preguntas as $pregunta) {
 
-                    $objPreguntaParticipante = preguntas::find($pregunta->id)->participantes()->where('participantes_preguntas.participantes_id', '=', session('participante'))->orderBy('pivot_id', 'desc')->first();
+                        $objPreguntaParticipante = preguntas::find($pregunta->id)->participantes()->where('participantes_preguntas.participantes_id', '=', session('participante'))->orderBy('pivot_id', 'desc')->first();
 
-                    if ($objPreguntaParticipante->pivot->respuesta == $pregunta->pivot->respuesta_corta) {
-                        $porcentaje = $porcentaje + 1;
+                        if ($objPreguntaParticipante->pivot->respuesta == $pregunta->pivot->respuesta_corta) {
+                            $porcentaje = $porcentaje + 1;
+                        }
+                        if ($objPreguntaParticipante->pivot->respuesta == $pregunta->pivot->opcion) {
+                            $porcentaje = $porcentaje + 1;
+                        }
+
                     }
-                    if ($objPreguntaParticipante->pivot->respuesta == $pregunta->pivot->opcion) {
-                        $porcentaje = $porcentaje + 1;
-                    }
-
                 }
-
-                $arrayResultado[$candidato->nombre . ' ' . $candidato->apellido] = $porcentaje * 100 / count([$objCandidatoPregunta]);
-
+                $arrayResultado[$candidato->id] = $porcentaje / count([$objCandidatoPregunta]);
             }
 
             $objParticipantes = participantes::find(session('participante'))->preguntas()->get();

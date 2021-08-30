@@ -87,7 +87,7 @@ class BackendHomeController extends Controller
                     $arrayResultado[] = array(
                         'candidatosId' => $candidato->id,
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
-                        'porcentaje' => $porcentaje*100/(count([$objCandidatoPregunta])*count($objParticipantes)),
+                        'porcentaje' => $porcentaje/(count([$objCandidatoPregunta])*count($objParticipantes)),
                     );
                 }else{
                     $arrayResultado[] = array(
@@ -157,7 +157,7 @@ class BackendHomeController extends Controller
                     $arrayResultado[] = array(
                         'candidatosId' => $candidato->id,
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
-                        'porcentaje' => $porcentaje*100/(count([$objCandidatoPregunta])*count($objParticipantes)),
+                        'porcentaje' => $porcentaje/(count([$objCandidatoPregunta])*count($objParticipantes)),
                     );
                 }else{
                     $arrayResultado[] = array(
@@ -223,7 +223,7 @@ class BackendHomeController extends Controller
                     $arrayResultado[] = array(
                         'candidatosId' => $candidato->id,
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
-                        'porcentaje' => $porcentaje*100/(count([$objCandidatoPregunta])*count($objParticipantes)),
+                        'porcentaje' => $porcentaje/(count([$objCandidatoPregunta])*count($objParticipantes)),
                     );
                 }else{
                     $arrayResultado[] = array(
@@ -288,7 +288,7 @@ class BackendHomeController extends Controller
                     $arrayResultado[] = array(
                         'candidatosId' => $candidato->id,
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
-                        'porcentaje' => $porcentaje*100/(count([$objCandidatoPregunta])*count($objParticipantes)),
+                        'porcentaje' => $porcentaje/(count([$objCandidatoPregunta])*count($objParticipantes)),
                     );
                 }else{
                     $arrayResultado[] = array(
@@ -354,7 +354,7 @@ class BackendHomeController extends Controller
                     $arrayResultado[] = array(
                         'candidatosId' => $candidato->id,
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
-                        'porcentaje' => $porcentaje*100/(count([$objCandidatoPregunta])*count($objParticipantes)),
+                        'porcentaje' => $porcentaje/(count([$objCandidatoPregunta])*count($objParticipantes)),
                     );
                 }else{
                     $arrayResultado[] = array(
@@ -420,7 +420,7 @@ class BackendHomeController extends Controller
                     $arrayResultado[] = array(
                         'candidatosId' => $candidato->id,
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
-                        'porcentaje' => $porcentaje*100/(count([$objCandidatoPregunta])*count($objParticipantes)),
+                        'porcentaje' => $porcentaje/(count([$objCandidatoPregunta])*count($objParticipantes)),
                     );
                 }else{
                     $arrayResultado[] = array(
@@ -486,7 +486,7 @@ class BackendHomeController extends Controller
                     $arrayResultado[] = array(
                         'candidatosId' => $candidato->id,
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
-                        'porcentaje' => $porcentaje*100/(count([$objCandidatoPregunta])*count($objParticipantes)),
+                        'porcentaje' => $porcentaje/(count([$objCandidatoPregunta])*count($objParticipantes)),
                     );
                 }else{
                     $arrayResultado[] = array(
@@ -572,7 +572,7 @@ class BackendHomeController extends Controller
                     $arrayResultado[] = array(
                         'candidatosId' => $candidato->id,
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
-                        'porcentaje' => $porcentaje*100/(count([$objCandidatoPregunta])*count($objParticipantes)),
+                        'porcentaje' => $porcentaje/(count([$objCandidatoPregunta])*count($objParticipantes)),
                     );
                 }else{
                     $arrayResultado[] = array(
