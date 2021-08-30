@@ -26,8 +26,10 @@
 					<?php
 					$i=1;
 					foreach ($arrayResultado as $key => $value) {
-		            	$nomCandidato = explode(' ', $key);
-		            	$objCandidatoPregunta = App\candidatos::where('nombre','like','%'.$nomCandidato[0].'%')->where('apellido','like', '%'.$nomCandidato[1].'%')->first();
+
+
+		            	$objCandidatoPregunta = App\candidatos::find($key);
+
 		            	if($i==1){
 					?>
 						<ul class="closer-match">
@@ -59,10 +61,10 @@
 
 		            foreach ($arrayResultado as $key => $value) {
 		            	$nomCandidato = explode(' ', $key);
-		            	$objCandidatoPregunta = App\candidatos::where('nombre','like','%'.$nomCandidato[0].'%')->where('apellido','like', '%'.$nomCandidato[1].'%')->first();
+		            	$objCandidatoPregunta = App\candidatos::find($key);
                 ?>
 		                <div>
-						<p class="box-name col-xs-12 col-sm-3 col-md-2">{{$key}}</p>
+						<p class="box-name col-xs-12 col-sm-3 col-md-2">{{$objCandidatoPregunta->completeName()}}</p>
 						<div class="col-xs-12 col-sm-9 col-md-10">
 							<div class="progress">
 								<img class="box-pic foto126" src="{{ asset('imgJuego/'.$objCandidatoPregunta->foto) }}">
