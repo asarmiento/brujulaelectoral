@@ -5,18 +5,10 @@
 					<div class="row">
 						<div class="col-xs-12 col-sm-6 col-md-6">
 							
-								<img class="img-responsive pull-right img-fcd"  src="{{ asset('images/logo-media.png') }}" />
-								<img class="img-responsive pull-right img-fcd"  src="{{ asset('images/img-fcd.jpg') }}" />
-								<img class="img-responsive pull-right img-mpv"  src="{{ asset('images/img-multimedia-planv.jpg') }}" />
+								<img class="img-responsive pull-right img-fcd"  src="{{ asset('https://proceso.hn/wp-content/uploads/2020/11/Logo-Footer-PD.png') }}" />
 							
 						</div>
-						<div class="col-xs-12 col-sm-6 col-md-6 left-line">
-							<div class="ico-social-media">
-								<div class="addthis_inline_share_toolbox"></div>
-							</div>
-							<img class="img-responsive pull-left img-cc"  src="{{ asset('images/img-cc.jpg') }}" />
-							<div class="download" style="display: none;"><a href="#">Código abierto descárgalo aquí</a></div>
-						</div>
+						
 					</div>
 				</div>
 			</div>

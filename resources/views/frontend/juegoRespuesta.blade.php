@@ -15,13 +15,21 @@
 		<div class="container">
 			<div class="row">
 			<!-- titulo -->
-				<div class="col-xs-12 col-sm-12 col-md-offset-3 col-md-6">
-					<h2><span>¿Quién es tu </span>Candidato afín?</h2>
-					<h4></h4>
-				</div>
+
 				<div class="col-xs-12 col-sm-12 col-md-12">
 
 				</div>
+				
+				
+				<div class="col-xs-2 col-sm-2 col-md-3">
+                    <p class="txt-question">Pregunta</p>
+                    <div class="number">
+                      @if(isset($objPreguntaAct))
+                        {{ $objPreguntaAct->id  }}.
+                        @endif
+                    </div>
+                </div>
+
 				<!-- juego -->
 				<div class="col-xs-12 col-sm-12 col-md-12 box-answer">
 					<h3 class="headline-3">
@@ -31,19 +39,30 @@
 					</h3>
 
 					<div>
-						<a href="{{ route('viewJuego') }}" class="btn btn-main btn-result">Siguiente</a>
+						<a href="{{ route('viewJuego') }}" class="btn btn-main btn-result">Siguiente Pregunta</a>
 					</div>
-					<div class="box-middle">
-						<h4>Candidatos afines:</h4>
-						<?php $nan = 0; ?>
+				</div>
+				
+				
+				
+				
+				
+				
+				
+		<div id="answer-content-iqual" class="col-xs-12 col-sm-12 col-md-12">
+				<h3 class="info-question">
+					Presidenciables con la misma respuesta:
+				</h3>
+			<ul id="candidate-answer">
+				<?php $nan = 0; ?>
 						@if(count([$objRespuestas]))
 							<ul class="closer-match">
 							@foreach($objRespuestas as $respuesta)
 								<!-- Valido si existe respuesta  -->
 									@if($respuesta->pivot->respuesta_corta == $objMiRespuesta->pivot->respuesta)
 										<li class="match-candidate">
-											<img src="{{ asset('imgJuego/'.$respuesta->foto) }}" class="foto70">
-											<h4 style="color: black; background-color: white">{{ $respuesta->nombre }} {{ $respuesta->apellido }}</h4>
+											<img src="{{ asset('imgJuego/'.$respuesta->foto) }}" class="foto120">
+											<h4 style="color: black">{{ $respuesta->nombre }} {{ $respuesta->apellido }}</h4>
 										</li>
 										<?php $nan++; ?>
 									@elseif($respuesta->pivot->opcion == $objMiRespuesta->pivot->respuesta)
@@ -60,25 +79,29 @@
 
 							<h4 ><strong>Ninguna afinidad con candidatos</strong></h4>
 						@endif
-
-					</div>
-
-				</div>
+			</ul>		
+		</div>		
+				
+				
+				
+				
+				
+				
+				
 				<div id="answer-content" class="col-xs-12 col-sm-12 col-md-12">
 					<h3 class="info-question">
-						Respuesta de los candidatos
+						Respuesta de todos los candidatos
 					</h3>
-
 					<ul id="candidate-answer">
 					@if(isset($objRespuestas))
 						@foreach($objRespuestas as $respuesta)
 							 <?php
 							 	if($respuesta->pivot->respuesta_corta == 'A favor'){
 							 		$estiloBtn = "yes";
-							 	}elseif($respuesta->pivot->respuesta_corta == 'En Contra'){
+							 	}elseif($respuesta->pivot->respuesta_corta == 'En contra'){
 							 		$estiloBtn = "no";
 							 	}elseif($respuesta->pivot->respuesta_corta == 'Neutro'){
-							 		$estiloBtn = "neutro";
+							 		$estiloBtn = "white";
 							 	}else{
 							 		$estiloBtn = "white";
 							 	}
@@ -97,7 +120,6 @@
 									</div>
 								</li>
 							@endif
-
 						@endforeach
 						<?php echo $blanco; ?>
 					@endif
@@ -106,6 +128,12 @@
 						<p class="share">COMPARTIR: <span class="addthis_inline_share_toolbox"></span></p>
 					</div>
 				</div>
+				
+				
+				
+				
+				
+				
 			</div>
 		</div>
 	</section>
@@ -116,7 +144,8 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12">
-					<h2><span>Frente </span><span class="headline">a</span> Frente</h2>
+				    <h4>También tenemos</h4>
+					<h2><span>Cara </span><span class="headline">a</span> Cara</h2>
 					<h4>Compara las Propuestas Presidenciales</h4>
 
 

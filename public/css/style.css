@@ -24,10 +24,10 @@ header h1 a, header h2 a {
   width: 80%;
 }
 #interna header {
-  height: 113px;
+  height: 160px;
 }
 #box-game {
-  background-color: #74c2ab;
+  background-color: #e5e6e7;
   margin: 20px;
   padding: 20px 0;
 }
@@ -39,18 +39,18 @@ header h1 a, header h2 a {
   margin: 20px;
 }
 .brand-logo {
-  background: rgba(0, 0, 0, 0) url("../images/Logo-Brujula-PD.png") no-repeat scroll 0 0;
-  height: 288px;
+  background: rgba(0, 0, 0, 0) url("../images/Logo-Brujula-PD-2.png") no-repeat scroll 0 0;
+  height: 150px;
   position: absolute;
-  top: 20px;
-  width: 532px;
+  /*top: 20px;*/
+  width: 357px;
 }
 #interna .brand-logo {
-  background: rgba(0, 0, 0, 0) url("../images/Logo-Brujula-PD.png") no-repeat scroll 0 0 / 404px auto;
-  height: 130px;
+  /*background: rgba(0, 0, 0, 0) url("../images/Logo-Brujula-PD-2.png") no-repeat scroll 0 0 / 404px auto;*/
+  height: 150px;
   position: absolute;
-  top: 20px;
-  width: 532px;
+  /*top: 20px;*/
+  width: 357px;
 }
 #interna #main-menu {
   top: 28px;
@@ -136,6 +136,7 @@ li span {
   font-weight: 300;
   letter-spacing: -1px;
   line-height: 100%;
+  color:#faf602;
 }
 li p {
   color: #222832;
@@ -227,7 +228,7 @@ select::-ms-expand {
     display: none;
 }
 #form-3 .form-control {
-  background-color: #65AB99;
+  background-color: #273538;
   color: #fff;
   width: 100%;
 }
@@ -260,7 +261,7 @@ input[placeholder] {
   background-color: #ccc;
 }
 .form-inline .form-control {
-  background-color: #a1abac !important;
+  background-color: #273538 !important;
 }
 #category-label span {
   text-transform: uppercase;
@@ -276,15 +277,15 @@ input[placeholder] {
 }
 .progress {
   background-color: #f5f5f5;
-  border-radius: 0 100px 100px 0;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) inset;
+  border-radius: 0 15px 15px 0;
+  box-shadow: 0 0px 12px rgba(0, 0, 0, 0.2) inset;
   height: 125px;
   margin-bottom: 20px;
   margin-left: 47px;
   overflow: hidden;
 }
 .progress-bar {
-  background-color: #5c6bc0 !important;
+  background-color: #337ab7 !important;
   color: #222832 !important;
   font-size: 40px !important;
   height: 100%;
@@ -366,8 +367,14 @@ ul.ico-social-media {
 .ico-social-media li {
   display: inline-block;
 }
+
+footer {
+    background:#337ab7;
+    padding: 30px;
+}
+
 footer p {
-  float: right;
+  /*float: right;*/
   font-size: 12px;
   margin: 10px 20px 0 0;
 }
@@ -412,7 +419,7 @@ p.txt-question {
 }
 p.info-question, .info-question {
   font-size: 22px;
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
   font-weight: 300;
 }
 h3.info-question {
@@ -460,6 +467,7 @@ p.info-question span{
   margin: 0 0 0 60px;
   min-height: 350px;
 }
+
 .btn-yes {
   background: #188957 none repeat scroll 0 0;
   border-radius: 50px;
@@ -477,6 +485,7 @@ p.info-question span{
   -moz-transform: scale(1.1);
   -o-transform: scale(1.1);
   -ms-transform: scale(1.1)}
+  
 .btn-no {
   background: #f63434 none repeat scroll 0 0;
   border-radius: 50px;
@@ -488,6 +497,7 @@ p.info-question span{
   text-transform: uppercase;
   width: 20%;
 }
+
 .btn-no:hover{
   background: #a52222;
   color: #fff;
@@ -495,6 +505,7 @@ p.info-question span{
   -moz-transform: scale(1.1);
   -o-transform: scale(1.1);
   -ms-transform: scale(1.1)}
+  
 .btn-white {
   background: #fff none repeat scroll 0 0;
   border-radius: 50px;
@@ -511,24 +522,23 @@ p.info-question span{
 .box-answer .headline-3 {
   font-size: 30px;
   line-height: 32px;
-  text-align: left;
   font-weight: 400;
   min-height: auto;
   text-align: center;
 }
 .box-answer h4 {
-  display: inline;
+  /*display: inline;
   float: left;
-  margin-right: 20px;
-  text-align: left;
+  margin-right: 20px;*/
+  text-align: center;
 }
 .match-candidate {
-  background-color: #009933;
+  /*background-color: #009933;
   -webkit-filter: hue-rotate(90deg);
   filter: hue-rotate(90deg);
   border-radius: 60px;
   opacity: 0.4;
-  width: 70px;
+  width: 70px;*/
 }
 .middle-match .match-candidate  {
   background-color: #009933;
@@ -536,7 +546,7 @@ p.info-question span{
   filter: hue-rotate(99deg);
   border-radius: 60px;
   opacity: 0.4;
-  width: 55px;
+  /*width: 55px;*/
 }
 .closer-match, .middle-match {
   float: left;
@@ -544,7 +554,7 @@ p.info-question span{
   padding: 0;
 }
 .closer-match li, .middle-match li {
-  display: inline-block;
+  display: block;
 }
 .closer-match li img,  .middle-match li img {
   max-width: 100%;
@@ -569,11 +579,12 @@ ul#candidate-answer li {
 }
  #candidate-answer img {
   margin: 0 10px 0 0;
-  display: inline-block;
 }
+
 #candidate-answer h4 {
   font-weight: 700;
   text-align: left;
+  float:left;
 }
 #candidate-answer .text {
   display: inline-block;
@@ -586,6 +597,11 @@ ul#candidate-answer li {
 #candidate-answer p:before {
   content: "R:";
   font-weight: 700;
+}
+#answer-content-iqual {
+  margin-bottom: 20px;
+  background: repeating-linear-gradient(90deg, #cbcbcb, transparent 100%);
+  border:1px dotted #a19e9e;
 }
 #answer-content {
   margin-bottom: 20px;
@@ -648,8 +664,8 @@ h4.box-2-face {
   top: 55px;
 }
 .quiz-game {
-  background: rgba(0, 0, 0, 0) url("../images/stripe-images.png") no-repeat scroll 0 -346px;
-  height: 354px;
+  background: rgba(0, 0, 0, 0) url("../images/LogoPDBrujulaPolitica3.png");
+  height: 254px;
   position: absolute;
   right: -582px;
   top: 0;
@@ -661,8 +677,20 @@ h4.box-2-face {
   border-radius: 63px;
   -moz-border-radius: 63px;
   -webkit-border-radius: 63px;
-  border: 0px solid #000000;
+  border: 4px solid #fff;
 }
+
+.foto120{
+  width: 126px;
+  height: 126px;
+  border-radius: 63px;
+  -moz-border-radius: 63px;
+  -webkit-border-radius: 63px;
+  border: 4px solid #fff;
+  float:left;
+}
+
+
 .foto70{
   width: 70px;
   height: 70px;
@@ -684,7 +712,7 @@ h4.box-2-face {
   color: #ffffff !important;
 }
 header li p {
-  color: #222832;
+  color: #fff;
   font-size: 12px;
   font-weight: 300;
   left: -20px;
@@ -937,8 +965,8 @@ h5 {
     top: 22px;
   }
   .brand-logo {
-    background-size: 367% auto;
-    height: 226px;
+    background-size: 100% auto;
+    height: 126px;
     top: 2px;
     width: 228px;
   }
@@ -1084,7 +1112,7 @@ h5 {
 }
 @media (max-width: 768px) {
     h2 {
-    font-size: 54px;
+    font-size: 24px;
   }
   #interna #main-menu, #main-menu {
     left: 0;
@@ -1382,7 +1410,7 @@ h5 {
     left: 0;
     right: 0;}
   .number {
-    display: none;
+    /*display: none;*/
   }
   p.txt-question {
     display: none;
@@ -1399,7 +1427,7 @@ h5 {
     display: block;
   }
   .brand-logo {
-    background-size: 367% auto;
+    background-size: 100% auto;
     width: 188px;
   }
   h1 {
@@ -1516,7 +1544,7 @@ h5 {
       left: 10px;
     }
   .box-answer {
-    left: -3px;
+    /*left: -3px;*/
   }
   .box-middle {
     margin: 10px 2% 0;

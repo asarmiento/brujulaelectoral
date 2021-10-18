@@ -7,15 +7,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs=12 col-sm-12 col-md-6">
-                    <h2><span>¿Quién es tu </span>candidato afínnnnnn?</h2>
+                    <h2><span>¿Quién es tu </span>candidato afín?</h2>
                     <h4></h4>
                     <div class="col-xs-12 col-sm-12 col-md-12">
-                      Después de grupos focales con jóvenes de entre 20 y 30 años, la revista digital Plan V, con el apoyo de la Fundación Ciudadanía y Desarrollo, desarrolló este portal para que los electores, sobre todo los jóvenes, encuentren al candidato presidencial que más se acerque a sus aspiraciones y creencias. Su contenido fue actualizado el 27 de enero de 2017 con las respuestas del candidato oficialista Lenín Moreno, el único aspirante que estaba pendiente. No olvides hacer clic en <i>Opciones</i> para afinar más tu voto.
+                      A un poco más de dos meses para que los hondureños acudamos a las urnas para renovar la máxima autoridad política del país, <strong>Proceso Digital</strong> presenta esta herramienta digital de Brújula Política para que los electores, especialmente los jóvenes, puedan identificar al candidato presidencial que más se acerque a sus pensamientos. El mismo será actualizado a medida que los candidatos pendientes brinden las respuestas a las preguntas formuladas. No olvides hacer clic en Opciones para afinar más tu voto.
                       <br/>¿Coincides con ellos?
                     </div>
-                    <a href="{{URL::to('juego-login')}}" class="btn btn-main">Juega y Averígualo</a>
+                    <a href="{{URL::to('juego-login')}}" class="btn btn-main">Averígualo</a>
                     <div class="quiz-game"></div>
-                    <p style="text-align: center;"><i class="fa fa-hand-o-right" aria-hidden="true"></i><i><a href="{{URL::to('nosotros')}}"> El recorrido periodístico y el desarrollo tecnológico de la Brújula Electoral</a></i></p>
+
                 </div>
             </div>
         </div>
@@ -145,7 +145,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs=12 col-sm-12 col-md-12">
-                    <h2><span>Frente </span><span class="headline">a</span> Frente</h2>
+                    <h4>También tenemos</h4>
+                    <h2><span>Cara </span><span class="headline">a</span> Cara</h2>
                     <h4>Compara las Propuestas Presidenciales</h4>
 
 

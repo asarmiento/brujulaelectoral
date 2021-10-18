@@ -36,42 +36,38 @@
                         <p class="txt-context-2">{{ $objPreguntaAct->descripcion }}</p>
                     @endif
 
-                    <p class="info-question"><span>{{ $objPreguntaAct->id  }}</span> /{{ count($objPreguntas) }}
+                    <p class="info-question"><span>{{ $objPreguntaAct->id  }}</span> de {{ count($objPreguntas) }}
                         preguntas</p>
                     <p></p>
                 </div>
+                
                 <div class="col-xs-12 col-sm-4 col-md-4 ">
                     <form id="form-voto" class="form-horizontal col-xs-12 col-sm-12  col-md-12" method="POST"
                           action="{{ route('storeJuego') }}">
                         {{ csrf_field() }}
-                        <button   id="btn-yes">A favor</button>
-
+                        <button class="btn btn-success" id="btn-yes">A favor</button>
                         <input type="hidden" name="respuesta" id="respuesta" value="A favor">
-
                         <input type="hidden" name="pregunta" id="pregunta" value="{{ $objPreguntaAct->id }}">
                     </form>
+                    
                     <form id="form-votos" class="form-horizontal col-xs-12 col-sm-12  col-md-12" method="POST"
                           action="{{ route('storeJuego') }}">
                         {{ csrf_field() }}
-
-                        <button   id="btn-no">En contra</button>
-
+                        <button class="btn btn-danger" id="btn-no">En contra</button>
                         <input type="hidden" name="respuesta" id="respuesta" value="En contra">
-
                         <input type="hidden" name="pregunta" id="pregunta" value="{{ $objPreguntaAct->id }}">
                     </form>
+                    
                     <form id="form-votos" class="form-horizontal col-xs-12 col-sm-12  col-md-12" method="POST"
                           action="{{ route('storeJuego') }}">
                         {{ csrf_field() }}
-
-                        <button  id="btn-neutro">Neutro</button>
-
+                        <button class="btn btn-light" id="btn-neutro">Neutro</button>
                         <input type="hidden" name="respuesta" id="respuesta" value="Neutro">
-
                         <input type="hidden" name="pregunta" id="pregunta" value="{{ $objPreguntaAct->id }}">
                     </form>
 
                 </div>
+                
             </div>
         </div>
     </section>
@@ -82,7 +78,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12">
-                    <h2><span>Frente </span><span class="headline">a</span> Frente</h2>
+                    <h4>También tenemos</h4>
+                    <h2><span>Cara </span><span class="headline">a</span> Cara</h2>
                     <h4>Compara las Propuestas Presidenciales</h4>
 
                     <!-- formulario -->

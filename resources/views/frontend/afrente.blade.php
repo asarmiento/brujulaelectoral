@@ -8,7 +8,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12">
-                    <h2><span>Frente </span><span class="headline">a</span> Frente</h2>
+                    <h2><span>Cara </span><span class="headline">a</span> Cara</h2>
                     <h4>Compara las Propuestas Presidenciales</h4>
 
 
@@ -247,9 +247,7 @@
                 @endif--}}
 
 
-                <div class="col-xs-12 col-sm-12 col-md-3 col-md-offset-4">
-                    <a href="#" class="btn btn-main btnMostrarTodos">Mostrar todas</a>
-                </div>
+                
 
 
             </div>
@@ -260,6 +258,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs=12 col-sm-12 col-md-6">
+                    <h4>También tenemos</h4>
                     <h2><span>¿Quién es tu </span>Candidato afín?</h2>
                     <h4></h4>
                     <div class="col-xs-12 col-sm-12 col-md-12">
@@ -271,7 +270,7 @@
                         hacer clic en <i>Opciones</i> para afinar más tu voto.
                         <br/>¿Coincides con ellos?
                     </div>
-                    <a href="{{URL::to('juego-login')}}" class="btn btn-main">Juega y Averígualo</a>
+                    <a href="{{URL::to('juego-login')}}" class="btn btn-main">Averígualo</a>
                     <div class="quiz-game"></div>
                 </div>
             </div>

@@ -5,7 +5,7 @@
     <div class="container">
       <div class="row">
         <div class="col-xs=12 col-sm-12 col-md-6">
-          <h2 class="text-danger"><span>¿Quién es tu </span>Candidato afín?</h2>
+          <h2 class=""><span>¿Quién es tu </span>Candidato afín?</h2>
           <h4></h4>
           <div class="col-xs=12 col-sm-12 col-md-12">
 
@@ -42,7 +42,7 @@
             <div class="form-group select">
               <select class="form-control" id="edad" name="edad">
               <option value="">TU EDAD</option>
-              <option value="16 - 25">16 - 25</option>
+              <option value="16 - 25">18 - 25</option>
               <option value="25 - 35">25 - 35</option>
               <option value="35 - 45">35 - 45</option>
               <option value="45 en adelante">45 en adelante</option>
@@ -51,7 +51,7 @@
                   <p class="alert alert-danger">{{ $errors->first('edad')}}</p>
               @endif
             </div>
-            <button type="submit" class="btn btn-main">Empezar el juego</button>
+            <button type="submit" class="btn btn-main">Empezar la brújula</button>
           </form>
           <!-- end formulario login -->
 
@@ -69,7 +69,8 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
-          <h2><span>Frente </span><span class="headline">a</span> Frente</h2>
+            <h4>También tenemos</h4>
+          <h2><span>Cara </span><span class="headline">a</span> Cara</h2>
           <h4>Compara las Propuestas Presidenciales</h4>
 
 
