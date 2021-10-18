@@ -77,7 +77,9 @@
                         </div>
                     @if($arrayResultado)
                         @foreach($arrayResultado as $key => $value)
+                        @if($value > 0)
                             <?php
+                            
                             $nomCandidato = explode(' ', $key);
                             $objCandidatoPregunta = App\candidatos::where('nombre','like','%'.$nomCandidato[0].'%')->where('apellido','like', '%'.$nomCandidato[1].'%')->first();
                             ?>
@@ -95,7 +97,8 @@
                                         </div>
                                     </div>
                             @endif
-                        @endforeach
+                         @endif
+                       @endforeach
                     @endif
 
                     <!-- descarga -->
