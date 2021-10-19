@@ -19,8 +19,8 @@
 				<div class="col-xs-12 col-sm-12 col-md-12">
 
 				</div>
-				
-				
+
+
 				<div class="col-xs-2 col-sm-2 col-md-3">
                     <p class="txt-question">Pregunta</p>
                     <div class="number">
@@ -42,13 +42,13 @@
 						<a href="{{ route('viewJuego') }}" class="btn btn-main btn-result">Siguiente Pregunta</a>
 					</div>
 				</div>
-				
-				
-				
-				
-				
-				
-				
+
+
+
+
+
+
+
 		<div id="answer-content-iqual" class="col-xs-12 col-sm-12 col-md-12">
 				<h3 class="info-question">
 					Presidenciables con la misma respuesta:
@@ -79,15 +79,15 @@
 
 							<h4 ><strong>Ninguna afinidad con candidatos</strong></h4>
 						@endif
-			</ul>		
-		</div>		
-				
-				
-				
-				
-				
-				
-				
+			</ul>
+		</div>
+
+
+
+
+
+
+
 				<div id="answer-content" class="col-xs-12 col-sm-12 col-md-12">
 					<h3 class="info-question">
 						Respuesta de todos los candidatos
@@ -128,12 +128,12 @@
 						<p class="share">COMPARTIR: <span class="addthis_inline_share_toolbox"></span></p>
 					</div>
 				</div>
-				
-				
-				
-				
-				
-				
+
+
+
+
+
+
 			</div>
 		</div>
 	</section>
