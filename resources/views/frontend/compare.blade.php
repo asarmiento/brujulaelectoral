@@ -17,13 +17,13 @@
                         <div class="form-group select">
                             <select class="form-control box-question" name="rPregunta">
                                 <option value="">PREGUNTAS</option>
-                                <?php
-                                foreach ($objPreguntas as $pregunta ) {
-                                ?>
+                              <?php
+                              foreach ($objPreguntas as $pregunta ) {
+                              ?>
                                 <option value="{{ $pregunta->id }}">{{ $pregunta->pregunta }}</option>
-                                <?php
-                                }
-                                ?>
+                              <?php
+                              }
+                              ?>
                                 <option value="">Todas</option>
                             </select>
                         </div>
@@ -77,42 +77,45 @@
                         </div>
                     @if($arrayResultado)
                         @foreach($arrayResultado as $key => $value)
-                        @if($value > 0)
-                            <?php
-                            
-                            $nomCandidato = explode(' ', $key);
-                            $objCandidatoPregunta = App\candidatos::where('nombre','like','%'.$nomCandidato[0].'%')->where('apellido','like', '%'.$nomCandidato[1].'%')->first();
-                            ?>
-                            @if(count([$objCandidatoPregunta]))
-                                <!--barra 1 -->
-                                    <div class="row">
-                                        <p class="box-name col-xs-12 col-sm-3 col-md-2">{{$key}}</p>
-                                        <div class="col-xs-12 col-sm-9 col-md-10">
-                                            <div class="progress">
-                                                <img class="box-pic foto126" src="{{ asset('imgJuego/'.$objCandidatoPregunta->foto) }}" >
-                                                <div class="progress-bar" role="progressbar" aria-valuenow="{{$value}}" aria-valuemin="0" aria-valuemax="100" style="width: {{$value}}%;">
-                                                    {{number_format($value)}}%
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                            @endif
-                         @endif
-                       @endforeach
+                            <?php $objCandidatoPregunta = App\candidatos::find($key);
+                              ?>
+                              @if(count([$objCandidatoPregunta]))
+                                  <!--barra 1 -->
+                                      <div class="row">
+                                          <p class="box-name col-xs-12 col-sm-3 col-md-2">{{$objCandidatoPregunta->completeName()}}</p>
+                                          <div class="col-xs-12 col-sm-9 col-md-10">
+                                              <div class="progress">
+                                                  <img class="box-pic foto126"
+                                                       src="{{ asset('imgJuego/'.$objCandidatoPregunta->foto) }}">
+                                                  <div class="progress-bar" role="progressbar"
+                                                       aria-valuenow="{{$value}}" aria-valuemin="0" aria-valuemax="100"
+                                                       style="width: {{$value}}%;">
+                                                      {{number_format($value)}}%
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                              @endif
+                        @endforeach
                     @endif
 
                     <!-- descarga -->
                         <form method="POST" action="{{ url('/excel') }}">
                             <label>DESCARGAR:</label>
                             {{ csrf_field() }}
-                            <input type="hidden" name="rPregunta" value="<?php if(isset($_POST['rPregunta'])) echo $_POST['rPregunta'] ?>">
-                            <input type="hidden" name="rEdad" value="<?php if(isset($_POST['rEdad'])) echo $_POST['rEdad'] ?>">
-                            <input type="hidden" name="rGenero" value="<?php if(isset( $_POST['rGenero'])) echo $_POST['rGenero'] ?>">
+                            <input type="hidden" name="rPregunta"
+                                   value="<?php if (isset($_POST['rPregunta'])) echo $_POST['rPregunta'] ?>">
+                            <input type="hidden" name="rEdad"
+                                   value="<?php if (isset($_POST['rEdad'])) echo $_POST['rEdad'] ?>">
+                            <input type="hidden" name="rGenero"
+                                   value="<?php if (isset($_POST['rGenero'])) echo $_POST['rGenero'] ?>">
                             <label class="checkbox-inline">
-                                <input class="tipoDownload" type="checkbox" checked="checked" id="inlineCheckbox1" name="tipoDownload" value="excel"> Excel
+                                <input class="tipoDownload" type="checkbox" checked="checked" id="inlineCheckbox1"
+                                       name="tipoDownload" value="excel"> Excel
                             </label>
                             <label class="checkbox-inline">
-                                <input class="tipoDownload" type="checkbox" id="inlineCheckbox1" neme="tipoDownload" value="csv"> CSV
+                                <input class="tipoDownload" type="checkbox" id="inlineCheckbox1" neme="tipoDownload"
+                                       value="csv"> CSV
                             </label>
                             <button type="submit" class="btn btn-main">Descargar</button>
                         </form>
