@@ -79,29 +79,29 @@
                                             <br> {{ $objPartido1->nombre }}</h4>
                                     </div>
                                     <?php
-                                    $respuesta1 = App\candidatos_preguntas::where('candidatos_id', 'like', '%' . $objCandidato1->id . '%')->where('preguntas_id', 'like', '%' . $pregunta->id . '%')->first();
+                                    $respuesta1 = App\candidatos_preguntas::where('candidatos_id',  $objCandidato1->id )->where('preguntas_id',   $pregunta->id )->first();
                                     if ($respuesta1) {
                                         $respuesta1 = $respuesta1->respuesta_ff;
                                     } else {
-                                        $respuesta1 = "N/A";
+                                        $respuesta1 = "El candidato no participó de esta encuesta";
                                     }
-                                    $respuesta2 = App\candidatos_preguntas::where('candidatos_id', 'like', '%' . $objCandidato2->id . '%')->where('preguntas_id', 'like', '%' . $pregunta->id . '%')->first();
+                                    $respuesta2 = App\candidatos_preguntas::where('candidatos_id',  $objCandidato2->id )->where('preguntas_id',  $pregunta->id )->first();
                                     if ($respuesta2) {
                                         $respuesta2 = $respuesta2->respuesta_ff;
                                     } else {
-                                        $respuesta2 = "N/A";
+                                        $respuesta2 = "El candidato no participó de esta encuesta";
                                     }
-                                    $respuestaC1 = App\candidatos_preguntas::where('candidatos_id', 'like', '%' . $objCandidato1->id . '%')->where('preguntas_id', 'like', '%' . $pregunta->id . '%')->first();
+                                    $respuestaC1 = App\candidatos_preguntas::where('candidatos_id',  $objCandidato1->id )->where('preguntas_id',  $pregunta->id )->first();
                                     if ($respuestaC1) {
                                         $respuestaC1 = $respuestaC1->respuesta_corta;
                                     } else {
-                                        $respuestaC1 = "N/A";
+                                        $respuestaC1 = "";
                                     }
-                                    $respuestaC2 = App\candidatos_preguntas::where('candidatos_id', 'like', '%' . $objCandidato2->id . '%')->where('preguntas_id', 'like', '%' . $pregunta->id . '%')->first();
+                                    $respuestaC2 = App\candidatos_preguntas::where('candidatos_id',  $objCandidato2->id )->where('preguntas_id',  $pregunta->id )->first();
                                     if ($respuestaC2) {
                                         $respuestaC2 = $respuestaC2->respuesta_corta;
                                     } else {
-                                        $respuestaC2 = "N/A";
+                                        $respuestaC2 = "";
                                     }
                                     ?>
                                     <p><strong>{{$respuestaC1}}</strong> | {{$respuesta1}}</p>
@@ -247,7 +247,7 @@
                 @endif--}}
 
 
-                
+
 
 
             </div>
