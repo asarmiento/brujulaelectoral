@@ -119,7 +119,7 @@
                       @endforeach
                     @endif
 
-                <!-- descarga -->
+                <!-- descarga 
                 <form method="POST" action="{{ url('/excel') }}">
                     <label>DESCARGAR:</label>
                     {{ csrf_field() }}
@@ -133,7 +133,7 @@
                         <input class="tipoDownload" type="checkbox" id="inlineCheckbox1" neme="tipoDownload" value="csv"> CSV
                     </label>
                     <button type="submit" class="btn btn-main">Descargar</button>
-                </form>
+                </form -->
                 </div>
             </div>
         </div><!-- end estadisticas -->
