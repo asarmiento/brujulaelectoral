@@ -69,8 +69,8 @@
 							<div class="progress">
 								<img class="box-pic foto126" src="{{ asset('imgJuego/'.$objCandidatoPregunta->foto) }}">
 
-								<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{ $value }}%;">
-    								{{ $value }}%
+								<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{ ($value/10 )*100 }}%;">
+    								{{ ($value/10 )*100  }}%
   								</div>
 							</div>
 						</div>

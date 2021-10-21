@@ -610,7 +610,7 @@ class HomeController extends Controller
                     'objCandidato' => candidatos::activas()->orderBy('apellido')->get(),
                     'objPregunta' => preguntas::whereId($objParticipacion->preguntas_id)->first(),
                     'objRespuestas' => $objRespuestas,
-                    'objPreguntaAct' => preguntas::where('estado',true)->first(),
+                    'objPreguntaAct' => preguntas::whereId($objParticipacion->preguntas_id)->first(),
                     'objPreguntasTodas' => preguntas::activas()->get(),
                     'objMiRespuesta' => participantes::find($objParticipacion->participantes_id)->preguntas()->orderBy('pivot_id', 'desc')->first(),
                     'titulo' => 'Juego Brújula Electoral',
