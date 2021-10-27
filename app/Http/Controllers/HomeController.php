@@ -60,7 +60,8 @@ class HomeController extends Controller
 
             $objParticipantes = participantes::where('estado', '=', '1')->get();
             if (count($objParticipantes) && $porcentaje > 0) {
-                $arrayResultado[$candidato->id] = $porcentaje / (count([$candidato]) * count([$objParticipantes]));
+                                              //  (      94      /       ( 14 * 18)) * 100
+                $arrayResultado[$candidato->id] = number_format( ($porcentaje / (count($objCandidato) * count($objParticipantes))) * 100,0);
             } else {
                 $arrayResultado[$candidato->id] = 0;
             }
@@ -75,6 +76,7 @@ class HomeController extends Controller
             'arrayResultado' => $arrayResultado,
             'consulta' => array('Todas las preguntas', 'Todas las edades', 'Todos los géneros'),
         );
+
 
         return view('welcome', $data);
     }
