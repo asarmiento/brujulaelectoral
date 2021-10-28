@@ -153,7 +153,7 @@ class BackendHomeController extends Controller
                      }
                 }
                 $objParticipantes = participantes::where('estado','=','1')->get();
-                if(count($objParticipantes)){
+                if(count($objParticipantes) > 0 && count($objCandidatoPregunta) > 0 && $porcentaje){
                     $arrayResultado[] = array(
                         'candidatosId' => $candidato->id,
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
@@ -219,7 +219,7 @@ class BackendHomeController extends Controller
                      }
                 }
                 $objParticipantes = participantes::where('estado','=','1')->get();
-                if(count($objParticipantes)){
+                if(count($objParticipantes) > 0 && count($objCandidatoPregunta) > 0 && $porcentaje){
                     $arrayResultado[] = array(
                         'candidatosId' => $candidato->id,
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
@@ -284,7 +284,7 @@ class BackendHomeController extends Controller
                      }
                 }
                 $objParticipantes = participantes::where('estado','=','1')->get();
-                if(count($objParticipantes)){
+                if(count($objParticipantes) > 0 && count($objCandidatoPregunta) > 0 && $porcentaje){
                     $arrayResultado[] = array(
                         'candidatosId' => $candidato->id,
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
@@ -350,7 +350,7 @@ class BackendHomeController extends Controller
                      }
                 }
                 $objParticipantes = participantes::where('estado','=','1')->get();
-                if(count($objParticipantes)){
+                if(count($objParticipantes) > 0 && count($objCandidatoPregunta) > 0 && $porcentaje){
                     $arrayResultado[] = array(
                         'candidatosId' => $candidato->id,
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
@@ -416,7 +416,7 @@ class BackendHomeController extends Controller
                      }
                 }
                 $objParticipantes = participantes::where('estado','=','1')->get();
-                if(count($objParticipantes)){
+                if(count($objParticipantes) > 0 && count($objCandidatoPregunta) > 0 && $porcentaje){
                     $arrayResultado[] = array(
                         'candidatosId' => $candidato->id,
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
@@ -482,7 +482,7 @@ class BackendHomeController extends Controller
                      }
                 }
                 $objParticipantes = participantes::where('estado','=','1')->get();
-                if(count($objParticipantes)){
+                if(count($objParticipantes) > 0 && count($objCandidatoPregunta) > 0 && $porcentaje){
                     $arrayResultado[] = array(
                         'candidatosId' => $candidato->id,
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
@@ -568,7 +568,7 @@ class BackendHomeController extends Controller
                      }
                 }
                 $objParticipantes = participantes::where('estado','=','1')->get();
-                if(count($objParticipantes)){
+                if(count($objParticipantes) > 0 && count($objCandidatoPregunta) > 0 && $porcentaje){
                     $arrayResultado[] = array(
                         'candidatosId' => $candidato->id,
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
