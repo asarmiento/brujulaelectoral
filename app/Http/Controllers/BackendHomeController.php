@@ -83,11 +83,11 @@ class BackendHomeController extends Controller
                      }
                 }
                 $objParticipantes = participantes::where('estado','=','1')->get();
-                if(count($objParticipantes)){
+                if(count($objParticipantes) > 0 && count($objCandidatoPregunta) > 0 && $porcentaje > 0){
                     $arrayResultado[] = array(
                         'candidatosId' => $candidato->id,
                         'candidatos' => $candidato->nombre .' '. $candidato->apellido,
-                        'porcentaje' => $porcentaje/(count($objCandidatoPregunta)*count($objParticipantes)),
+                        'porcentaje' => $porcentaje/(count($objCandidatoPregunta) * count($objParticipantes)),
                     );
                 }else{
                     $arrayResultado[] = array(
